@@ -1,0 +1,22 @@
+{
+  "collection": "fix_length_sentence",
+  "average_exact_match": 0.0,
+  "average_bleu_score": 0.0495214529551171,
+  "average_rouge_scores": {
+    "rouge-1": {
+      "precision": 0.2451376710618612,
+      "recall": 0.39911972881855123,
+      "f1": 0.24195417144921183
+    },
+    "rouge-2": {
+      "precision": 0.08094641948557214,
+      "recall": 0.14795774805916795,
+      "f1": 0.0934683931056786
+    },
+    "rouge-L": {
+      "precision": 0.2279835103121063,
+      "recall": 0.35699062201553144,
+      "f1": 0.21985253060605006
+    }
+  }
+}

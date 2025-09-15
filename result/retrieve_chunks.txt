@@ -1,0 +1,977 @@
+name:1706.09147.pdfquestion:What is the new initialization method proposed in this paper?context: We performed a study of the effects of using
+pre-initialized embeddings for our model, and of
+using either All-Entity or Near-Misses corrupt-
+sampling. The evaluation was done on a 10% sam-
+ple of the evaluation set of the WikilinksNED cor-
+pus and can be seen in Table 4.
+
+We have found that using pre-initialized embed-
+dings results in significant performance gains, due
+to the better starting point. We have also found
+that using Near-Misses, our model achieves sig-
+nificantly improved performance. We attribute this
+
+In this section, we describe our experimental setup
+and compare our model to the state of the art
+on two datasets: our new WikilinksNED dataset,
+as well as the commonly-used CoNLL-YAGO
+dataset (Hoffart et al., 2011). We also examine the
+effect of different corrupt-sampling schemes, and
+of initializing our model with pre-trained word and
+entity embeddings.
+
+In all experiments, our model was trained with
+fixed-size left and right contexts (20 words in each
+side). We used a special padding symbol when
+the actual context was shorter than the window.
+Further, we filtered stopwords using NLTK’s stop-
+word list prior to selecting the window in order to
+focus on more informative words. Our model was
+implemented using the Keras (Chollet, 2015) and
+Tensorflow (Abadi et al., 2015) libraries.
+
+bility, number of candidates for the given mention
+and maximum conditional probability of the entity
+in the document. The string based features include
+edit distance between mention and entity title and
+two boolean features indicating whether the entity
+title starts or ends with the mention and vice versa.
+The GBRT model parameters where set to the val-
+ues reported as optimal by Yamada®.
+
+Candidate Generation For comparability with
+existing methods we used two publicly available
+candidates datasets: (1) PPRforNED - Pershina at
+el. (2015); (2) YAGO - Hoffart at el. (2011).
+
+Baselines As a baseline we took the standard
+Most Probable Sense (MPS) prediction, which se-
+lects the entity that was seen most with the given
+mention during training. We also compare to the
+following papers - Francis-Landau et al. (2016),
+Yamada at el. (2016), and Chisholm et al. (2015),
+as they are all strong local approaches and a good
+source for comparison.
+
+Results Table 2 displays the micro and macro
+P@1 scores on CoNLL-YAGO test-b for the dif-
+ferent training steps. We find that when using only
+the training set of CoNLL-YAGO our model is
+under-trained and that the domain adaptation sig-
+nificant boosts performance. We find that incorpo-
+rating extra statistical and string features yields a
+small extra improvement in performance.
+
+The final micro and macro P@1 scores on
+CoNLL-YAGO test-b are displayed in table 3. On
+this dataset our model achieves comparable re-
+sults, however it does not outperform the state-
+of-the-art, probably because of the relatively small
+training set and our reliance on domain adaptation.name:1706.09147.pdfquestion:How was a quality control performed so that the text is noisy but the annotations are accurate?context: local approach on standard datasets (Guo and Bar-
+bosa, 2014; Pershina et al., 2015; Globerson et al.,
+2016). However, global approaches are difficult
+to apply in domains where only short and noisy
+text is available, as often occurs in social media,
+questions and answers, and other short web docu-
+ments. For example, Huang et al. (2014) collected
+many tweets from the same author in order to
+apply a global disambiguation method. Since this
+work focuses on disambiguating entities within
+short fragments of text, our algorithmic approach
+tries to extract as much information from the local
+context, without resorting to external signals.
+
+Neural Approaches The first neural approach
+for NED (He et al., 2013) used stacked auto-
+encoders to learn a similarity measure between
+mention-context structures and entity candidates.
+More recently, convolutional neural networks
+(CNNs) were employed for learning semantic sim-
+ilarity between context, mention, and candidate
+inputs (Sun et al., 2015; Francis-Landau et al.,
+2016). Neural embedding techniques have also
+inspired a number of works that measure entity-
+context relatedness using their embeddings (Ya-
+mada et al., 2016; Hu et al., 2015). In this paper,
+we train a recurrent neural network (RNN) model,
+which unlike CNNs and embeddings, is designed
+to exploit the sequential nature of text. We also
+utilize an attention mechanism, inspired by results
+from Lazic et al. (2015) that successfully used a
+probabilistic attention-like model for NED.
+
+Noisy Data Chisholm and Hachey (2015)
+showed that despite the noisy nature of web data,
+augmenting Wikipedia-derived data with web-
+links from the Wikilinks corpus (Singh et al.,
+2012) can improve performance on standard
+datasets. In our work, we find noisy web data to
+be a unique and challenging test case for disam-
+biguation. We therefore use Wikilinks to construct
+a new stand-alone disambiguation benchmark that
+focuses on noisy text, rather than use it for training
+alone. Moreover, we differ from Chisholm at el.
+by taking a neural approach that implicitly discov-
+ers useful signals from contexts, instead of manu-
+ally crafting features.
+
+Commonly-used benchmarks for NED sys-
+tems have mostly focused on news-based cor-
+pora. CoNLL-YAGO (Hoffart et al., 2011) is
+a dataset based on Reuters, created by hand-
+annotating the CoNLL 2003 Named Entity Recog-
+
+nition task dataset with YAGO (Suchanek et al.,
+2007) entities. It contains 1,393 documents split
+into train, development and test sets. TAC KBP
+2010 (Ji et al., 2010) and ACE Bentivogli et al.
+(2010) are also news-based datasets that contain
+only a limited amount of examples. Ratinov et al.
+(2011) used a random sample of paragraphs from
+Wikipedia for evaluation; however, they did not
+make their sample publicly available.
+
+Our WikilinksNED dataset is substantially dif-
+ferent from currently available datasets since they
+are all based on high-quality content from either
+news articles or Wikipedia, while WikilinksNED
+is a benchmark for noisier, less coherent, and more
+colloquial text. The annotation process is signifi-
+cantly different as well, as our dataset reflects the
+annotation preferences of real-world website au-
+thors. It is also significantly larger in size, being
+over 100 times larger than CONLL-YAGO.
+
+Recently, a number of Twitter-based datasets
+were compiled as well (Meij et al., 2012; From-
+reide et al., 2014). These represent a much more
+extreme case than our dataset in terms of noise,
+shortness and spelling variations, and are much
+smaller in size. Due to the unique nature of tweets,
+proposed algorithms tend to be substantially dif-
+ferent from algorithms used for other NED tasks.
+
+Local vs Global NED Early work on Named
+Entity Disambiguation, such as Bunescu and
+Pasca (2006) and Mihalcea and Csomai (2007) fo-
+cused on local approaches where each mention is
+disambiguated separately using hand-crafted fea-
+tures. While local approaches provide a hard-to-
+beat baseline (Ratinov et al., 2011), recent work
+has largely focused on global approaches. These
+disambiguate all mentions within a document si-
+multaneously by considering the coherency of en-
+tity assignments within a document. For exam-
+ple the local component of the GLOW algorithm
+(Ratinov et al., 2011) was used as part of the re-
+lational inference system suggested by Cheng and
+Roth (2013). Similarly, Globerson et al. (2016)
+achieved state-of-the-art results by extending the
+local-based selective-context model of Lazic et al.
+(2015) with an attention-like coherence model.
+Global models can tap into _highly-
+discriminative semantic signals (e.g. coreference
+and entity relatedness) that are unavailable to local
+methods, and have significantly outperformed thename:1707.02377.pdfquestion:Which language models do they compare against?context: We compare against the following document representation baselines: bag-of-words (BoW); De-
+
+noising Autoencoders (DEA) (Vincent et al.) /2008), a representation learned from reconstruct-
+
+ing original document x using corrupted one x. SDAs have been shown to be the state-of-the-art
+for sentiment analysis tasks (Glorot et al. 2011). We used Kullback-Liebler divergence as the re-
+construction error and an affine encoder. To scale up the algorithm to large vocabulary, we only
+take into account the non-zero elements of x in the reconstruction error and employed negative
+sampling for the remainings; Word2Vec (Mikolov et al.||2013a)+IDF, a representation generated
+through weighted average of word vectors learned using Word2Vec; Doc2Vec
+2014); Skip-thought Vectors(Kiros et al.}|2015), a generic, distributed sentence encoder that ex-
+
+tends the Word2Vec skip-gram model to sentence level. It has been shown to produce highly generic
+sentence representations that apply to various natural language processing tasks. We also include
+RNNLM , a recurrent neural network based language model in the compar-
+ison. In the semantic relatedness task, we further compare to LSTM-based methods
+that have been reported on this dataset.
+
+In table[3| we demonstrated that the corruption model introduced in Doc2VecC dampens the embed-
+dings of words which are common and non-discriminative (stop words). In this experiment, we are
+going to quantatively compare the word embeddings generated by Doc2VecC to the ones generated
+by Word2Vec, or Paragraph Vectors on the word analogy task introduced by[Mikolov et al.|(2013a).
+The dataset contains five types of semantic questions, and nine types of syntactic questions, with a
+total of 8,869 semantic and 10,675 syntactic questions. The questions are answered through simple
+linear algebraic operations on the word embeddings generated by different methods. Please refer to
+the original paper for more details on the evaluation protocol.
+
+Setup. We test the various representation learning algorithms under two settings: one follows the
+
+same protocol proposed in (Mesnil et al.||2014), where representation is learned using all the avail-
+
+able data, including the test set; another one where the representation is learned using training and
+unlabeled set only. For both settings, a linear support vector machine (SVM)
+is trained afterwards on the learned representation for classification. For Skip-thought Vectors, we
+used the generic modef!|trained on a much bigger book corpus to encode the documents. A vector of
+4800 dimensions, first 2400 from the uni-skip model, and the last 2400 from the bi-skip model, are
+generated for each document. In comparison, all the other algorithms produce a vector representa-
+tion of size 100. The supervised RNN-LM is learned on the training set only. The hyper-parameters
+are tuned on a validation set subsampled from the training set.name:1707.02377.pdfquestion:Is their approach similar to making an averaged weighted sum of word vectors where weights reflect word frequencies?context: Several works (Mikolov and Dean] 2013} [Mikolov et al.| 2013b) showcased that syntactic and se-
+
+mantic regularities of phrases and sentences are reasonably well preserved by adding or subtract-
+ing word embeddings learned through Word2Vec. It prompts us to explore the option of simply
+representing a document as an average of word embeddings. Figure [1] illustrates the new model
+architecture.
+
+Given the learned projection matrix U, we then represent each document simply as an average of
+the embeddings of the words in the document,
+
+Each f(w!,c!,x;) in the first term measures the log likelihood of observing the target word wi
+given its local context cf and the document vector d; = ZUx;. As such, Doc2VecC enforces that a
+document vector generated by averaging word embeddings can capture the global semantics of the
+document, and fill in information missed in the local context.name:1707.02377.pdfquestion:How do they determine which words are informative?context: Data dependent regularization. As explained in Section |3.1} the corruption introduced in
+Doc2VecC acts as a data-dependent regularization that suppresses the embeddings of frequent but
+uninformative words. Here we conduct an experiment to exam the effect. We used a cutoff of 100
+in this experiment. Table [3] lists the words having the smallest /. norm of embeddings found by
+different algorithms. The number inside the parenthesis after each word is the number of times this
+word appears in the learning set. In word2Vec or Paragraph Vectors, the least frequent words have
+embeddings that are close to zero, despite some of them being indicative of sentiment such as deba-
+cle, bliss and shabby. In contrast, Doc2VecC manages to clamp down the representation of words
+frequently appear in the training set, but are uninformative, such as symbols and stop words.
+
+In table[3| we demonstrated that the corruption model introduced in Doc2VecC dampens the embed-
+dings of words which are common and non-discriminative (stop words). In this experiment, we are
+going to quantatively compare the word embeddings generated by Doc2VecC to the ones generated
+by Word2Vec, or Paragraph Vectors on the word analogy task introduced by[Mikolov et al.|(2013a).
+The dataset contains five types of semantic questions, and nine types of syntactic questions, with a
+total of 8,869 semantic and 10,675 syntactic questions. The questions are answered through simple
+linear algebraic operations on the word embeddings generated by different methods. Please refer to
+the original paper for more details on the evaluation protocol.
+
+Subsampling frequent words. Note that for all the numbers reported, we applied the trick of
+) to counter the imbalance
+
+subsampling of frequent words introduced in (Mikolov and Dean] |2013)
+between frequent and rare words. It is critical to the performance of simple Word2Vec+AVG as the
+sole remedy to diminish the contribution of common words in the final document representation. If
+we were to remove this step, the error rate of Word2Vec+AVG will increases from 12.1% to 13.2%.
+Doc2VecC on the other hand naturally exerts a stronger regularization toward embeddings of words
+that are frequent but uninformative, therefore does not rely on this trick.name:1801.02243.pdfquestion:Do the authors give any examples of major events which draw the public's attention and the impact they have on stock price?context: coreNLF can compute a sentiment score for each sentence
+with value ranging from 0 to 4 , where 0 stands for negative,
+and 4 stands for very positive. For tweets with multiple
+sentences, the average of the sentiment scores of all sentences
+is used as the sentiment score of the Tweets.
+
+The number of Tweets varies everyday from a couple of
+hundreds to over ten thousands, depends on if the company
+has a major event that attracts the public attention. The
+sentiment scores are normalized between 0 to 1, and features
+based on the sentiment score is constructed and normalized.
+
+Figure[2]shows the relationship between Tesla stock return
+and stock sentiment score. According the distribution of the
+sentiment score, the sentiment on Tesla is slightly skewed
+towards positive during the testing period. The price has
+been increased significantly during the testing period, which
+reflected the positive sentiment. The predicting power of
+sentiment score is more significant when the sentiment is
+more extreme and less so when the sentiment is neutral.
+
+To translate each tweet into a sentiment score, the Stanford
+coreNLP software was used. Stanford CoreNLP is designed
+to make linguistic analysis accessible to the general public. It
+provides named Entity Recognition, co-reference and basic
+dependencies and many other text understanding applica-
+tions. An example that illustrate the basic functionality of
+Stanford coreNLP is shown in Figure[]]name:1801.02243.pdfquestion:Which tweets are used to output the daily sentiment signal?context: There are two options of getting the Tweets. First, Twitter
+provides an API to download the Tweets. However, rate limit
+and history limit make it not an option for this paper. Second,
+scrapping Tweets directly from Twitter website. Using the
+second option, the daily Tweets for stocks of interest from
+2015 January to 2017 June were downloaded.
+
+The predicting power of Twitter sentiment varies from
+stock to stock. For stocks that are mostly driven by the com-
+pany fundamentals and hold by the institutional investors,
+the predicting power of the Twitter sentiment is limited.
+For stocks that are priced by the public expectation on the
+company’s future growth, Twitter sentiment describes the
+confidence and expectation level of the investors.
+
+For this reason, two companies from the same industry,
+Tesla and Ford are investigated on how Twitter sentiment
+could impact the stock price. Tesla is an electronic car
+company that shows consecutive negative operating cash flow
+and net income but carries very high expectation from the
+public. Ford, is a traditional auto maker whose stock prices
+has been stabilized to represent the company fundamentals.
+
+To investigate how different key words impact the predict-
+ing power of the sentiment score, two Tweet sets, a ticker
+set and a product set, are prepared for each stock. The first
+set of Tweets are searched strictly according to the stock
+ticker. The second set of Tweets are searched according to
+the company’s products and news. The keywords for the
+second dataset are defined according to the top twenty related
+keywords of the stock ticker according to Google Trend, a
+web facility shows how often a certain word is searched
+relative to Google’s total search volume. For example, ’Elon
+Musk” is among the set of keywords that retrieve the second
+tweets set for Tesla.
+
+In a world where traditional financial information is ubiq-
+uitous and the financial models are largely homogeneous,
+finding hidden information that has not been priced in from
+alternative data is critical. The recent development in Natural
+Language Processing provides such opportunities to look
+into text data in addition to numerical data. When the
+market sets the stock price, it is not uncommon that the
+expectation of the company growth outweighs the company
+fundamentals. Twitter, a online news and social network
+where the users post and interact with messages to express
+views about certain topics, contains valuable information on
+the public mood and sentiment. A collection of research [1]
+[6] have shown that there is a positive correlation between
+the *public mood” and the *market mood”. Other research[2]
+also shows that significant correlation exists between the
+Twitter sentiment and the abnormal return during the peaks
+of the Twitter volume during a major event.
+
+Once a signal that has predicting power on the stock
+market return is constructed, a trading strategy to express the
+view of the signal is needed. Traditionally, the quantitative fi-
+nance industry relies on backtest, a process where the trading
+strategies are tuned during the simulations or optimizations.
+Reinforcement learning provides a way to find the optimal
+policy by maximizing the expected future utility. There are
+recent attempts from the Artificial Intelligence community
+to apply reinforcement learning to asset allocation [5], algo-
+rithmic trading[3][7], and portfolio management[4].
+
+The contribution of this paper is two-fold: First, the pre-
+dicting power of Twitter sentiment is evaluated. Our results
+show sentiment is more suitable to construct alpha signals
+rather than total return signals and shows predicting power
+especially when the Twitter volume is high. Second, we
+proposed a trading strategy based on reinforcement learning
+(Q-learning) that takes the sentiment features as part of its
+states.
+
+The paper is constructed as follows: In the second section,
+scraping Tweets from Twitter website and preprocessing the
+data are described in details. In the third section, assigning
+sentiment scores to the text data is discussed. In the fourth
+section, feature engineering and prediction based on the
+sentiment score is discussed. In the fifth section, how the
+reinforcement learning is applied to generate the optimal
+trading strategy is described.name:1801.02243.pdfquestion:What is the baseline machine learning prediction approach?context: The logistic regression with L1 regularization and RBF-
+kernel SVM are applied to predict a binary outcome, i.e.
+whether the stock return will be positive or negative in the
+next day. Both technical and sentiment-based features carry
+important information about the stock price and therefore are
+provided as the model inputs. Half of the dataset is used for
+training and the rest is used for testing.
+
+The 3 fold cross validation is applied to learn the model
+hyper-parameters. Specifically, the hyper-parameters C of
+both models and of RBF-kernel SVM are learned such that
+the dev set accuracy is maximized. The hyper-parameter C
+in logistic regression determines the degree of regularization.
+Smaller C means more regularization, i.e. high bias and low
+variance. RBF-kernel SVM has two hyper-parameters, C and
+. C controls the width of soft margin, smaller C allows
+placing more samples on the wrong side of the margin. is a
+parameter in RBF kernel. A larger means a Gaussian with
+smaller variance and thus less influence of support vectors.
+Typically, small C and large lead to high bias and low
+variance.
+
+To evaluate if the sentiment feature improves the pre-
+diction accuracy, a baseline model is defined. The baseline
+applies linear logistic regression to a set of stock technical
+signals to predict the following days stock return sign (+/).
+No sentiment features are provided to the baseline model.
+
+Feature engineering 1s the process to extract meaningful
+information from the raw data in order to improve the
+performance of machine learning mode. Domain knowledge
+and intuition are often applied to keep the number of the
+
+It is important to identify which is a better target for the
+prediction. Two targets, predicting ’alpha or predicting total
+return” are compared. ”Alpha” defines as the excess stock
+return over its sector ETF. ”Total return” is the absolution
+stock return. Predicting ’alpha” achieves better performance
+than predicting total return. This is because the sentiment
+is more related to stocks idiosyncratic. Good sentiments
+towards a specific company or its stock wont override the
+overall stock market or sectors impact on the stock return.name:1706.01875.pdfquestion:What was the baseline?context: thresholds of 0 (all tweets considered), .35 (only tweets
+where at least 35% of contributors agreed on a class were
+considered), and .70 (only tweets where at least 70% of
+the contributors agreed on a class were considered) and
+varied the holdout set sizes between 5% and 95% of all
+tweets meeting the confidence threshold set for the ex-
+periment.
+
+At a high-level, our approach works as follows:
+
+parameters (using a grid search). Based on the results of
+this evaluation, we select a 100-estimator entropy-based
+splitting random forest model as our classifier. Table 1
+shows the mean accuracy and Fl-score for each evalu-
+ated classifier during the 10-fold cross-validation.name:1706.01875.pdfquestion:What was their system's performance?context: Real-world classifier performance. To evaluate real-
+world performance of our selected classifier (i.e., per-
+formance in the absence of model and parameter bias),
+we perform classification of the holdout set. On this set,
+our classifier had an accuracy and Fl-score of 89.6% and
+89.2%, respectively. These results show that in addition
+to superior accuracy during training and validation, our
+chosen classifier is also robust against over-fitting.
+
+The results illustrated in Figure 3 show the perfor-
+mance of the classifier while evaluating the correspond-
+ing holdout set. We make several conclusions from these
+results:
+
+parameters (using a grid search). Based on the results of
+this evaluation, we select a 100-estimator entropy-based
+splitting random forest model as our classifier. Table 1
+shows the mean accuracy and Fl-score for each evalu-
+ated classifier during the 10-fold cross-validation.name:1706.01875.pdfquestion:What other political events are included in the database?context: Offensiveness over time. We find that on average
+8.4% of all political comments are offensive compared to
+7.8% of all apolitical comments. Figure 4 illustrates the
+fraction of offensive political and apolitical comments
+made during each week in our study. We see that while
+the fraction of apolitical offensive comments has stayed
+steady, there has been an increase in the fraction of of-
+fensive political comments starting in July 2016. No-
+tably, this increase is observed after the conclusion of the
+US presidential primaries and during the period of the
+Democratic and Republican National Conventions and
+does not reduce even after the conclusion of the US presi-
+dential elections held on November 8. Participants in po-
+litical subreddits were 2.6% more likely to observe offen-
+
+in which large number of authors of offensive content
+on the r/politics subreddit had previously made
+offensive comments (we refer to these communities
+as sources). Unsurprisingly, the most popular sources
+belonged to the default subreddits (e.g., r/worldnews,
+r/wtf, r/videos, r/askreddit, and r/news). We
+find that several other political subreddits also serve as
+large sources of offensive authors. In fact, the subreddits
+dedicated to the three most popular US presidential can-
+didates — r/the_donald, r/sandersforpresident,
+and r/hillaryclinton rank in the top three.  Fi-
+nally, outside of the default and political subreddits,
+we find that r/nfl, r/conspiracy, r/dota2,
+r/reactiongifs, r/blackpeopletwitter, and
+r/imgoingtohellforthis were the largest sources of
+offensive political authors.
+
+In this section we quantify and characterize offensive-
+ness in the political and general contexts using our offen-
+sive speech classifier and the Reddit comments dataset
+which considers a random sample of comments made be-
+tween January 2015 and January 2017.name:1706.01875.pdfquestion:What classifier did they use?context: Classifier selection methodology. To identify the
+most suitable classifier for classifying the scalars as-
+sociated with each text, we perform evaluations us-
+ing the stochastic gradient descent, naive bayes, deci-
+sion tree, and random forest classifiers. For each clas-
+sifier, we split the CrowdFlower hate speech dataset
+into a training/validation set (75%), and a holdout set
+(25%). We perform 10-fold cross-validation on the train-
+ing/validation set to identify the best classifier model and
+
+parameters (using a grid search). Based on the results of
+this evaluation, we select a 100-estimator entropy-based
+splitting random forest model as our classifier. Table 1
+shows the mean accuracy and Fl-score for each evalu-
+ated classifier during the 10-fold cross-validation.
+
+e Text transformation and classification. Finally,
+we transform text to be classified into scalars rep-
+resenting their distance from the constructed hate
+vector and use these as input to a Random Forest
+classifier.name:1801.02073.pdfquestion:How many question types do they find in the datasets analyzed?context: ‘The results of & = o trom the answer retrieval task
+in Section 4.2 are used to create the datasets for an-
+swer triggering, where about 65% of the questions
+are not expected to find their answer contexts from
+the provided paragraphs for SELQA and SQUAD
+
+4.1 Answer Selection
+
+Answer selection is evaluated by two metrics, mean
+average precision (MAP) and mean reciprocal rank
+(MRR). The bigram CNN introduced by Yu et al.
+(2014) is used to generate all the results in Table 3,
+where models are trained on either single or com-
+bined datasets. Clearly, the questions in WIKIQA
+are the most challenging, and adding more train-
+ing data from the other corpora hurts accuracy due
+to the uniqueness of query-based questions in this
+corpus. The best model is achieved by training on
+W+S+Q for SELQA; adding INFOBOXQA hurts
+accuracy for SELQA although it gives a marginal
+gain for SQUAD. Just like WIKIQA, INFOBOxQA
+performs the best when it is trained on only itself.
+From our analysis, we suggest that to use models
+trained on WIKIQA and INFOBOXQA for short
+query-like questions, whereas to use ones trained
+on SELQA and SQUAD for long natural questions.
+
+and 87.5% are not expected for WIKIQA. Answer
+triggering is evaluated by the F1 scores as presented
+in Table 3, where three corpora are cross validated.
+The results on WIKIQA are pretty low as expected
+from the poor accuracy on the answer retrieval task.
+Training on SELQA gives the best models for both
+WIKIQA and SELQA. Training on SQUAD gives
+the best model for SQUAD although the model
+trained on SELQA is comparable. Since the answer
+triggering datasets are about 5 times larger than the
+answer selection datasets, it is computationally too
+expensive to combine all data for training. We plan
+to find a strong machine to perform this experiment
+in near future.name:1801.02073.pdfquestion:How do they analyze contextual similaries across datasets?context: Several datasets have been released for selection-
+based QA. Wang et al. (2007) created the QASENT
+dataset consisting of 277 questions, which has been
+widely used for benchmarking the answer selection
+task. Feng et al. (2015) presented INSURANCEQA
+comprising 16K+ questions on insurance contexts.
+Yang et al. (2015) introduced WIKIQA for answer
+selection and triggering. Jurczyk et al. (2016) cre-
+ated SELQA for large real-scale answer triggering.
+Rajpurkar et al. (2016) presented SQUAD for an-
+swer extraction and selection as well as for reading
+comprehension. Finally, Morales et al. (2016) pro-
+vided INFOBOXQA for answer selection.
+
+These corpora make it possible to evaluate the ro-
+bustness of statistical question answering learning.
+Although all of these corpora target on selection-
+based QA, they are designed for different purposes
+such that it is important to understand the nature of
+these corpora so a better use of them can be made.
+In this paper, we make both intrinsic and extrinsic
+analyses of four latest corpora based on Wikipedia,
+WIKIQA, SELQA, SQUAD, and INFOBOXQA.
+We first give a thorough intrinsic analysis regarding
+contextual similarities, question types, and answer
+categories (Section 2). We then map questions in all
+corpora to the current version of English Wikipedia
+and benchmark another selection-based QA task,
+answer retrieval (Section 3). Finally, we present
+an extrinsic analysis through a set of experiments
+cross-testing these corpora using a convolutional
+neural network architecture (Section 4).!
+
+Question answering (QA) has been a blooming re-
+search field for the last decade. Selection-based QA
+implies a family of tasks that find answer contexts
+from large data given questions in natural language.
+Three tasks have been proposed for selection-based
+QA. Given a document, answer extraction (Shen
+and Klakow, 2006; Sultan et al., 2016) finds answer
+phrases whereas answer selection (Wang et al.,
+2007; Yih et al., 2013; Yu et al., 2014; Wang et al.,
+2016) and answer triggering (Yang et al., 2015;
+Jurczyk et al., 2016) find answer sentences instead,
+although the presence of the answer context is not
+assumed within the provided document for answer
+triggering but it is for the other two tasks. Recently,
+various QA tasks that are not selection-based have
+been proposed (Reddy and Bandyopadhyay, 2006;
+Hosseini et al., 2014; Jauhar et al., 2016; Sachan
+et al., 2016); however, selection-based QA remains
+still important because of its practical value to real
+applications (e.g., IBM Watson, MIT START).name:1707.00995.pdfquestion:What misbehavior is identified?context: The monomodal translation has a sentence-level
+BLEU of 82.16 whilst the soft attention and hard
+
+stochastic attention scores are of 16.82 and 34.45
+respectively. Figure 8 shows the attention maps
+for both mechanism. Nevertheless, one has to
+concede that the use of images indubitably helps
+the translation as shown in the score tabular.
+
+gating scalar happens to be really low in the
+stochastic attention mechanism: a significant
+amount of sentences don’t have a summed gating
+scalar > 0.10. The model totally discards the
+image in the translation process.
+
+It is also worth to mention that we use a
+ResNet trained on 1.28 million images for a
+classification tasks. The features used by the
+attention mechanism are strongly object-oriented
+and the machine could miss important information
+for a multimodal translation task. We believe
+that the robust architecture of both encoders
+{Wenc, Yenc} combined with a GRU layer and
+word-embeddings took care of the right trans-
+lation for relationships between objects and
+time-dependencies. Yet, we noticed a common
+misbehavior for all our multimodal models: if the
+attention loose track of the objects in the picture
+and gets lost”, the model still takes it into account
+and somehow overrides the information brought
+by the text-based annotations. The translation
+is then totally mislead. We illustrate with anname:1707.00995.pdfquestion:Which attention mechanisms do they compare?context: We evaluate three models of the image attention
+mechanism f/,, of equation 7. They have in com-
+mon the fact that at each time step t of the de-
+coding phase, all approaches first take as input the
+annotation sequence J to derive a time-dependent
+context vector that contain relevant information
+in the image to help predict the current target
+word y;. Even though these models differ in how
+the time-dependent context vector is derived, they
+share the same subsequent steps. For each mech-
+anism, we propose two hand-picked illustrations
+showing where the attention is placed in an image.
+
+Soft attention has firstly been used for syntactic
+constituency parsing by Vinyals et al. (2015) but
+has been widely used for translation tasks ever
+since. One should note that it slightly differs
+from Bahdanau et al. (2014) where their attention
+takes as input the previous decoder hidden state
+instead of the current (intermediate) one as shown
+in equation 7. This mechanism has also been
+successfully investigated for the task of image
+description generation (Xu et al., 2015) where
+a model generates an image’s description in
+natural language. It has been used in multimodal
+translation as well (Calixto et al., 2017), for which
+
+In this section, we propose a local attentional
+mechanism that chooses to focus only on a smallname:1707.00110.pdfquestion:Which baseline methods are used?context: processed datasets for the WMT’ 17 task.° Note that
+our scores may not be directly comparable to other
+work that performs their own data pre-processing. We
+learn shared vocabularies of 16,000 subword units
+using the BPE algorithm (Sennrich et al., 2016).
+We use newstest2015 as a validation set, and report
+BLEU on newstest2016.
+
+All models are implemented using TensorFlow
+based on the seq2seq implementation of Britz et al
+(2017)> and trained on a single machine with a
+Nvidia K40m GPU. We use a 2-layer 256-unit, a
+bidirectional LSTM (Hochreiter and Schmidhuber,
+1997) encoder, a 2-layer 256-unit LSTM decoder,
+and 256-dimensional embeddings. For the attention
+baseline, we use the standard parametrized attention
+(Bahdanau et al., 2014). Dropout of 0.2 (0.8 keep
+probability) is applied to the input of each cell and
+we optimize using Adam (Kingma and Ba, 2014) at
+a learning rate of 0.0001 and batch size 128. We train
+for at most 200,000 steps (see Figure 3 for sample
+learning curves). BLEU scores are calculated on
+tokenized data using the multi-bleu.perl script in
+Moses.* We decode using beam search with a beam
+
+Table | shows the BLEU scores of our model on differ-
+ent sequence lengths while varying x. This is a study
+of the trade-off between computational time and rep-
+resentational power. A large Kx allows us to compute
+complex source representations, while a AX of 1 limits
+the source representation to a single vector. We can
+see that performance consistently increases with K up
+to a point that depends on the data length, with longer
+sequences requiring more complex representations.
+The results with and without position encodings are
+almost identical on the toy data. Our technique learns
+to fit the data as well as the standard attention mecha-
+nism despite having less representational power. Both
+beat the non-attention baseline by a significant margin.name:1707.00110.pdfquestion:Which datasets are used in experiments?context: All models are implemented using TensorFlow
+based on the seq2seq implementation of Britz et al
+(2017)> and trained on a single machine with a
+Nvidia K40m GPU. We use a 2-layer 256-unit, a
+bidirectional LSTM (Hochreiter and Schmidhuber,
+1997) encoder, a 2-layer 256-unit LSTM decoder,
+and 256-dimensional embeddings. For the attention
+baseline, we use the standard parametrized attention
+(Bahdanau et al., 2014). Dropout of 0.2 (0.8 keep
+probability) is applied to the input of each cell and
+we optimize using Adam (Kingma and Ba, 2014) at
+a learning rate of 0.0001 and batch size 128. We train
+for at most 200,000 steps (see Figure 3 for sample
+learning curves). BLEU scores are calculated on
+tokenized data using the multi-bleu.perl script in
+Moses.* We decode using beam search with a beam
+
+Next, we explore if the memory-based attention
+mechanism is able to fit complex real-world datasets.
+For this purpose we use 4 large machine translation
+datasets of WMT’17> on the following language
+pairs: English-Czech (en-cs, 52M examples), English-
+German (en-de, 5.9M examples), English-Finish
+(en-fi, 2.6M examples), and English-Turkish (en-tr,
+207,373 examples). We used the newly available pre-
+
+processed datasets for the WMT’ 17 task.° Note that
+our scores may not be directly comparable to other
+work that performs their own data pre-processing. We
+learn shared vocabularies of 16,000 subword units
+using the BPE algorithm (Sennrich et al., 2016).
+We use newstest2015 as a validation set, and report
+BLEU on newstest2016.name:1706.09673.pdfquestion:Which dataset do they use?context: gram model variants of the popular Word2Vec
+model (Mikolov et al., 2013) respectively — PV-
+DM inserts an additional document token (which
+can be thought of as another word) which is shared
+across all contexts generated from the same doc-
+ument; PV-DBOW attempts to predict the sam-
+pled words from the document given the document
+representation. Although originally employed for
+paragraphs and documents, these models work
+better than the traditional models: BOW (Harris,
+1954) and LDA (Blei et al., 2003) for tweet classi-
+fication and microblog retrieval tasks (Wang et al.,
+2016). The authors in (Wang et al., 2016) make the
+PV-DM and PV-DBOW models concept-aware (a
+rich semantic signal from a tweet) by augmenting
+two features: attention over contextual words and
+conceptual tweet embedding, which jointly exploit
+concept-level senses of tweets to compute better
+representations. Both the discussed works have
+the following characteristics: (1) they use a shal-
+low architecture, which enables fast training, (2)
+computing representations for test tweets requires
+computing gradients, which is time-consuming for
+real-time Twitter applications, and (3) most impor-
+tantly, they fail to exploit textual information from
+related tweets that can bear salient semantic sig-
+nals.
+
+recover the original data from the corrupted ver-
+sion. SDAE produces robust representations by
+learning to represent the data in terms of fea-
+tures that explain its important factors of varia-
+tion. Tweet2Vec (Vosoughi et al., 2016) is a recent
+model which uses a character-level CNN-LSTM
+encoder-decoder architecture trained to construct
+the input tweet directly. This model outper-
+forms competitive models that work on word-level
+like PV-DM, PV-DBOW on semantic similarity
+computation and sentiment classification tasks,
+thereby showing that the character-level nature of
+Tweet2Vec is best-suited to deal with the noise and
+idiosyncrasies of tweets. Tweet2Vec controls the
+generalization error by using a data augmentation
+technique, wherein tweets are replicated and some
+of the words in the replicated tweets are replaced
+with their synonyms. Both SDAE and Tweet2Vec
+has the advantage that they don’t need a coherent
+inter-sentence narrative (like STV), which is hard
+to obtain in Twitter.
+
+2.3 Modeling from structured resources
+
+Motivation: In recent times, building represen-
+tation models based on supervision from richly
+structured resources such as Paraphrase Database
+(PPDB) (Ganitkevitch et al., 2013) (containingname:1706.09673.pdfquestion:Do they evaluate their learned representations on downstream tasks?context: for rare words and new words (words not seen dur-
+ing training) in the test tweets really well. This
+model outperforms the word-level baselines for
+hashtag prediction task, thereby concluding that
+exploring character-level models for tweets is a
+worthy research direction to pursue. Both these
+works fail to study the model’s generality (Weston
+et al., 2014), ie., the ability of the model to trans-
+fer the learned representations to diverse tasks.
+
+noisy phrase pairs) has yielded high quality sen-
+tence representations. These methods work by
+maximizing the similarity of the sentences in the
+learned semantic space.
+
+Models: CHARAGRAM (Wieting et al., 2016a)
+embeds textual sequences by learning a character-
+based compositional model that involves addition
+of the vectors of its character n-grams followed by
+an elementwise nonlinearity. This simpler archi-
+tecture trained on PPDB is able to beat models
+with complex architectures like CNN, LSTM on
+SemEval 2015 Twitter textual similarity task by a
+large margin. This result emphasizes the impor-
+tance of character-level models that address differ-
+ences due to spelling variation and word choice.
+The authors in their subsequent work (Wieting
+et al., 2016b) conduct a comprehensive analysis
+of models spanning the range of complexity from
+word averaging to LSTMs for its ability to do
+transfer and supervised learning after optimizing a
+margin based loss on PPDB. For transfer learning,
+they find models based on word averaging perform
+well on both the in-domain and out-of-domain tex-
+tual similarity tasks, beating LSTM model by a
+large margin. On the other hand, the word averag-
+ing models perform well for both sentence similar-
+ity and textual entailment tasks, outperforming the
+LSTM. However, for sentiment classification task,
+they find LSTM (trained on PPDB) to beat the av-
+eraging models to establish a new state of the art.
+The above results suggest that structured resources
+play a vital role in computing general-purpose em-
+beddings useful in downstream applications.
+
+recover the original data from the corrupted ver-
+sion. SDAE produces robust representations by
+learning to represent the data in terms of fea-
+tures that explain its important factors of varia-
+tion. Tweet2Vec (Vosoughi et al., 2016) is a recent
+model which uses a character-level CNN-LSTM
+encoder-decoder architecture trained to construct
+the input tweet directly. This model outper-
+forms competitive models that work on word-level
+like PV-DM, PV-DBOW on semantic similarity
+computation and sentiment classification tasks,
+thereby showing that the character-level nature of
+Tweet2Vec is best-suited to deal with the noise and
+idiosyncrasies of tweets. Tweet2Vec controls the
+generalization error by using a data augmentation
+technique, wherein tweets are replicated and some
+of the words in the replicated tweets are replaced
+with their synonyms. Both SDAE and Tweet2Vec
+has the advantage that they don’t need a coherent
+inter-sentence narrative (like STV), which is hard
+to obtain in Twitter.name:1706.09673.pdfquestion:How do they encourage understanding of literature as part of their objective function?context: 2.2 Modeling inter-tweet relationships
+
+Motivation: To capture rich tweet semantics,
+researchers are attempting to exploit a type of
+sentence-level Distributional Hypothesis (Harris,
+1954; Polajnar et al., 2015). The idea is to infer the
+tweet representation from the content of adjacent
+tweets in a related stream like users’ Twitter time-
+line, topical, retweet and conversational stream.
+This approach significantly alleviates the context
+insufficiency problem caused due to the ambigu-
+ous and short nature of tweets (Ren et al., 2016;
+Ganesh et al., 2017).
+
+Models: Skip-thought vectors (Kiros et al., 2015)
+(STV) is a widely popular sentence encoder,
+which is trained to predict adjacent sentences in
+the book corpus (Zhu et al., 2015). Although the
+testing is cheap as it involves a cheap forward
+propagation of the test sentence, STV is very slow
+to train thanks to its complicated model architec-
+ture. To combat this computational inefficiency,
+FastSent (Hill et al., 2016) propose a simple ad-
+ditive (log-linear) sentence model, which predicts
+adjacent sentences (represented as BOW) taking
+the BOW representation of some sentence in con-
+text. This model can exploit the same signal, but
+at a much lower computational expense. Paral-
+lel to this work, Siamase CBOW (Kenter et al.,
+2016) develop a model which directly compares
+the BOW representation of two sentence to bring
+the embeddings of a sentence closer to its adja-
+cent sentence, away from a randomly occurring
+sentence in the corpus. For FastSent and Siamese
+CBOW, the test sentence representation is a sim-
+ple average of word vectors obtained after train-
+ing. Both of these models are general purpose
+sentence representation models trained on book
+corpus, yet give a competitive performance over
+previous models on the tweet semantic similarity
+computation task. (Ganesh et al., 2017)’s model
+attempt to exploit these signals directly from Twit-
+ter. With the help of attention technique and
+learned user representation, this log-linear model
+is able to capture salient semantic information
+from chronologically adjacent tweets of a target
+tweet in users’ Twitter timeline.
+
+2.1 Modeling within-tweet relationships
+
+Motivation: Every tweet is assumed to have a la-
+tent topic vector, which influences the distribution
+of the words in the tweet. For example, though
+the appearance of the phrase catch the ball is fre-
+quent in the corpus, if we know that the topic of a
+tweet is about “technology”, we can expect words
+such as bug or exception after the word catch (ig-
+noring the) instead of the word ball since catch
+the bug/exception is more plausible under the topic
+“technology”. On the other hand, if the topic of
+the tweet is about “sports”, then we can expect
+ball after catch. These intuitions indicate that the
+prediction of neighboring words for a given word
+strongly relies on the tweet also.
+
+Models: (Le and Mikolov, 2014)’s work is the first
+to exploit this idea to compute distributed docu-
+ment representations that are good at predicting
+words in the document. They propose two mod-
+els: PV-DM and PV-DBOW, that are extensions
+of Continuous Bag Of Words (CBOW) and Skip-
+
+noisy phrase pairs) has yielded high quality sen-
+tence representations. These methods work by
+maximizing the similarity of the sentences in the
+learned semantic space.
+
+Models: CHARAGRAM (Wieting et al., 2016a)
+embeds textual sequences by learning a character-
+based compositional model that involves addition
+of the vectors of its character n-grams followed by
+an elementwise nonlinearity. This simpler archi-
+tecture trained on PPDB is able to beat models
+with complex architectures like CNN, LSTM on
+SemEval 2015 Twitter textual similarity task by a
+large margin. This result emphasizes the impor-
+tance of character-level models that address differ-
+ences due to spelling variation and word choice.
+The authors in their subsequent work (Wieting
+et al., 2016b) conduct a comprehensive analysis
+of models spanning the range of complexity from
+word averaging to LSTMs for its ability to do
+transfer and supervised learning after optimizing a
+margin based loss on PPDB. For transfer learning,
+they find models based on word averaging perform
+well on both the in-domain and out-of-domain tex-
+tual similarity tasks, beating LSTM model by a
+large margin. On the other hand, the word averag-
+ing models perform well for both sentence similar-
+ity and textual entailment tasks, outperforming the
+LSTM. However, for sentiment classification task,
+they find LSTM (trained on PPDB) to beat the av-
+eraging models to establish a new state of the art.
+The above results suggest that structured resources
+play a vital role in computing general-purpose em-
+beddings useful in downstream applications.name:1706.08198.pdfquestion:Is pre-training effective in their evaluation?context: In this paper, we evaluated the encoder-decoder-
+reconstructor on English-Japanese and Japanese-
+English translation tasks. In addition, we evaluate
+the effectiveness of pre-training by comparing it
+with a jointly-trained model of forward translation
+and back-translation. Experimental results show
+that the encoder-decoder-reconstructor offers sig-
+nificant improvement in BLEU scores and allevi-
+ates the problem of repeating and missing words
+in the translation on English-Japanese translation
+task, and the encoder-decoder-reconstructor can
+not be trained well without pre-training, so it
+proves that we have to train the forward transla-
+tion model in a manner similar to the conventional
+attention-based NMT as pre-training.name:1706.08198.pdfquestion:What parallel corpus did they use?context: We used two parallel corpora: Asian Scien-
+tific Paper Excerpt Corpus (ASPEC) (Nakazawa
+et al., 2016) and NTCIR PatentMT Parallel Corpus
+(Goto et al., 2013). Regarding the training data of
+ASPEC, we used only the first 1 million sentences
+sorted by sentence-alignment similarity. Japanese
+sentences were segmented by the morphological
+analyzer MeCab (version 0.996, IPADIC), and En-
+glish sentences were tokenized by tokenizer.perl
+of Moses. Table | shows the numbers of the sen-
+tences in each corpus. Note that sentences with
+more than 40 words were excluded from the train-
+
+We used the attention-based NMT (Bahdanau
+et al., 2015) as a baseline-NMT, the encoder-
+decoder-reconstructor (Tu et al., 2017) and the
+encoder-decoder-reconstructor that jointly trained
+forward translation and back-translation without
+pre-training. The RNN used in the experi-
+ments had 512 hidden units, 512 embedding units,
+30,000 vocabulary size and 64 batch size. We
+
+We evaluated the encoder-decoder-reconstructor
+framework for NMT on English-Japanese and
+Japanese-English translation tasks.
+
+
+---------------------------------

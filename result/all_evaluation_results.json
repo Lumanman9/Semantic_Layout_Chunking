@@ -1,0 +1,1125 @@
+{
+  "individual_document_results": {
+    "Literature_paper.pdf": {
+      "error": "No valid question-answer pairs to evaluate",
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.0,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "rouge-2": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "rouge-L": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "per_question_metrics": []
+    },
+    "1706.09147.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.03137498506154448,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.2047872340425532,
+          "recall": 0.5277777777777778,
+          "f1": 0.25157563025210083
+        },
+        "rouge-2": {
+          "precision": 0.043010752688172046,
+          "recall": 0.23529411764705882,
+          "f1": 0.07272727272727272
+        },
+        "rouge-L": {
+          "precision": 0.1578014184397163,
+          "recall": 0.46296296296296297,
+          "f1": 0.2034313725490196
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "What is the new initialization method proposed in this paper?",
+          "generated_answer": "The new initialization method proposed in the paper involves explicitly initializing the embeddings of the vocabulary of words and collection of entities with vectors that have been pre-trained over a large collection of unlabeled data. This approach is based on the Skip-Gram with Negative-Sampling (SGNS) algorithm by Mikolov et al. (2013). The implementation uses word2vecf, as described by Levy and Goldberg (2014a), which allows training word and context embeddings using arbitrary definitions of \"word\" and \"context\" by providing a dataset of word-context pairs, with a context defined as an entity.",
+          "reference_answer": "They initialize their word and entity embeddings with vectors pre-trained over a large corpus of unlabeled data.",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.1595744680851064,
+              "recall": 0.8333333333333334,
+              "f1": 0.2678571428571429
+            },
+            "rouge-2": {
+              "precision": 0.08602150537634409,
+              "recall": 0.47058823529411764,
+              "f1": 0.14545454545454545
+            },
+            "rouge-L": {
+              "precision": 0.14893617021276595,
+              "recall": 0.7777777777777778,
+              "f1": 0.25
+            }
+          },
+          "bleu_score": 0.05186196074164564,
+          "exact_match": 0.0
+        },
+        {
+          "question": "How was a quality control performed so that the text is noisy but the annotations are accurate?",
+          "generated_answer": "The provided context does not specify the methods used for quality control to ensure that while the text remains noisy, the annotations are accurate.",
+          "reference_answer": "The authors believe that the Wikilinks corpus  contains ground truth annotations while being noisy. They discard mentions that cannot have ground-truth verified by comparison with Wikipedia.",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.25,
+              "recall": 0.2222222222222222,
+              "f1": 0.23529411764705882
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.16666666666666666,
+              "recall": 0.14814814814814814,
+              "f1": 0.15686274509803924
+            }
+          },
+          "bleu_score": 0.010888009381443313,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "What is the new initialization method proposed in this paper?",
+        "How was a quality control performed so that the text is noisy but the annotations are accurate?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "The new initialization method proposed in the paper involves explicitly initializing the embeddings of the vocabulary of words and collection of entities with vectors that have been pre-trained over a large collection of unlabeled data. This approach is based on the Skip-Gram with Negative-Sampling (SGNS) algorithm by Mikolov et al. (2013). The implementation uses word2vecf, as described by Levy and Goldberg (2014a), which allows training word and context embeddings using arbitrary definitions of \"word\" and \"context\" by providing a dataset of word-context pairs, with a context defined as an entity.",
+          "relevant_chunks": [
+            "performance of our model substantially improvesfor the \ufb01rst few epochs and then continues toslowly converge with marginal gains, and there-fore trained all models for 8 epochs with k = 5for corrupt-sampling.4.3 Embedding InitializationTraining our model implicitly embeds the vocabu-lary of words and collection of entities in a com-mon space. However, we found that explicitlyinitializing these embeddings with vectors pre-trained over a large collection of unlabeled datasigni\ufb01cantly improved performance (see Section5.3). To this end, we implemented an approachbased on the Skip-Gram with Negative-Sampling(SGNS) algorithm by Mikolov et al. (2013) that si-multaneously trains both word and entity vectors.We used word2vecf4 (Levy and Goldberg,2014a), which allows one to train word and con-text embeddings using arbitrary de\ufb01nitions of\u201dword\u201d and \u201dcontext\u201d by providing a dataset ofword-context pairs (w, c), rather than a textualcorpus. In our usage, we de\ufb01ne a context as an en-tity e. To compile a\n\na hard-to-beat baseline (Ratinov et al., 2011), recent workhas largely focused on global approaches. Thesedisambiguate all mentions within a document si-multaneously by considering the coherency of en-tity assignments within a document. For exam-ple the local component of the GLOW algorithm(Ratinov et al., 2011) was used as part of the re-lational inference system suggested by Cheng andRoth (2013). Similarly, Globerson et al. (2016)achieved state-of-the-art results by extending thelocal-based selective-context model of Lazic et al.(2015) with an attention-like coherence model.Global models can tap into highly-discriminative semantic signals (e.g. coreferenceand entity relatedness) that are unavailable to localmethods, and have signi\ufb01cantly outperformed thelocal approach on standard datasets (Guo and Bar-bosa, 2014; Pershina et al., 2015; Globerson et al.,2016). However, global approaches are dif\ufb01cultto apply in domains where only short and noisytext is available\n\nbase population track. In Third TextAnalysis Conference (TAC 2010) . volume 3, pages3\u20133.Nevena Lazic, Amarnag Subramanya, Michael Ring-gaard, and Fernando Pereira. 2015. Plato: A selec-tive context model for entity resolution. Transac-tions of the Association of Computational Linguis-tics 3:503\u2013515. http://aclweb.org/anthology/Q15-1036.Omer Levy and Yoav Goldberg. 2014a. Dependency-based word embeddings. In Proceedings of the 52ndAnnual Meeting of the Association for Computa-tional Linguistics (Volume 2: Short Papers). Associ-ation for Computational Linguistics, pages 302\u2013308.https://doi.org/10.3115/v1/P14-2050.Omer Levy and Yoav Goldberg. 2014b. Neural wordembedding as implicit matrix factorization. In Ad-vances in Neural Information Processing Systems27: Annual Conference on Neural InformationProcessing Systems 2014, December 8-13 2014,Montreal, Quebec, Canada . pages 2177\u20132185.http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization.Omer Levy, Steffen Remus, Chris Biemann, and IdoDagan. 2015. Do supervised distributional methodsreally learn lexical inference relations? In Proceed-ings of the 2015 Conference",
+            0.46044020799999963
+          ]
+        },
+        {
+          "answer": "The provided context does not specify the methods used for quality control to ensure that while the text remains noisy, the annotations are accurate.",
+          "relevant_chunks": [
+            "annotators provide groundtruths for mentions of interest. This means that thedataset contains various kinds of noise, especiallydue to incoherent contexts. The contextual noisepresents an interesting test-case that supplementsexisting datasets that are sourced from mostly co-herent and well-formed text.To get a sense of textual noise we have set upa small experiment where we measure the similar-ity between entities mentioned in WikilinksNEDand their surrounding context, and compare theresults to CoNLL-Y AGO. We use state-of-the-artword and entity embeddings obtained from Ya-mada et al. (2016) and compute cosine similaritybetween embeddings of the correct entity assign-ment and the mean of context words. We com-pare results from all mentions in CoNLL-Y AGOto a sample of 50000 web fragments taken fromWikilinksNED, using a window of words of size40 around entity mentions. We \ufb01nd that similar-ity between context and correct entity is indeedlower for web mentions (0.163) than for CoNLL-Y AGO mentions (0.188), and \ufb01nd\n\nnoise in the text.Our experiments show that our model signi\ufb01-cantly outperforms existing state-of-the-art NEDalgorithms on WikilinksNED, suggesting thatRNNs with attention are able to model short andnoisy context better than current approaches. Inaddition, we evaluate our algorithm on CoNLL-Y AGO (Hoffart et al., 2011), a dataset of annotatednews articles. We use a simple domain adapta-tion technique since CoNLL-Y AGO lacks a largeenough training set for our model, and achievecomparable results to other state-of-the-art meth-ods. These experiments highlight the differencebetween the two datasets, indicating that our NEDbenchmark is substantially more challenging.Code and data used for our experimentscan be found at https://github.com/yotam-happy/NEDforNoisyText2 Related WorkLocal vs Global NED Early work on NamedEntity Disambiguation, such as Bunescu andPas \u00b8ca (2006) and Mihalcea and Csomai (2007) fo-cused on local approaches where each mention isdisambiguated separately using hand-crafted fea-tures. While local approaches provide\n\n89 .6Francis-Landau (2016) 85.5 -Chisholm (2015) local 86.1 -Yamada (2016) global 91.5 90 .9Chisholm (2015) global 88.7 -Table 3: Evaluation on CoNLL-Y AGO.difference to the more ef\ufb01cient nature of trainingwith near misses. Both these results were found tobe statistically signi\ufb01cant.6 Error AnalysisWe randomly sampled and manually analyzed200cases of prediction errors made by our model. Thisset was obtained from WikilinksNED\u2019s validationset that was not used for training.Working with crowd-sourced data, we expectedsome errors to result from noise in the groundtruths themselves. Indeed, we found that 19.5%(39/200) of the errors were not false, out of which5% (2) where wrong labels, 33% (13) were pre-dictions with an equivalent meaning as the correctentity, and in 61.5% (24) our model suggested amore convincing solution than the original authorby using speci\ufb01c hints from the context. In thismanner, the mention\u2019Supreme leader\u2019,",
+            1.0400077089999993
+          ]
+        }
+      ],
+      "reference_answers": [
+        "They initialize their word and entity embeddings with vectors pre-trained over a large corpus of unlabeled data.",
+        "The authors believe that the Wikilinks corpus  contains ground truth annotations while being noisy. They discard mentions that cannot have ground-truth verified by comparison with Wikipedia."
+      ]
+    },
+    "Risk_Prediction_of_Digital_Human_Resource_Manageme.pdf": {
+      "error": "No valid question-answer pairs to evaluate",
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.0,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "rouge-2": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "rouge-L": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "per_question_metrics": []
+    },
+    "1707.02377.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.005180213985293315,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.10474308300395256,
+          "recall": 0.34848484848484845,
+          "f1": 0.15416666666666667
+        },
+        "rouge-2": {
+          "precision": 0.020512820512820513,
+          "recall": 0.04597701149425287,
+          "f1": 0.028368794326241138
+        },
+        "rouge-L": {
+          "precision": 0.06499780412823891,
+          "recall": 0.202020202020202,
+          "f1": 0.09444444444444444
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "Which language models do they compare against?",
+          "generated_answer": "The language models they compare against include:\n\n1. Bag-of-Words (BOW)\n2. RNN-LM (Recurrent Neural Network Language Model)\n3. Denoising Autoencoders (DEA)\n4. Word2Vec + AVG\n5. Word2Vec + IDF\n6. Paragraph Vectors\n7. Skip-thought Vectors\n8. Doc2VecC",
+          "reference_answer": "RNNLM BIBREF11",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "bleu_score": 0,
+          "exact_match": 0.0
+        },
+        {
+          "question": "Is their approach similar to making an averaged weighted sum of word vectors, where weights reflect word frequencies?",
+          "generated_answer": "Yes, their approach involves forming document representation by averaging word embeddings of all the words in the document, which is similar to making an averaged weighted sum of word vectors. However, the method differs in that it does not require heuristic weighting at test time due to the compositionality encoded in the learned word embeddings, indicating a nuanced approach to weighting beyond simply reflecting word frequencies.",
+          "reference_answer": "Different from their work, we choose to corrupt the original document by randomly removing significant portion of words, and represent the document using only the embeddings of the words remained.",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.22727272727272727,
+              "recall": 0.5,
+              "f1": 0.3125
+            },
+            "rouge-2": {
+              "precision": 0.06153846153846154,
+              "recall": 0.13793103448275862,
+              "f1": 0.08510638297872342
+            },
+            "rouge-L": {
+              "precision": 0.15151515151515152,
+              "recall": 0.3333333333333333,
+              "f1": 0.20833333333333331
+            }
+          },
+          "bleu_score": 0.011807985614062265,
+          "exact_match": 0.0
+        },
+        {
+          "question": "How do they determine which words are informative?",
+          "generated_answer": "They determine which words are informative by applying the technique of subsampling of frequent words, as introduced by Mikolov and Dean (2013). This approach counters the imbalance between frequent and rare words by diminishing the contribution of common, potentially less informative words in the final document representation. Doc2VecC, specifically, exerts stronger regularization toward embeddings of words that are frequent but uninformative, thus not relying solely on the subsampling trick.",
+          "reference_answer": "Informative are those that will not be suppressed by regularization performed.",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.08695652173913043,
+              "recall": 0.5454545454545454,
+              "f1": 0.15000000000000002
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.043478260869565216,
+              "recall": 0.2727272727272727,
+              "f1": 0.07500000000000001
+            }
+          },
+          "bleu_score": 0.003732656341817682,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "Which language models do they compare against?",
+        "Is their approach similar to making an averaged weighted sum of word vectors, where weights reflect word frequencies?",
+        "How do they determine which words are informative?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "The language models they compare against include:\n\n1. Bag-of-Words (BOW)\n2. RNN-LM (Recurrent Neural Network Language Model)\n3. Denoising Autoencoders (DEA)\n4. Word2Vec + AVG\n5. Word2Vec + IDF\n6. Paragraph Vectors\n7. Skip-thought Vectors\n8. Doc2VecC",
+          "relevant_chunks": [
+            ", and Sha, F. (2012). Marginalized denoising autoencoders fordomain adaptation. arXiv preprint arXiv:1206.4683.Croft, B. and Lafferty, J. (2013).Language modeling for information retrieval, volume 13. SpringerScience & Business Media.Dai, A. M. and Le, Q. V . (2015). Semi-supervised sequence learning. In Advances in NeuralInformation Processing Systems, pages 3079\u20133087.Dai, A. M., Olah, C., and Le, Q. V . (2015). Document embedding with paragraph vectors. arXivpreprint arXiv:1507.07998.Deerwester, S., Dumais, S. T., Furnas, G. W., Landauer, T. K., and Harshman, R. (1990). Indexingby latent semantic analysis. Journal of the American society for information science, 41(6):391.Fan, R.-E., Chang, K.-W., Hsieh, C.-J., Wang, X.-R., and Lin, C.-J. (2008). Liblinear: A library forlarge linear classi\ufb01cation. JMLR, 9(Aug):1871\u20131874.Glorot, X., Bordes, A., and Bengio, Y . (2011)\n\nSpearman\u2019s\u03c1 MSEIllinois-LH 0.7993 0.7538 0.3692UNAL-NLP 0.8070 0.7489 0.3550Meaning Factory 0.8268 0.7721 0.3224ECNU 0.8279 0.7689 0.3250Mean vectors (Word2Vec + avg) 0.7577 0.6738 0.4557DT-RNN (Socher et al., 2014) 0.7923 0.7319 0.3822SDT-RNN (Socher et al., 2014) 0.7900 0.7304 0.3848LSTM (Tai et al., 2015) 0.8528 0.7911 0.2831Bidirectional LSTM (Tai et al., 2015) 0.8567 0.7966 0.2736Dependency Tree-LSTM (Tai et al., 2015) 0.8676 0.8083 0.2532combine-skip (Kiros et al., 2015) 0.8584 0.7916 0.2687Doc2VecC 0.8381 0.7621 0.3053REFERENCESBlei, D. M., Ng, A. Y ., and Jordan, M. I. (2003). Latent dirichlet allocation. Journal of machineLearning research, 3(Jan):993\u20131022.Chen, M., Weinberger, K. Q., Sha, F., and Bengio, Y . (2014). Marginalized denoising auto-encodersfor nonlinear representations. In ICML, pages 1476\u20131484.Chen, M., Xu, Z., Weinberger, K.\n\n% (include test) Error rate % (exclude test)Bag-of-Words (BOW) 12.53 12.59RNN-LM 13.59 13.59Denoising Autoencoders (DEA) 11.58 12.54Word2Vec + A VG 12.11 12.69Word2Vec + IDF 11.28 11.92Paragraph Vectors 10.81 12.10Skip-thought Vectors - 17.42Doc2VecC 10.48 11.704.2 S ENTIMENT ANALYSISFor sentiment analysis, we use the IMDB movie review dataset. It contains 100,000 movies reviewscategorized as either positive or negative. It comes with prede\ufb01ned train/test split (Maas et al.,2011): 25,000 reviews are used for training, 25,000 for testing, and the rest as unlabeled data. Thetwo classes are balanced in the training and testing sets. We remove words that appear less than 10times in the training set, resulting in a vocabulary of 43,375 distinct words and symbols.Setup. We test the various representation learning algorithms under two settings: one follows thesame protocol proposed in (Mesnil et al., 2014), where representation is learned using all the avail-able data, including the test",
+            0.7826338750000019
+          ]
+        },
+        {
+          "answer": "Yes, their approach involves forming document representation by averaging word embeddings of all the words in the document, which is similar to making an averaged weighted sum of word vectors. However, the method differs in that it does not require heuristic weighting at test time due to the compositionality encoded in the learned word embeddings, indicating a nuanced approach to weighting beyond simply reflecting word frequencies.",
+          "relevant_chunks": [
+            "the learned model.3 M ETHODSeveral works (Mikolov and Dean, 2013; Mikolov et al., 2013b) showcased that syntactic and se-mantic regularities of phrases and sentences are reasonably well preserved by adding or subtract-ing word embeddings learned through Word2Vec. It prompts us to explore the option of simplyrepresenting a document as an average of word embeddings. Figure 1 illustrates the new modelarchitecture.wt#1 Wt+1 Wt+2 wp wq wrwtopening for the performance praised brazilceremonyword<vectorsdocument< vectorAverage/ConcatenateFigure 1: A new framework for learning document vectors.Similar to Word2Vec or Paragraph Vectors, Doc2VecC consists of an input layer, a projection layeras well as an output layer to predict the target word, \u201cceremony\u201d in this example. The embeddings ofneighboring words (\u201copening\u201d, \u201cfor\u201d, \u201cthe\u201d) provide local context while the vector representation ofthe entire document (shown in grey) serves as the global context. In contrast to Paragraph Vectors,which directly learns a unique vector for each\n\nnetwork architecture of an input layer, a projection layerparameterized by the matrix U and an output layer by V\u22a4. It de\ufb01nes the probability of observingthe target word wt in a document Dgiven its local context ct asP(wt|ct) = exp(v\u22a4wt Uct)\u2211w\u2032\u2208V exp(v\u22a4w\u2032 Uct)The word vectors are then learned to maximize the log likelihood of observing the target word ateach position of the document. Various techniques (Mitchell and Lapata, 2010; Zanzotto et al.,2010; Yessenalina and Cardie, 2011; Grefenstette et al., 2013; Socher et al., 2013; Kusner et al.,2Published as a conference paper at ICLR 20172015) have been studied to generate vector representations of documents from word embeddings,among which the simplest approach is to use weighted average of word embeddings. Similarly,our method forms document representation by averaging word embeddings of all the words in thedocument. Differently, as our model encodes the compositionality of words in the learned wordembeddings, heuristic weighting at test time is not required.Paragraph Vectors.\n\nstop words.Subsampling frequent words. Note that for all the numbers reported, we applied the trick ofsubsampling of frequent words introduced in (Mikolov and Dean, 2013) to counter the imbalancebetween frequent and rare words. It is critical to the performance of simple Word2Vec+A VG as thesole remedy to diminish the contribution of common words in the \ufb01nal document representation. Ifwe were to remove this step, the error rate of Word2Vec+A VG will increases from12.1% to 13.2%.Doc2VecC on the other hand naturally exerts a stronger regularization toward embeddings of wordsthat are frequent but uninformative, therefore does not rely on this trick.4.3 W ORD ANALOGYIn table 3, we demonstrated that the corruption model introduced in Doc2VecC dampens the embed-dings of words which are common and non-discriminative (stop words). In this experiment, we aregoing to quantatively compare the word embeddings generated by Doc2VecC to the ones generatedby Word2Vec, or Paragraph Vectors on the word analogy task introduced by Mikolov et al. (2013a).The dataset contains \ufb01ve",
+            1.093887917
+          ]
+        },
+        {
+          "answer": "They determine which words are informative by applying the technique of subsampling of frequent words, as introduced by Mikolov and Dean (2013). This approach counters the imbalance between frequent and rare words by diminishing the contribution of common, potentially less informative words in the final document representation. Doc2VecC, specifically, exerts stronger regularization toward embeddings of words that are frequent but uninformative, thus not relying solely on the subsampling trick.",
+          "relevant_chunks": [
+            "words are included in the test.Semantic questions Word2Vec Doc2VecC Syntactic questions Word2Vec Doc2VecCcapital-common-countries 73.59 81.82 gram1-adjective-to-adverb 19.25 20.32capital-world 67.94 77.96 gram2-opposite 14.07 25.54currency 17.14 12.86 gram3-comparative 60.21 74.47city-in-state 34.49 42.86 gram4-superlative 52.87 55.40family 68.71 64.62 gram5-present-participle 56.34 65.81gram6-nationality-adjective 88.71 91.03gram7-past-tense 47.05 51.86gram8-plural 50.28 61.27gram9-plural-verbs 25.38 39.69Table 4: Top 1 accuracy on the 5 type of semantics and 9 types of syntactic questions.We trained the word embeddings of different methods using the English news dataset released underthe ACL workshop on statistical machine translation. The training set includes close to 15M para-graphs with 355M tokens. We compare the performance of word embeddings trained by differentmethods with increasing embedding dimensionality as well as increasing training data.We observe similar trends as in Mikolov et al. (2013a). Increasing embedding dimensionality aswell as training data size improves\n\nstop words.Subsampling frequent words. Note that for all the numbers reported, we applied the trick ofsubsampling of frequent words introduced in (Mikolov and Dean, 2013) to counter the imbalancebetween frequent and rare words. It is critical to the performance of simple Word2Vec+A VG as thesole remedy to diminish the contribution of common words in the \ufb01nal document representation. Ifwe were to remove this step, the error rate of Word2Vec+A VG will increases from12.1% to 13.2%.Doc2VecC on the other hand naturally exerts a stronger regularization toward embeddings of wordsthat are frequent but uninformative, therefore does not rely on this trick.4.3 W ORD ANALOGYIn table 3, we demonstrated that the corruption model introduced in Doc2VecC dampens the embed-dings of words which are common and non-discriminative (stop words). In this experiment, we aregoing to quantatively compare the word embeddings generated by Doc2VecC to the ones generatedby Word2Vec, or Paragraph Vectors on the word analogy task introduced by Mikolov et al. (2013a).The dataset contains \ufb01ve\n\n% (include test) Error rate % (exclude test)Bag-of-Words (BOW) 12.53 12.59RNN-LM 13.59 13.59Denoising Autoencoders (DEA) 11.58 12.54Word2Vec + A VG 12.11 12.69Word2Vec + IDF 11.28 11.92Paragraph Vectors 10.81 12.10Skip-thought Vectors - 17.42Doc2VecC 10.48 11.704.2 S ENTIMENT ANALYSISFor sentiment analysis, we use the IMDB movie review dataset. It contains 100,000 movies reviewscategorized as either positive or negative. It comes with prede\ufb01ned train/test split (Maas et al.,2011): 25,000 reviews are used for training, 25,000 for testing, and the rest as unlabeled data. Thetwo classes are balanced in the training and testing sets. We remove words that appear less than 10times in the training set, resulting in a vocabulary of 43,375 distinct words and symbols.Setup. We test the various representation learning algorithms under two settings: one follows thesame protocol proposed in (Mesnil et al., 2014), where representation is learned using all the avail-able data, including the test",
+            0.4261340830000009
+          ]
+        }
+      ],
+      "reference_answers": [
+        "RNNLM BIBREF11",
+        "Different from their work, we choose to corrupt the original document by randomly removing significant portion of words, and represent the document using only the embeddings of the words remained.",
+        "Informative are those that will not be suppressed by regularization performed."
+      ]
+    },
+    "1801.02243.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.07966759483011591,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.1568627450980392,
+          "recall": 0.4047619047619047,
+          "f1": 0.21603128054740958
+        },
+        "rouge-2": {
+          "precision": 0.0909090909090909,
+          "recall": 0.3333333333333333,
+          "f1": 0.14285714285714285
+        },
+        "rouge-L": {
+          "precision": 0.1372549019607843,
+          "recall": 0.38095238095238093,
+          "f1": 0.19452590420332358
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "Do the authors give any examples of major events which draw the public's attention and the impact they have on stock price?",
+          "generated_answer": "No, the authors do not provide specific examples of major events which draw the public's attention and the impact they have on stock price.",
+          "reference_answer": "Yes",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "bleu_score": 0,
+          "exact_match": 0.0
+        },
+        {
+          "question": "Which tweets are used to output the daily sentiment signal?",
+          "generated_answer": "The context provided does not explicitly state which tweets are used to output the daily sentiment signal.",
+          "reference_answer": "Tesla and Ford are investigated on how Twitter sentiment could impact the stock price",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.17647058823529413,
+              "recall": 0.21428571428571427,
+              "f1": 0.1935483870967742
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.11764705882352941,
+              "recall": 0.14285714285714285,
+              "f1": 0.12903225806451615
+            }
+          },
+          "bleu_score": 0.014216645907653848,
+          "exact_match": 0.0
+        },
+        {
+          "question": "What is the baseline machine learning prediction approach?",
+          "generated_answer": "The baseline machine learning prediction approach applies linear logistic regression to a set of stock technical signals to predict the following day's stock return sign (+/-), without providing any sentiment features to the model.",
+          "reference_answer": "linear logistic regression to a set of stock technical signals",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.29411764705882354,
+              "recall": 1.0,
+              "f1": 0.45454545454545453
+            },
+            "rouge-2": {
+              "precision": 0.2727272727272727,
+              "recall": 1.0,
+              "f1": 0.42857142857142855
+            },
+            "rouge-L": {
+              "precision": 0.29411764705882354,
+              "recall": 1.0,
+              "f1": 0.45454545454545453
+            }
+          },
+          "bleu_score": 0.22478613858269392,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "Do the authors give any examples of major events which draw the public's attention and the impact they have on stock price?",
+        "Which tweets are used to output the daily sentiment signal?",
+        "What is the baseline machine learning prediction approach?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "No, the authors do not provide specific examples of major events which draw the public's attention and the impact they have on stock price.",
+          "relevant_chunks": [
+            "Second,scrapping Tweets directly from Twitter website. Using thesecond option, the daily Tweets for stocks of interest from2015 January to 2017 June were downloaded.The predicting power of Twitter sentiment varies fromstock to stock. For stocks that are mostly driven by the com-pany fundamentals and hold by the institutional investors,the predicting power of the Twitter sentiment is limited.For stocks that are priced by the public expectation on thecompany\u2019s future growth, Twitter sentiment describes thecon\ufb01dence and expectation level of the investors.For this reason, two companies from the same industry,Tesla and Ford are investigated on how Twitter sentimentcould impact the stock price. Tesla is an electronic carcompany that shows consecutive negative operating cash \ufb02owand net income but carries very high expectation from thepublic. Ford, is a traditional auto maker whose stock priceshas been stabilized to represent the company fundamentals.To investigate how different key words impact the predict-ing power of the sentiment score, two Tweet sets, a tickerset and a product set, are prepared for each\n\nthe company growth outweighs the companyfundamentals. Twitter, a online news and social networkwhere the users post and interact with messages to expressviews about certain topics, contains valuable information onthe public mood and sentiment. A collection of research [1][6] have shown that there is a positive correlation betweenthe \u201dpublic mood\u201d and the \u201dmarket mood\u201d. Other research[2]also shows that signi\ufb01cant correlation exists between theTwitter sentiment and the abnormal return during the peaksof the Twitter volume during a major event.Once a signal that has predicting power on the stockmarket return is constructed, a trading strategy to express theview of the signal is needed. Traditionally, the quantitative \ufb01-nance industry relies on backtest, a process where the tradingstrategies are tuned during the simulations or optimizations.Reinforcement learning provides a way to \ufb01nd the optimalpolicy by maximizing the expected future utility. There arerecent attempts from the Arti\ufb01cial Intelligence communityto apply reinforcement learning to asset allocation [5], algo-rithmic trading[3][7], and portfolio management[4]\n\napproximators, for example,neural net, to better generalize the states and providemore stable behavior\u2022 Add another class to the existing binary classi\ufb01er in-signi\ufb01cant price change. The is motivated by preventingthe classi\ufb01er to \ufb01t to the noise inherent in stock marketprice movement, and lumps small, statistically insignif-icant upward or downward movements indiscriminatelywith large ones.\u2022 Add crude oil future price as a feature to predict Teslastock alpha return sign\u2022 Extend the sentiment analysis to other stocks and Cryp-tocurrency, which is an asset class that driven even moreby the public sentiment.VII. CONCLUSIONSThe paper explores the possibility to predict stock priceusing text data and reinforcement learning technique. Pre-dicting stock price direction using Twitter sentiment is chal-lenging but promising. Which stock and what to predict ismore important than how to predict. For example, Tesla,a company driven by the expectation of the company\u2019sgrowth is a better target than Ford, a traditional auto maker.Reinforcement learning is applied to \ufb01nd the optimal tradingpolicy by learning the feedbacks from",
+            1.1582368330000001
+          ]
+        },
+        {
+          "answer": "The context provided does not explicitly state which tweets are used to output the daily sentiment signal.",
+          "relevant_chunks": [
+            "Second,scrapping Tweets directly from Twitter website. Using thesecond option, the daily Tweets for stocks of interest from2015 January to 2017 June were downloaded.The predicting power of Twitter sentiment varies fromstock to stock. For stocks that are mostly driven by the com-pany fundamentals and hold by the institutional investors,the predicting power of the Twitter sentiment is limited.For stocks that are priced by the public expectation on thecompany\u2019s future growth, Twitter sentiment describes thecon\ufb01dence and expectation level of the investors.For this reason, two companies from the same industry,Tesla and Ford are investigated on how Twitter sentimentcould impact the stock price. Tesla is an electronic carcompany that shows consecutive negative operating cash \ufb02owand net income but carries very high expectation from thepublic. Ford, is a traditional auto maker whose stock priceshas been stabilized to represent the company fundamentals.To investigate how different key words impact the predict-ing power of the sentiment score, two Tweet sets, a tickerset and a product set, are prepared for each\n\n.The contribution of this paper is two-fold: First, the pre-dicting power of Twitter sentiment is evaluated. Our resultsshow sentiment is more suitable to construct alpha signalsrather than total return signals and shows predicting powerespecially when the Twitter volume is high. Second, weproposed a trading strategy based on reinforcement learning(Q-learning) that takes the sentiment features as part of itsstates.The paper is constructed as follows: In the second section,scraping Tweets from Twitter website and preprocessing thedata are described in details. In the third section, assigningsentiment scores to the text data is discussed. In the fourthsection, feature engineering and prediction based on thesentiment score is discussed. In the \ufb01fth section, how thereinforcement learning is applied to generate the optimaltrading strategy is described.II. T WITTER DATA SCRAPING AND PREPROCESSINGThere are two options of getting the Tweets. First, Twitterprovides an API to download the Tweets. However, rate limitand history limit make it not an option for this paper.\n\nthe company growth outweighs the companyfundamentals. Twitter, a online news and social networkwhere the users post and interact with messages to expressviews about certain topics, contains valuable information onthe public mood and sentiment. A collection of research [1][6] have shown that there is a positive correlation betweenthe \u201dpublic mood\u201d and the \u201dmarket mood\u201d. Other research[2]also shows that signi\ufb01cant correlation exists between theTwitter sentiment and the abnormal return during the peaksof the Twitter volume during a major event.Once a signal that has predicting power on the stockmarket return is constructed, a trading strategy to express theview of the signal is needed. Traditionally, the quantitative \ufb01-nance industry relies on backtest, a process where the tradingstrategies are tuned during the simulations or optimizations.Reinforcement learning provides a way to \ufb01nd the optimalpolicy by maximizing the expected future utility. There arerecent attempts from the Arti\ufb01cial Intelligence communityto apply reinforcement learning to asset allocation [5], algo-rithmic trading[3][7], and portfolio management[4]",
+            0.390833458000003
+          ]
+        },
+        {
+          "answer": "The baseline machine learning prediction approach applies linear logistic regression to a set of stock technical signals to predict the following day's stock return sign (+/-), without providing any sentiment features to the model.",
+          "relevant_chunks": [
+            ". The machine learning strategypredicts the binary movement (+ or -) of next trading dayprice based on sentiment features and technical indicators.The backtest rule based on the machine learning predictionis to long the stock if the prediction is +, short the stock if -.The baseline is the same with machine learning except onlythe technical indicator was used as the feature. The oraclemodel of this project is a trader who has insider informationabout the stock and be able to bet and act correctly on everysingle day of the testing period. The oracle model is ableto achieve 6 times of the initial capital at the end of testingperiod.Fig. 5. The chart shows the trading strategy derived from Q-learning(inblue) outperform the backtest result using machine learning features(in red).Both of Q-learning strategy and machine learning strategy outperform thebaseline(in green).There are observations that worth a discussion. At thebeginning of the testing period, the Q-learning has not learnthow to estimate the expected utility of a\n\ncertain action yet.The performance of the initial period is more unstable than4later. Q-learning does better when the state is more commonbecause it accumulates more experience about the situationbut might not take the best action when a outlier state ispresented. The performance of the q-learning varies duringdifferent batch due to the random nature of exploitationand exploration. In general Q-learning is able to deliverbetter performance than using the binary prediction fromthe machine learning models. Both of the Q-learning andmachine learning model outperform the baseline model.VI. F UTURE WORKThere are many areas that can be improved given moreresource and data. Below is a list of the improvement thatcould make this idea more robust.\u2022 Use intraday data to test the sentiment signal and Q-learning. By training with more data and trading morepromptly, we expect both sentiment machine learningmodel and Q-learning to do better.\u2022 With more data, more features can be considered andincorporated into the model.\u2022 Apply different function\n\nsmall C and large lead to high bias and lowvariance.To evaluate if the sentiment feature improves the pre-diction accuracy, a baseline model is de\ufb01ned. The baselineapplies linear logistic regression to a set of stock technicalsignals to predict the following days stock return sign (+/).No sentiment features are provided to the baseline model.C. Predicting using ticker dataset and product datasetThe predicting power for the ticker dataset and productdataset are compared. The ticker dataset contains tweetsthat searched strictly according to the stock ticker. The2Fig. 3. The chart displays the accuracy on predicting the \u201dalpha\u201d, whichde\ufb01nes as the return of the stock minus the return of its sector ETF.product dataset is searched using keywords that related tothe company\u2019s product and other related topic(see session IIfor more details). The former dataset represents the investors\u2019sentiment, while the latter dataset represents customers sen-timent.In the Tesla case, using product tweets consistently outper-forms using the ticker tweets(accuracy 0.6 vs 0.5), it is less",
+            0.9025461670000041
+          ]
+        }
+      ],
+      "reference_answers": [
+        "Yes",
+        "Tesla and Ford are investigated on how Twitter sentiment could impact the stock price",
+        "linear logistic regression to a set of stock technical signals"
+      ]
+    },
+    "1706.01875.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.07921652000497309,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.2777777777777778,
+          "recall": 0.45738636363636365,
+          "f1": 0.33901098901098903
+        },
+        "rouge-2": {
+          "precision": 0.20457559681697612,
+          "recall": 0.40476190476190477,
+          "f1": 0.26696969696969697
+        },
+        "rouge-L": {
+          "precision": 0.2777777777777778,
+          "recall": 0.45738636363636365,
+          "f1": 0.33901098901098903
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "What was the baseline?",
+          "generated_answer": "The provided context does not specify what the baseline was.",
+          "reference_answer": "stochastic gradient descent, naive bayes, decision tree",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "bleu_score": 0,
+          "exact_match": 0.0
+        },
+        {
+          "question": "What was their system's performance?",
+          "generated_answer": "Their system, specifically the 100-estimator entropy-based splitting random forest model, had an accuracy of 89.6% and an F1-score of 89.2% when classifying the holdout set.",
+          "reference_answer": "accuracy and F1-score of 89.6% and 89.2%, respectively accuracy and F1-score of 89.6% and 89.2%, respectively",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.3333333333333333,
+              "recall": 0.45454545454545453,
+              "f1": 0.3846153846153846
+            },
+            "rouge-2": {
+              "precision": 0.2413793103448276,
+              "recall": 0.3333333333333333,
+              "f1": 0.28
+            },
+            "rouge-L": {
+              "precision": 0.3333333333333333,
+              "recall": 0.45454545454545453,
+              "f1": 0.3846153846153846
+            }
+          },
+          "bleu_score": 0.11372027710077005,
+          "exact_match": 0.0
+        },
+        {
+          "question": "What other political events are included in the database?",
+          "generated_answer": "The context provided does not mention any specific political events included in the database other than the start of the 2016 US presidential primaries in February 2016.",
+          "reference_answer": "US presidential primaries, Democratic and Republican National Conventions",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.1111111111111111,
+              "recall": 0.375,
+              "f1": 0.17142857142857143
+            },
+            "rouge-2": {
+              "precision": 0.07692307692307693,
+              "recall": 0.2857142857142857,
+              "f1": 0.12121212121212123
+            },
+            "rouge-L": {
+              "precision": 0.1111111111111111,
+              "recall": 0.375,
+              "f1": 0.17142857142857143
+            }
+          },
+          "bleu_score": 0.033241378434410024,
+          "exact_match": 0.0
+        },
+        {
+          "question": "What classifier did they use?",
+          "generated_answer": "Random Forest classifier.",
+          "reference_answer": "Random Forest",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            },
+            "rouge-2": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666
+            },
+            "rouge-L": {
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            }
+          },
+          "bleu_score": 0.16990442448471224,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "What was the baseline?",
+        "What was their system's performance?",
+        "What other political events are included in the database?",
+        "What classifier did they use?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "The provided context does not specify what the baseline was.",
+          "relevant_chunks": [
+            "More importantly, a lack of ci-vility in political discussions generally reduces the de-gree to which people view opponents as holding legit-imate viewpoints. This dynamic makes it dif\ufb01cult forpeople to \ufb01nd common ground with those who disagreewith them [11] and it may ultimately lead citizens toview electoral victories by opponents as lacking legiti-macy [12]. Thus, from a normative standpoint, the factthat the 2016 campaign sparked a marked increase in theoffensiveness of political comments posted to Reddit isof concern in its own right; that the incidence of offensivepolitical comments has remained high even three monthsafter the election is all the more troubling.In future work, we will extend our analysis of Redditback to 2007 with the aim of formulating a more com-plete understanding of the dynamics of political incivil-ity. For example, we seek to understand whether thehigh incidence of offensive speech we \ufb01nd in 2016 isunique to this particular campaign or if previous presi-dential campaigns witnessed similar spikes in incivility.We will also examine whether there is a more\n\nMeasuring Offensive Speech in Online Political DiscourseRishab Nithyanand1, Brian Schaffner2, Phillipa Gill11{rishab, phillipa}@cs.umass.edu, 2schaffne@polsci.umass.eduUniversity of Massachusetts, AmherstAbstractThe Internet and online forums such as Reddit have be-come an increasingly popular medium for citizens toengage in political conversations. However, the on-line disinhibition effect resulting from the ability to usepseudonymous identities may manifest in the form ofoffensive speech, consequently making political discus-sions more aggressive and polarizing than they alreadyare. Such environments may result in harassment andself-censorship from its targets. In this paper, we presentpreliminary results from a large-scale temporal measure-ment aimed at quantifying offensiveness in online politi-cal discussions.To enable our measurements, we develop and evalu-ate an offensive speech classi\ufb01er. We then use this clas-si\ufb01er to quantify and compare offensiveness in the po-litical and general contexts. We perform our study us-ing a database of over 168M Reddit comments made byover 7M pseudonyms between January 2015 and January2017 \u2013 a period covering several divisive political eventsincluding the 2016 US presidential\n\ngenerallong-term trend toward offensive online political speech,which would be consistent with what scholars have foundwhen studying political elites [6, 16].References[1] CrowdFlower Blog. Hate speech identi\ufb01cation.URL: https://www.crowdflower.com/data/hate-speech-identification/ (Accessed May24, 2017).[2] Justin H Gross and Kaylee T Johnson. Twittertaunts and tirades: Negative campaigning in the ageof trump. PS: Political Science &amp; Politics,49(4):748\u2013754, 2016.[3] Hatebase. Meet the Hatebase API. URL: https://www.hatebase.org/connect_api (AccessedMay 24, 2017).[4] Susan Herbst. Rude democracy: Civility and in-civility in American politics. Temple UniversityPress, 2010.[5] Matthew Honnibal and Mark Johnson. An Im-proved Non-monotonic Transition System for De-pendency Parsing. In Proceedings of the 2015 Con-ference on Empirical Methods in Natural LanguageProcessing, pages 1373\u20131378, Lisbon, Portugal,2015. Association for Computational Linguistics.[6] Kathleen Hall Jamieson and",
+            1.6231301660000028
+          ]
+        },
+        {
+          "answer": "Their system, specifically the 100-estimator entropy-based splitting random forest model, had an accuracy of 89.6% and an F1-score of 89.2% when classifying the holdout set.",
+          "relevant_chunks": [
+            "To understandhow the performance of our chosen classi\ufb01er model andparameters are impacted by: (1) the quality and consis-tency of manually assigned classes in the CrowdFlowerdataset and (2) the size of the dataset, we re-evaluate theclassi\ufb01er while only considering tweets having a mini-mum con\ufb01dence score and varying the size of the holdoutset. Speci\ufb01cally, our experiments considered con\ufb01dencethresholds of 0 (all tweets considered), .35 (only tweetswhere at least 35% of contributors agreed on a class wereconsidered), and .70 (only tweets where at least 70% ofthe contributors agreed on a class were considered) andvaried the holdout set sizes between 5% and 95% of alltweets meeting the con\ufb01dence threshold set for the ex-periment.The results illustrated in Figure 3 show the perfor-mance of the classi\ufb01er while evaluating the correspond-ing holdout set. We make several conclusions from theseresults:\u2022Beyond a (fairly low) threshold, the size of the train-ing and validation set has little impact on classi-\ufb01er performance.\n\ncross-validation on the train-ing/validation set to identify the best classi\ufb01er model and(a) Classi\ufb01er accuracy.(b) Classi\ufb01er precision.(c) Classi\ufb01er recall.Figure 3: Classi\ufb01er performance on holdout sets whilevarying holdout set sizes and minimum con\ufb01dencethresholds.parameters (using a grid search). Based on the results ofthis evaluation, we select a 100-estimator entropy-basedsplitting random forest model as our classi\ufb01er. Table 1shows the mean accuracy and F1-score for each evalu-ated classi\ufb01er during the 10-fold cross-validation.Real-world classi\ufb01er performance. To evaluate real-world performance of our selected classi\ufb01er ( i.e., per-formance in the absence of model and parameter bias),we perform classi\ufb01cation of the holdout set. On this set,our classi\ufb01er had an accuracy and F1-score of 89.6% and89.2%, respectively. These results show that in additionto superior accuracy during training and validation, ourchosen classi\ufb01er is also robust against over-\ufb01tting.Impact of dataset quality and size.\n\nStochastic Neighbor Embedding(t-SNE) [9] to reduce our 100-dimension vector spaceinto 2 dimensions.3.2 Classi\ufb01er evaluationWe now present results to (1) validate our choiceof classi\ufb01er and (2) demonstrate the impact of train-ing/validation sample count on our classi\ufb01ers perfor-mance.Classi\ufb01er Accuracy (%) F1-Score (%)Stochastic Gradient Descent 80.7 80.0Naive Bayes 81.5 81.2Decision Tree 91.8 91.4Random Forest 92.0 91.9Table 1: Average classi\ufb01er performance during 10-foldcross-validation on the training/validation set. Resultsshown are for the best performing parameters obtainedusing a grid search.Classi\ufb01er selection methodology. To identify themost suitable classi\ufb01er for classifying the scalars as-sociated with each text, we perform evaluations us-ing the stochastic gradient descent, naive bayes, deci-sion tree, and random forest classi\ufb01ers. For each clas-si\ufb01er, we split the CrowdFlower hate speech datasetinto a training/validation set (75%), and a holdout set(25%). We perform 10-fold",
+            1.118021917
+          ]
+        },
+        {
+          "answer": "The context provided does not mention any specific political events included in the database other than the start of the 2016 US presidential primaries in February 2016.",
+          "relevant_chunks": [
+            "the period of January 2015 and January 2017, weonly analyze only 168M. We select comments to be ana-lyzed using the following process: (1) we exclude com-ments shorter than 10 characters in length, (2) we ex-clude comments made by [deleted] authors, and (3)Figure 1: Number of analyzed political and apoliti-cal comments belonging to each week between January2015 and January 2017.we randomly sample and include 10% of all remainingcomments. We categorize comments made in any of 21popular political subreddits as political and the remain-der as apolitical. Our \ufb01nal dataset contains 129M apo-litical and 39M political comments. Figure 1 shows thenumber of comments in our dataset that were made dur-ing each week included in our study. We see an increas-ing number of political comments per week starting inFebruary 2016 \u2013 the start of the 2016 US presidentialprimaries.3 Offensive Speech Classi\ufb01cationIn order to identify offensive speech, we propose a fullyautomated technique that classi\ufb01es comments into twoclasses: Offensive and Not\n\ngenerallong-term trend toward offensive online political speech,which would be consistent with what scholars have foundwhen studying political elites [6, 16].References[1] CrowdFlower Blog. Hate speech identi\ufb01cation.URL: https://www.crowdflower.com/data/hate-speech-identification/ (Accessed May24, 2017).[2] Justin H Gross and Kaylee T Johnson. Twittertaunts and tirades: Negative campaigning in the ageof trump. PS: Political Science &amp; Politics,49(4):748\u2013754, 2016.[3] Hatebase. Meet the Hatebase API. URL: https://www.hatebase.org/connect_api (AccessedMay 24, 2017).[4] Susan Herbst. Rude democracy: Civility and in-civility in American politics. Temple UniversityPress, 2010.[5] Matthew Honnibal and Mark Johnson. An Im-proved Non-monotonic Transition System for De-pendency Parsing. In Proceedings of the 2015 Con-ference on Empirical Methods in Natural LanguageProcessing, pages 1373\u20131378, Lisbon, Portugal,2015. Association for Computational Linguistics.[6] Kathleen Hall Jamieson and\n\ndiscussions through-out all of 2015 and 2016, we \ufb01nd that online politicaldiscussions became increasingly more offensive as thegeneral election campaign intensi\ufb01ed. By comparison,discussions on non-political subreddits did not becomeincreasingly offensive during this period. Additionally,we \ufb01nd that the presence of offensive comments did notsubside even three months after the election.2 DatasetsOur study makes use of multiple datasets in order to iden-tify and characterize trends in offensive speech.The CrowdFlower hate speech dataset. The Crowd-Flower hate speech dataset [1] contains 14.5K tweets,each receiving labels from at least three contributors.Contributors were allowed to classify each tweet intoone of three classes: Not Offensive (NO), Offensive butnot hateful (O), and Offensive and hateful (OH). Of the14.5K tweets, only 37.6% had a decisive class \u2013 i.e., thesame class was assigned by all contributors. For inde-cisive cases, the majority class was selected and a classcon\ufb01dence score (fraction of contributors that selectedthe majority class) was",
+            0.5692617079999991
+          ]
+        },
+        {
+          "answer": "Random Forest classifier.",
+          "relevant_chunks": [
+            "Stochastic Neighbor Embedding(t-SNE) [9] to reduce our 100-dimension vector spaceinto 2 dimensions.3.2 Classi\ufb01er evaluationWe now present results to (1) validate our choiceof classi\ufb01er and (2) demonstrate the impact of train-ing/validation sample count on our classi\ufb01ers perfor-mance.Classi\ufb01er Accuracy (%) F1-Score (%)Stochastic Gradient Descent 80.7 80.0Naive Bayes 81.5 81.2Decision Tree 91.8 91.4Random Forest 92.0 91.9Table 1: Average classi\ufb01er performance during 10-foldcross-validation on the training/validation set. Resultsshown are for the best performing parameters obtainedusing a grid search.Classi\ufb01er selection methodology. To identify themost suitable classi\ufb01er for classifying the scalars as-sociated with each text, we perform evaluations us-ing the stochastic gradient descent, naive bayes, deci-sion tree, and random forest classi\ufb01ers. For each clas-si\ufb01er, we split the CrowdFlower hate speech datasetinto a training/validation set (75%), and a holdout set(25%). We perform 10-fold\n\nTo understandhow the performance of our chosen classi\ufb01er model andparameters are impacted by: (1) the quality and consis-tency of manually assigned classes in the CrowdFlowerdataset and (2) the size of the dataset, we re-evaluate theclassi\ufb01er while only considering tweets having a mini-mum con\ufb01dence score and varying the size of the holdoutset. Speci\ufb01cally, our experiments considered con\ufb01dencethresholds of 0 (all tweets considered), .35 (only tweetswhere at least 35% of contributors agreed on a class wereconsidered), and .70 (only tweets where at least 70% ofthe contributors agreed on a class were considered) andvaried the holdout set sizes between 5% and 95% of alltweets meeting the con\ufb01dence threshold set for the ex-periment.The results illustrated in Figure 3 show the perfor-mance of the classi\ufb01er while evaluating the correspond-ing holdout set. We make several conclusions from theseresults:\u2022Beyond a (fairly low) threshold, the size of the train-ing and validation set has little impact on classi-\ufb01er performance.\n\nOffensive.3.1 Classi\ufb01cation approachAt a high-level, our approach works as follows:\u2022Build a word embedding. We construct a 100-dimensional word embedding using all commentsfrom our complete Reddit dataset (2B comments).\u2022Construct a hate vector. We construct a list of of-fensive and hateful words identi\ufb01ed from externaldata and map them into a single vector within thehigh-dimensional word embedding.\u2022Text transformation and classi\ufb01cation. Finally,we transform text to be classi\ufb01ed into scalars rep-resenting their distance from the constructed hatevector and use these as input to a Random Forestclassi\ufb01er.Building a word embedding. At a high-level, a wordembedding maps words into a high-dimensional continu-ous vector space in such a way that semantic similaritiesbetween words are maintained. This mapping is achievedFigure 2: Proximity of offensive and non-offensive com-ments to the hate vector. Dimension reduction is per-formed using t-SNE.by exploiting the distributional properties of words andtheir occurrences in the input corpus.Rather than using an off-",
+            0.5177402079999993
+          ]
+        }
+      ],
+      "reference_answers": [
+        "stochastic gradient descent, naive bayes, decision tree",
+        "accuracy and F1-score of 89.6% and 89.2%, respectively accuracy and F1-score of 89.6% and 89.2%, respectively",
+        "US presidential primaries, Democratic and Republican National Conventions",
+        "Random Forest"
+      ]
+    },
+    "1801.02073.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.05014803360084404,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.5111111111111111,
+          "recall": 0.3645833333333333,
+          "f1": 0.3981087470449172
+        },
+        "rouge-2": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "rouge-L": {
+          "precision": 0.4888888888888889,
+          "recall": 0.3541666666666667,
+          "f1": 0.38392434988179663
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "Do they employ their indexing-based method to create a sample of a QA Wikipedia dataset?",
+          "generated_answer": "Yes",
+          "reference_answer": "Yes No",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            }
+          },
+          "bleu_score": 0.06541924356118012,
+          "exact_match": 0.0
+        },
+        {
+          "question": "How many question types do they find in the datasets analyzed?",
+          "generated_answer": "Seven question types.",
+          "reference_answer": "seven  7",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.3333333333333333,
+              "recall": 0.5,
+              "f1": 0.4
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.3333333333333333,
+              "recall": 0.5,
+              "f1": 0.4
+            }
+          },
+          "bleu_score": 0.08034284189446518,
+          "exact_match": 0.0
+        },
+        {
+          "question": "How do they analyze contextual similaries across datasets?",
+          "generated_answer": "The context does not provide specific details on how they analyze contextual similarities across datasets.",
+          "reference_answer": "They compare the tasks that the datasets are suitable for, average number of answer candidates per question, number of token types, average answer candidate lengths, average question lengths, question-answer word overlap.",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.2,
+              "recall": 0.09375,
+              "f1": 0.12765957446808512
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.13333333333333333,
+              "recall": 0.0625,
+              "f1": 0.0851063829787234
+            }
+          },
+          "bleu_score": 0.004682015346886826,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "Do they employ their indexing-based method to create a sample of a QA Wikipedia dataset?",
+        "How many question types do they find in the datasets analyzed?",
+        "How do they analyze contextual similaries across datasets?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "Yes",
+          "relevant_chunks": [
+            ", question types, and answercategories (Section 2). We then map questions in allcorpora to the current version of English Wikipediaand benchmark another selection-based QA task,answer retrieval (Section 3). Finally, we presentan extrinsic analysis through a set of experimentscross-testing these corpora using a convolutionalneural network architecture (Section 4).12 Intrinsic AnalysisFour publicly available corpora are selected for ouranalysis. These corpora are based on Wikipedia, somore comparable than the others, and have alreadybeen used for the evaluation of several QA systems.1All our resources are publicly available: anonymous_urlarXiv:1801.02073v2 [cs.CL] 5 Feb 2018WIKIQA SELQA SQUAD INFOBOX QASource Bing search queries Crowdsourced Crowdsourced CrowdsourcedYear 2015 2016 2016 2016(AE, AS, AT) (O, O, O) (X, O, O) (O, O, X) (X, O, X)(q,c,c/q) (1,242, 12,153, 9.79) (7,904, 95,250, 12.05)\n\n, Numeric for WIK-IQA and SELQA, Entity for SQUAD, and Personfor INFOBOX QA, which gives enough diversitiesfor statistical learning to build robust models.NumericPersonEntityDescriptionLocationAbbreviation0 10 20 30 40WikiQA SelQA SQuAD InfoboxQAFigure 2: Distributions of answer categories in %.2Our CNN model shows 95.20% accuracy on their test set.3 Answer RetrievalThis section describes another selection-based QAtask, called answer retrieval, that \ufb01nds the answercontext from a larger dataset, the entire Wikipedia.SQUAD provides no mapping of the answer con-texts to Wikipedia, whereas WIKI QA and SELQAprovide mappings; however, their data do not comefrom the same version of Wikipedia. We proposean automatic way of mapping the answer contextsfrom all corpora to the same version of Wikipeda3so they can be coherently used for answer retrieval.Each paragraph in Wikipedia is \ufb01rst indexed byLucene using {1,2,3}-grams, where the paragraphsare separated by WikiExtractor4 and segmented byNLP4J5 (28.7M+ paragraphs are indexed). Eachanswer sentence from the corpora in Table\n\nsections selected from theentire Wikipedia where the selection is made bythe Lucene search engine. This second dataset doesnot assume the existence of the answer context, socan be used for the evaluation of answer triggering.SQUAD (Rajpurkar et al., 2016) presents 107K+crowdsourced questions on 536 Wikipedia articles,where the answer contexts are guaranteed to existwithin the provided paragraph. It contains annota-tion of answer phrases as well as the pointers to thesentences including the answer phrases; thus, it canbe used for both answer extraction and selection.This corpus also provides human accuracy on thosequestions, setting up a reasonable upper bound formachines. To avoid over\ufb01tting, the evaluation setis not publicly available although system outputscan be evaluated by their provided script.INFOBOX QA (Morales et al., 2016) gives 15K+questions based on the infoboxes from 150 articlesin Wikipedia. Each question is crowdsourced andassociated with an infobox, where each line of theinfobox is considered an answer candidate. Thiscorpus emphasizes the gravity of infoboxes, which",
+            1.1412283749999972
+          ]
+        },
+        {
+          "answer": "Seven question types.",
+          "relevant_chunks": [
+            "6,870, 86.98) (100.00, 93,928, 95.61)k= (1,5,10,20) (4.39,12.47,16.59,22.39) (20.01,34.07,40.29,46.40) (19.90,35.08,40.96,46.74)Table 2: Statistics of the silver-standard dataset (\ufb01rst three rows) and the accuracies of answer retrieval in % (last row).\u03c1: robustness of the silver-standard in %, \u03b3c/p: #/% of retrieved silver-standard passages (coverage).although WIKI QA comes very close.Fig. 1 shows the distributions of seven questiontypes grouped deterministically from the lexicons.Although these corpora have been independentlydeveloped, a general trend is found, where thewhatquestion type dominates, followed byhow and who,followed by when and where, and so on.015304560What How Who When Where Which WhyWikiQA SelQA SQuAD InfoboxQAFigure 1: Distributions of question types in %.Fig. 2 shows the distributions of answer categoriesautomatically classi\ufb01ed by our Convolutional Neu-ral Network model trained on the data distributedby Li and Roth (2002).2 Interestingly, each corpusfocuses on different categories\n\n, question types, and answercategories (Section 2). We then map questions in allcorpora to the current version of English Wikipediaand benchmark another selection-based QA task,answer retrieval (Section 3). Finally, we presentan extrinsic analysis through a set of experimentscross-testing these corpora using a convolutionalneural network architecture (Section 4).12 Intrinsic AnalysisFour publicly available corpora are selected for ouranalysis. These corpora are based on Wikipedia, somore comparable than the others, and have alreadybeen used for the evaluation of several QA systems.1All our resources are publicly available: anonymous_urlarXiv:1801.02073v2 [cs.CL] 5 Feb 2018WIKIQA SELQA SQUAD INFOBOX QASource Bing search queries Crowdsourced Crowdsourced CrowdsourcedYear 2015 2016 2016 2016(AE, AS, AT) (O, O, O) (X, O, O) (O, O, X) (X, O, X)(q,c,c/q) (1,242, 12,153, 9.79) (7,904, 95,250, 12.05)\n\nsummary arguably the most commonly asked infor-mation about those articles. Although the nature ofthis corpus is different from the others, it can alsobe used to evaluate answer selection.AnalysisAll corpora provide datasets/splits for answer se-lection, whereas only ( WIKI QA, SQUAD) and(WIKI QA, SELQA) provide datasets for answerextraction and answer triggering, respectively.SQUAD is much larger in size although ques-tions in this corpus are often paraphrased multi-ple times. On the contrary, SQUAD\u2019s averagecandidates per question ( c/q) is the smallest be-cause SQUAD extracts answer candidates fromparagraphs whereas the others extract them fromsections or infoboxes that consist of bigger con-texts. Although INFOBOX QA is larger than WIK-IQA or SELQA, the number of token types (t) inINFOBOX QA is smaller than those two, due to therepetitive nature of infoboxes.All corpora show similar average answer candi-date lengths (\u00b5c), except for INFOBOX QA whereeach line in the infobox is considered a candidate.SELQA and SQUAD",
+            0.5442636249999993
+          ]
+        },
+        {
+          "answer": "The context does not provide specific details on how they analyze contextual similarities across datasets.",
+          "relevant_chunks": [
+            ". Our intrinsic analysis provides a betterunderstanding of the uniqueness or similarity be-tween these corpora. Our extrinsic analysis showsthe strength or weakness of combining these cor-pora together for statistical learning. Additionally,we create a silver-standard dataset for answer re-trieval and triggering, which will be publicly avail-able. In the future, we will explore different waysof improving the quality of our silver-standarddatasets by \ufb01ne-tuning the hyper-parameters.ReferencesMinwei Feng, Bing Xiang, Michael R. Glass, LidanWang, and Bowen Zhou. 2015. Applying DeepLearning to Answer Selection: A Study and AnOpen Task. In IEEE Workshop on Automatic SpeechRecognition and Understanding. pages 813\u2013820.Mohammad Javad Hosseini, Hannaneh Hajishirzi,Oren Etzioni, and Nate Kushman. 2014. Learningto solve arithmetic word problems with verb catego-rization. In Proceedings of the 2014 Conference onEmpirical Methods in Natural Language Processing(EMNLP). pages 523\u2013533.Sujay Kumar Jauhar, Peter Turney, and Eduard Hovy.2016. Tables as semi-structured knowledge\n\n.Rami Reddy Nandi Reddy and Sivaji Bandyopadhyay.2006. Dialogue based question answering system intelugu. In Proceedings of the Workshop on Multilin-gual Question Answering. Association for Computa-tional Linguistics, pages 53\u201360.Mrinmaya Sachan, Kumar Dubey, and Eric Xing. 2016.Science question answering using instructional ma-terials. In Proceedings of the 54th Annual Meet-ing of the Association for Computational Linguistics(Volume 2: Short Papers). Association for Computa-tional Linguistics, Berlin, Germany, pages 467\u2013473.http://anthology.aclweb.org/P16-2076.C\u00b4\u0131cero Nogueira dos Santos, Ming Tan, BingXiang, and Bowen Zhou. 2016. Attentivepooling networks. CoRR abs/1602.03609.http://arxiv.org/abs/1602.03609.Dan Shen and Dietrich Klakow. 2006. Exploring cor-relation of dependency relation paths for answer ex-traction. In Proceedings of the 21st InternationalConference on Computational Linguistics and the44th annual meeting of the Association for Compu-tational Linguistics. Association for ComputationalLinguistics, pages 889\u2013896.Md Arafat Sultan, Vittorio Castelli, and Radu Florian.2016. A joint model for answer sentence rankingand answer extraction. Transactions of the\n\nAnalysis of Wikipedia-based Corpora for Question AnsweringTomasz Jurczyk1, Amit Deshmane2, Jinho D. Choi11Mathematics and Computer Science, Emory University2Infosys Ltd.{tomasz.jurczyk,jinho.choi}@emory.eduamit deshmane@infosys.comAbstractThis paper gives comprehensive analysesof corpora based on Wikipedia for severaltasks in question answering. Four recentcorpora are collected, WIKI QA, SELQA,SQUAD, and INFOBOX QA, and \ufb01rst an-alyzed intrinsically by contextual similari-ties, question types, and answer categories.These corpora are then analyzed extrinsi-cally by three question answering tasks, an-swer retrieval, selection, and triggering. Anindexing-based method for the creation of asilver-standard dataset for answer retrievalusing the entire Wikipedia is also presented.Our analysis shows the uniqueness of thesecorpora and suggests a better use of themfor statistical question answering learning.1 IntroductionQuestion answering (QA) has been a blooming re-search \ufb01eld for the last decade. Selection-based QAimplies a family of tasks that \ufb01nd answer contextsfrom large data given questions in natural language.Three tasks have been proposed for selection-",
+            0.5976042089999964
+          ]
+        }
+      ],
+      "reference_answers": [
+        "Yes No",
+        "seven  7",
+        "They compare the tasks that the datasets are suitable for, average number of answer candidates per question, number of token types, average answer candidate lengths, average question lengths, question-answer word overlap."
+      ]
+    },
+    "1707.00995.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.261479052012592,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.45738636363636365,
+          "recall": 0.6785714285714286,
+          "f1": 0.45014245014245013
+        },
+        "rouge-2": {
+          "precision": 0.40172543135783945,
+          "recall": 0.5634920634920635,
+          "f1": 0.38169301376848547
+        },
+        "rouge-L": {
+          "precision": 0.44176136363636365,
+          "recall": 0.6071428571428572,
+          "f1": 0.4245014245014245
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "What misbehavior is identified?",
+          "generated_answer": "The misbehavior identified is that if the attention mechanism loses track of the objects in the picture and \"gets lost\", the model still takes it into account and somehow overrides the information brought by the text-based annotations, leading to a totally misleading translation.",
+          "reference_answer": "if the attention loose track of the objects in the picture and \"gets lost\", the model still takes it into account and somehow overrides the information brought by the text-based annotations if the attention loose track of the objects in the picture and \"gets lost\", the model still takes it into account and somehow overrides the information brought by the text-based annotations",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.7272727272727273,
+              "recall": 0.5,
+              "f1": 0.5925925925925926
+            },
+            "rouge-2": {
+              "precision": 0.6744186046511628,
+              "recall": 0.4603174603174603,
+              "f1": 0.5471698113207547
+            },
+            "rouge-L": {
+              "precision": 0.7272727272727273,
+              "recall": 0.5,
+              "f1": 0.5925925925925926
+            }
+          },
+          "bleu_score": 0.43054096584057955,
+          "exact_match": 0.0
+        },
+        {
+          "question": "Which attention mechanisms do they compare?",
+          "generated_answer": "The attention mechanisms compared in the provided context are soft attention, local attention, and stochastic attention. Additionally, variations such as soft attention + grounded image and stochastic attention + grounded image are also compared.",
+          "reference_answer": "Soft attention, Hard Stochastic attention, Local Attention",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.1875,
+              "recall": 0.8571428571428571,
+              "f1": 0.30769230769230765
+            },
+            "rouge-2": {
+              "precision": 0.12903225806451613,
+              "recall": 0.6666666666666666,
+              "f1": 0.2162162162162162
+            },
+            "rouge-L": {
+              "precision": 0.15625,
+              "recall": 0.7142857142857143,
+              "f1": 0.25641025641025644
+            }
+          },
+          "bleu_score": 0.09241713818460442,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "What misbehavior is identified?",
+        "Which attention mechanisms do they compare?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "The misbehavior identified is that if the attention mechanism loses track of the objects in the picture and \"gets lost\", the model still takes it into account and somehow overrides the information brought by the text-based annotations, leading to a totally misleading translation.",
+          "relevant_chunks": [
+            "relationships between objects andtime-dependencies. Yet, we noticed a commonmisbehavior for all our multimodal models: if theattention loose track of the objects in the pictureand \u201dgets lost\u201d, the model still takes it into accountand somehow overrides the information broughtby the text-based annotations. The translationis then totally mislead. We illustrate with anexample:Ref: Ein Kind sitzt auf den Schultern einerFrau und klatscht .Mono: Ein Kind sitzt auf den Schultern einerFrau und schl\u00a8aft .Soft: Ein Kind , das sich auf der Schulterneines Frau reitet , f\u00a8ahrt auf denSchultern .Hard: Ein Kind in der Haltung , w \u00a8ahrend erauf den Schultern einer Frau f\u00a8ahrt .The monomodal translation has a sentence-levelBLEU of 82.16 whilst the soft attention and hardstochastic attention scores are of 16.82 and 34.45respectively. Figure 8 shows the attention mapsfor both mechanism. Nevertheless, one has toconcede that the use of images indubitably helpsthe translation as shown in the score tabular.Figure 8: Wrong detection for both\n\nof our candidatetranslations with respect to the references. Themore recall-oriented metrics METEOR scoresModel Test ScoresBLEU\u2191 METEOR\u2191 TER\u2193Monomodal (text only)Caglayan et al. (2016) 32.50 49.2Calixto et al. (2017) 33.70 52.3 46.7NMT 34.11 \u2191+0.41 52.4 \u2191+0.1 46.2 \u2193-0.5MultimodalCaglayan et al. (2016) 27.82 45.0 -Huang et al. (2016) 36.50 54.1 -Calixto et al. (2017) 36.50 55.0 43.7Soft attention 37.10 \u2191+0.60 54.8 \u2193-0.2 42.8 \u2193-0.9Local attention 37.55 \u2191+1.05 54.8 \u2193-0.2 42.4 \u2193-1.3Stochastic attention 38.01 \u2191+1.51 55.4 \u2191+0.4 41.5 \u2193-2.2Soft attention + grounded image 37.62 \u2191+1.12 55.3 \u2191+0.3 41.8 \u2193-1.9Stochastic attention + grounded image 38.17 \u2191+1.67 55.4 \u2191+0.4 41.5 \u2193-2.2Table 1: Results on the 1000 test triples of the Multi30K dataset. We pick Calixto et al. (2017) scoresas baseline and report our results accordingly (green for improvement and red for deterioration). In eachof our experiments, Soft attention is used for text. The comparison is hence with respect to the attentionmechanism used for the\n\nthe removal of unnec-essary information in the image annotations ac-cording to the source sentence. This attention isused on top of the others - before decoding - andis referred as \u201dgrounded image\u201d in Table 1.5 ExperimentsFor this experiments on Multimodal MachineTranslation, we used the Multi30K dataset (Elliottet al., 2016) which is an extended version of theFlickr30K Entities. For each image, one of theEnglish descriptions was selected and manuallytranslated into German by a professional transla-tor. As training and development data, 29,000 and1,014 triples are used respectively. A test set ofsize 1000 is used for metrics evaluation.5.1 Training and model detailsAll our models are build on top of the nematusframework (Sennrich et al., 2017). The encoderis a bidirectional RNN with GRU, one 1024Dsingle-layer forward and one 1024D single-layerbackward RNN. Word embeddings for source andtarget language are of 620D and trained jointlywith the model. Word embeddings and othernon-recurrent matrices are",
+            0.8175832919999948
+          ]
+        },
+        {
+          "answer": "The attention mechanisms compared in the provided context are soft attention, local attention, and stochastic attention. Additionally, variations such as soft attention + grounded image and stochastic attention + grounded image are also compared.",
+          "relevant_chunks": [
+            "of our candidatetranslations with respect to the references. Themore recall-oriented metrics METEOR scoresModel Test ScoresBLEU\u2191 METEOR\u2191 TER\u2193Monomodal (text only)Caglayan et al. (2016) 32.50 49.2Calixto et al. (2017) 33.70 52.3 46.7NMT 34.11 \u2191+0.41 52.4 \u2191+0.1 46.2 \u2193-0.5MultimodalCaglayan et al. (2016) 27.82 45.0 -Huang et al. (2016) 36.50 54.1 -Calixto et al. (2017) 36.50 55.0 43.7Soft attention 37.10 \u2191+0.60 54.8 \u2193-0.2 42.8 \u2193-0.9Local attention 37.55 \u2191+1.05 54.8 \u2193-0.2 42.4 \u2193-1.3Stochastic attention 38.01 \u2191+1.51 55.4 \u2191+0.4 41.5 \u2193-2.2Soft attention + grounded image 37.62 \u2191+1.12 55.3 \u2191+0.3 41.8 \u2193-1.9Stochastic attention + grounded image 38.17 \u2191+1.67 55.4 \u2191+0.4 41.5 \u2193-2.2Table 1: Results on the 1000 test triples of the Multi30K dataset. We pick Calixto et al. (2017) scoresas baseline and report our results accordingly (green for improvement and red for deterioration). In eachof our experiments, Soft attention is used for text. The comparison is hence with respect to the attentionmechanism used for the\n\nimage modality.are roughly the same across our models which isexpected because all attention mechanisms sharethe same subsequent step at every time-step t,i.e. taking into account the attention weights ofprevious time-step t\u22121 in order to compute thenew intermediate hidden state proposal and there-fore the new context vector it. Again, the largestimprovement is given by the hard stochasticattention mechanism (+0.4 METEOR): because itis modeled as a decision process according to theprevious choices, this may reinforce the idea ofrecall. We also remark interesting improvementswhen using the grounded mechanism, especiallyfor the soft attention. The soft attention maybene\ufb01t more of the grounded image because ofthe wide range of spatial locations it looks at,especially compared to the stochastic attention.This motivates us to dig into more complexgrounding techniques in order to give the machinea deeper understanding of the modalities.Note that even though our baseline NMTmodel is basically the same as Calixto et al.(2017), our experiments results are slightly better.This is probably\n\nfor ourexperiments and describe it in section 5.3 Attention-based ModelsWe evaluate three models of the image attentionmechanism f\u2032att of equation 7. They have in com-mon the fact that at each time step t of the de-coding phase, all approaches \ufb01rst take as input theannotation sequence I to derive a time-dependentcontext vector that contain relevant informationin the image to help predict the current targetword yt. Even though these models differ in howthe time-dependent context vector is derived, theyshare the same subsequent steps. For each mech-anism, we propose two hand-picked illustrationsshowing where the attention is placed in an image.3.1 Soft attentionSoft attention has \ufb01rstly been used for syntacticconstituency parsing by Vinyals et al. (2015) buthas been widely used for translation tasks eversince. One should note that it slightly differsfrom Bahdanau et al. (2014) where their attentiontakes as input the previous decoder hidden stateinstead of the current (intermediate) one as shownin equation 7.",
+            0.42113570800000133
+          ]
+        }
+      ],
+      "reference_answers": [
+        "if the attention loose track of the objects in the picture and \"gets lost\", the model still takes it into account and somehow overrides the information brought by the text-based annotations if the attention loose track of the objects in the picture and \"gets lost\", the model still takes it into account and somehow overrides the information brought by the text-based annotations",
+        "Soft attention, Hard Stochastic attention, Local Attention"
+      ]
+    },
+    "1707.00110.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.012404207500850912,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.15,
+          "recall": 0.1875,
+          "f1": 0.16666666666666663
+        },
+        "rouge-2": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "rouge-L": {
+          "precision": 0.1,
+          "recall": 0.125,
+          "f1": 0.11111111111111112
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "Which baseline methods are used?",
+          "generated_answer": "The baseline methods used are models with and without attention.",
+          "reference_answer": "standard parametrized attention and a non-attention baseline",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.3,
+              "recall": 0.375,
+              "f1": 0.33333333333333326
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.2,
+              "recall": 0.25,
+              "f1": 0.22222222222222224
+            }
+          },
+          "bleu_score": 0.024808415001701823,
+          "exact_match": 0.0
+        },
+        {
+          "question": "Which datasets are used in experiments?",
+          "generated_answer": "The context does not specify the names of the specific datasets used in the experiments.",
+          "reference_answer": "Sequence Copy Task and WMT'17",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "bleu_score": 0,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "Which baseline methods are used?",
+        "Which datasets are used in experiments?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "The baseline methods used are models with and without attention.",
+          "relevant_chunks": [
+            "learning rate of 0.0001 and batch size 128. We trainfor at most 200,000 steps (see Figure 3 for samplelearning curves). BLEU scores are calculated ontokenized data using themulti-bleu.perlscript inMoses.4 We decode using beam search with a beam3http://github.com/google/seq2seq4http://github.com/moses-smt/mosesdecoderLength Model BLEU Time (s)20 No Att 99.93 2.03K=1 99.52 2.12K=4 99.56 2.25K=16 99.56 2.21K=32 99.57 2.59K=64 99.75 2.86Att 99.98 2.8650 No Att 97.37 3.90K=1 98.86 4.33K=4 99.95 4.48K=16 99.96 4.58K=32 99.96 5.35K=64 99.97 5.84Att 99.94 6.46100 No Att 73.99 6.33K=1 87.42 7.32K=4 99.81 7.47K=16 99.97 7.50K=32 99.99 7.65K=64 100.00 7.77Att 100.00 11.00200 No Att 32.64 9.10K=1 44.22 9.30K=4 98.54 9.49K=16 99.98 9.53K=32 100.00 9.59K=64 100.00 9.78Att 100.00 14.28Table 1: BLEU scores and computation times withvaryingKand sequence length compared to baselinemodels with and without attention.size of 10 (Wiseman and Rush, 2016).4.1.2 ResultsTable 1 shows the BLEU scores of our model on differ-ent sequence lengths while varyingK. This is a study\n\noff betweenspeed and performance, we compare our techniqueto standard models with and without attention on aSequence Copy Task of varying length like in Graveset al. (2014). We generated 4 training datasets of100,000 examples and a validation dataset of 1,000 ex-amples. The vocabulary size was 20. For each dataset,the sequences had lengths randomly chosen between 0to L, forL\u2208{10,50,100,200}unique to each dataset.4.1.1 Training SetupAll models are implemented using TensorFlowbased on the seq2seq implementation of Britz et al.(2017)3 and trained on a single machine with aNvidia K40m GPU. We use a 2-layer 256-unit, abidirectional LSTM (Hochreiter and Schmidhuber,1997) encoder, a 2-layer 256-unit LSTM decoder,and 256-dimensional embeddings. For the attentionbaseline, we use the standard parametrized attention(Bahdanau et al., 2014). Dropout of 0.2 (0.8 keepprobability) is applied to the input of each cell andwe optimize using Adam (Kingma and Ba, 2014) ata\n\nsome converge fasterthan others. In section 5 we show that distinct align-ments are learned by different function combinations.4.2 Machine TranslationNext, we explore if the memory-based attentionmechanism is able to fit complex real-world datasets.For this purpose we use 4 large machine translationdatasets of WMT\u2019175 on the following languagepairs: English-Czech (en-cs, 52M examples), English-German (en-de, 5.9M examples), English-Finish(en-fi, 2.6M examples), and English-Turkish (en-tr,207,373 examples). We used the newly available pre-5statmt.org/wmt17/translation-task.htmlprocessed datasets for the WMT\u201917 task.6 Note thatour scores may not be directly comparable to otherwork that performs their own data pre-processing. Welearn shared vocabularies of 16,000 subword unitsusing the BPE algorithm (Sennrich et al., 2016).We use newstest2015 as a validation set, and reportBLEU on newstest2016.4.2.1 Training SetupWe use a similar setup to the Toy Copy task, butuse",
+            0.4486260420000008
+          ]
+        },
+        {
+          "answer": "The context does not specify the names of the specific datasets used in the experiments.",
+          "relevant_chunks": [
+            "off betweenspeed and performance, we compare our techniqueto standard models with and without attention on aSequence Copy Task of varying length like in Graveset al. (2014). We generated 4 training datasets of100,000 examples and a validation dataset of 1,000 ex-amples. The vocabulary size was 20. For each dataset,the sequences had lengths randomly chosen between 0to L, forL\u2208{10,50,100,200}unique to each dataset.4.1.1 Training SetupAll models are implemented using TensorFlowbased on the seq2seq implementation of Britz et al.(2017)3 and trained on a single machine with aNvidia K40m GPU. We use a 2-layer 256-unit, abidirectional LSTM (Hochreiter and Schmidhuber,1997) encoder, a 2-layer 256-unit LSTM decoder,and 256-dimensional embeddings. For the attentionbaseline, we use the standard parametrized attention(Bahdanau et al., 2014). Dropout of 0.2 (0.8 keepprobability) is applied to the input of each cell andwe optimize using Adam (Kingma and Ba, 2014) ata\n\n-de validation set (2169 examples) with averagesequence length of 35. Results are similar for bothPE and non-PE models.vocabulary of 16k. We measured decoding time overthe full validation set, not including time used formodel setup and data loading, averaged across 10 runs.The average sequence length for examples in this datawas 35, and we expect more significant speedupsfor tasks with longer sequences, as suggested by ourexperiments on toy data. Note that in our NMT ex-amples/experiments,K\u2248T, but we obtain computa-tional savings from the fact thatK\u226aD. We may beable to setK\u226aT, as in toy copying, and still get verygood performance in other tasks. For instance, in sum-marization the source is complex but the representa-tion of the source required to perform the task is \u201dsim-ple\u201d (i.e. all that is needed to generate the abstract).Figure 5 shows the effect of using sigmoid andsoftmax function in the encoders and decoders. Wefound that softmax/softmax consistently performsbadly,\n\ntrFigure 4: Comparing training curves for en-fi and en-tr with sigmoid encoder scoring and softmax decoderscoring and position encoding. Note that en-tr curves converged very quickly.Model Dataset K en-cs en-de en-fi en-trMemory Attention Test 32 19.37 28.82 15.87 -64 19.65 29.53 16.49 -V alid 32 19.20 26.20 15.90 12.9464 19.63 26.39 16.35 13.06Memory Attention + PETest 32 19.45 29.53 15.86 -64 20.36 30.61 17.03 -V alid 32 19.35 26.22 16.31 12.9764 19.73 27.31 16.91 13.25Attention Test - 19.19 30.99 17.34 -V alid - 18.61 28.13 17.16 13.76Table 2: BLEU scores on WMT\u201917 translation datasets from the memory attention models and regular attentionbaselines. We picked the best out of the four scoring function combinations on the validation set. Note thaten-tr does not have an official test set. Best test scores on each dataset are highlighted.Model Decoding Time (s)K=32 26.85K=64 27.13Attention 33.28Table 3: Decoding time, averaged across 10 runs, forthe en",
+            0.9760328340000015
+          ]
+        }
+      ],
+      "reference_answers": [
+        "standard parametrized attention and a non-attention baseline",
+        "Sequence Copy Task and WMT'17"
+      ]
+    },
+    "1706.09673.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.008008589809089348,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.06885753450557762,
+          "recall": 0.4159420289855073,
+          "f1": 0.1156084656084656
+        },
+        "rouge-2": {
+          "precision": 0.004115226337448559,
+          "recall": 0.015151515151515152,
+          "f1": 0.006472491909385113
+        },
+        "rouge-L": {
+          "precision": 0.0607274532047646,
+          "recall": 0.3869565217391304,
+          "f1": 0.1029100529100529
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "Which dataset do they use?",
+          "generated_answer": "The context mentions the \"Twitter Paraphrase Corpus (Xu et al., 2014)\" as a structural resource from Twitter that could be interesting to see the effectiveness of models when directly trained on. This suggests that the Twitter Paraphrase Corpus is the dataset referred to.",
+          "reference_answer": " Paraphrase Database (PPDB) ,  book corpus",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.046511627906976744,
+              "recall": 0.4,
+              "f1": 0.08333333333333333
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.046511627906976744,
+              "recall": 0.4,
+              "f1": 0.08333333333333333
+            }
+          },
+          "bleu_score": 0.005484236895303142,
+          "exact_match": 0.0
+        },
+        {
+          "question": "Do they evaluate their learned representations on downstream tasks?",
+          "generated_answer": "No, the main drawback mentioned is that they fail to correlate their study with downstream applications.",
+          "reference_answer": "No No",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.0625,
+              "recall": 0.5,
+              "f1": 0.1111111111111111
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.0625,
+              "recall": 0.5,
+              "f1": 0.1111111111111111
+            }
+          },
+          "bleu_score": 0.010802314890908065,
+          "exact_match": 0.0
+        },
+        {
+          "question": "How do they encourage understanding of literature as part of their objective function?",
+          "generated_answer": "The provided context does not specifically mention how the understanding of literature is encouraged as part of their objective function. The focus is mostly on the development of deep models for maximizing the relevance of clicked documents given a query, the comparison of compositional architectures for tweet representation, and the exploration of various applications in natural language processing. Therefore, based on the given context, I cannot find an answer related to encouraging the understanding of literature as part of their objective function.",
+          "reference_answer": "They group the existing works in terms of the objective function they optimize - within-tweet relationships, inter-tweet relationships, autoencoder, and weak supervision.",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.0975609756097561,
+              "recall": 0.34782608695652173,
+              "f1": 0.1523809523809524
+            },
+            "rouge-2": {
+              "precision": 0.012345679012345678,
+              "recall": 0.045454545454545456,
+              "f1": 0.019417475728155338
+            },
+            "rouge-L": {
+              "precision": 0.07317073170731707,
+              "recall": 0.2608695652173913,
+              "f1": 0.11428571428571427
+            }
+          },
+          "bleu_score": 0.0077392176410568374,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "Which dataset do they use?",
+        "Do they evaluate their learned representations on downstream tasks?",
+        "How do they encourage understanding of literature as part of their objective function?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "The context mentions the \"Twitter Paraphrase Corpus (Xu et al., 2014)\" as a structural resource from Twitter that could be interesting to see the effectiveness of models when directly trained on. This suggests that the Twitter Paraphrase Corpus is the dataset referred to.",
+          "relevant_chunks": [
+            "Vasudeva Varma. 2016.Interpreting the syntactic and social elements of thetweet representations via elementary property pre-diction tasks. CoRR abs/1611.04887.J Ganesh, Manish Gupta, and Vasudeva Varma. 2017.Improving tweet representations using temporal anduser context. In Advances in Information Retrieval- 39th European Conference on IR Research, ECIR.pages 575\u2013581.Juri Ganitkevitch, Benjamin Van Durme, and ChrisCallison-Burch. 2013. PPDB: the paraphrasedatabase. In Proc. of conf. of the North AmericanChapter of the Association of Computational Lin-guistics. pages 758\u2013764.Anastasia Giachanou and Fabio Crestani. 2016. Likeit or not: A Survey of Twitter Sentiment Anal-ysis Methods. ACM Computing Surveys (CSUR)49(2):28.Zellig S Harris. 1954. Distributional Structure. Word10(2-3):146\u2013162.Felix Hill, Kyunghyun Cho, and Anna Korhonen. 2016.Learning Distributed Representations of Sentencesfrom Unlabelled Data. In Proc. of the Conf. ofthe North American Chapter of the Association forComputational Linguistics: Human Language Tech-nologies. pages 1367\u20131377.Po\n\nfor several downstream applica-tions (Wieting et al., 2016a,b). We believea theoretical understanding of why word av-eraging models perform well can help in em-bracing these models by linguists.\u2022 Models in (Wieting et al., 2016a,b) learnfrom noisy phrase pairs of PPDB. Note thatthe source of the underlying texts is com-pletely different from Twitter. It can be inter-esting to see the effectiveness of such mod-els when directly trained on structural re-sources from Twitter like Twitter ParaphraseCorpus (Xu et al., 2014). The main challengewith this approach is the small size of the an-notated Twitter resources, which can encour-age models like (Arora et al., 2017) that workwell even when the training data is scarce ornonexistent.\u2022 Tweets mostly have an accompanying im-age which sometimes has visual correspon-dence with its textual content (Chen et al.,1https://www.microsoft.com/en-us/research/project/dssm/2http://trec.nist.gov/2013; Wang et al., 2014) (\u2018visual\u2019 tweet)\n\n. on Statistical Language and Speech Process-ing. pages 1\u201337.Yoshua Bengio, Aaron C. Courville, and Pascal Vin-cent. 2013b. Representation Learning: A Reviewand New Perspectives. IEEE Transactions on Pat-tern Analysis and Machine Intelligence 35(8):1798\u20131828.David M. Blei, Andrew Y . Ng, and Michael I. Jordan.2003. Latent Dirichlet Allocation. Journal of Ma-chine Learning Research 3:993\u20131022.Tao Chen, Dongyuan Lu, Min-Yen Kan, and Peng Cui.2013. Understanding and classifying image tweets.In ACM Multimedia Conference, MM \u201913 . pages781\u2013784.Bhuwan Dhingra, Zhong Zhou, Dylan Fitzpatrick,Michael Muehl, and William W. Cohen. 2016.Tweet2Vec: Character-Based Distributed Represen-tations for Social Media. In Proc. of the 54th An-nual Meeting of the Association for ComputationalLinguistics.C\u00b4\u0131cero Nogueira dos Santos and Maira Gatti. 2014.Deep convolutional neural networks for sentimentanalysis of short texts. In 25th Intl. Conf. on Com-putational Linguistics. pages 69\u201378.J Ganesh, Manish Gupta, and",
+            0.42425120800000116
+          ]
+        },
+        {
+          "answer": "No, the main drawback mentioned is that they fail to correlate their study with downstream applications.",
+          "relevant_chunks": [
+            "sentiment analysis (Ren et al., 2016;Giachanou and Crestani, 2016), hashtag predic-tion (Dhingra et al., 2016), paraphrase detec-tion (V osoughi et al., 2016) and microblog rank-ing (Huang et al., 2013; Shen et al., 2014). How-ever, tweets are dif\ufb01cult to model as they poseseveral challenges such as short length, informalwords, unusual grammar and misspellings. Re-cently, researchers are focusing on leveraging un-supervised representation learning methods basedon neural networks to solve this problem. Oncethese representations are learned, we can use off-the-shelf predictors taking the representation as in-put to solve the downstream task (Bengio, 2013a;Bengio et al., 2013b). These methods enjoy sev-eral advantages: (1) they are cheaper to train, asthey work with unlabelled data, (2) they reduce thedependence on domain level experts, and (3) theyare highly effective across multiple applications,in practice.Despite this,\n\na given tweet representation en-codes the elementary property (like slangwords, hashtags, mentions, etc). The maindrawback of the work is that they fail to cor-relate their study with downstream applica-tions. We believe performing such a correla-tion study can clearly highlight the set of el-ementary features behind the performance ofa particular representation model over otherfor a given downstream task.4 ConclusionIn this work we study the problem of learningunsupervised tweet representations. We believeour survey of the existing works based on the ob-jective function can give vital perspectives to re-searchers and aid their understanding of the \ufb01eld.We also believe the future research directions stud-ied in this work can help in breaking the barriers inbuilding high quality, general purpose tweet repre-sentation models.ReferencesSanjeev Arora, Yingyu Liang, and Tengyu Ma. 2017.A simple but tough-to-beat baseline for sentence em-beddings. CoRR .Yoshua Bengio. 2013a. Deep Learning of Represen-tations: Looking Forward. In Proc. of the 1st Intl.Conf\n\n-level senses of tweets to compute betterrepresentations. Both the discussed works havethe following characteristics: (1) they use a shal-low architecture, which enables fast training, (2)computing representations for test tweets requirescomputing gradients, which is time-consuming forreal-time Twitter applications, and (3) most impor-tantly, they fail to exploit textual information fromrelated tweets that can bear salient semantic sig-nals.2.2 Modeling inter-tweet relationshipsMotivation: To capture rich tweet semantics,researchers are attempting to exploit a type ofsentence-level Distributional Hypothesis (Harris,1954; Polajnar et al., 2015). The idea is to infer thetweet representation from the content of adjacenttweets in a related stream like users\u2019 Twitter time-line, topical, retweet and conversational stream.This approach signi\ufb01cantly alleviates the contextinsuf\ufb01ciency problem caused due to the ambigu-ous and short nature of tweets (Ren et al., 2016;Ganesh et al., 2017).Models: Skip-thought vectors (Kiros et al",
+            0.4790465000000097
+          ]
+        },
+        {
+          "answer": "The provided context does not specifically mention how the understanding of literature is encouraged as part of their objective function. The focus is mostly on the development of deep models for maximizing the relevance of clicked documents given a query, the comparison of compositional architectures for tweet representation, and the exploration of various applications in natural language processing. Therefore, based on the given context, I cannot find an answer related to encouraging the understanding of literature as part of their objective function.",
+          "relevant_chunks": [
+            "et al., 2014)propose a family of deep models that aretrained to maximize the relevance of clickeddocuments given a query. Such a ranking lossfunction helps the model cater to a wide vari-ety of applications1 such as web search rank-ing, ad selection/relevance, question answer-ing, knowledge inference and machine trans-lation. We observe such a loss function hasnot been explored for building unsupervisedtweet representations. We believe employinga ranking loss directly on tweets using a largescale microblog dataset 2 can result in repre-sentations which can be useful to Twitter ap-plications beyond those studied in the tweetrepresentation learning literature.\u2022 Linguists assume that language is best un-derstood as a hierarchical tree of phrases,rather than a \ufb02at sequence of words or charac-ters. It\u2019s dif\ufb01cult to get the syntactic trees fortweets as most of them are not grammaticallycorrect. The average of word vectors modelhas the most simplest compositional archi-tecture with no additional parameters, yetdisplays a strong performance outperformingcomplex architectures such as CNN, LSTMand so on\n\nNatural Language Processing. pages 1822\u20131827.John Wieting, Mohit Bansal, Kevin Gimpel, and KarenLivescu. 2016a. Charagram: Embedding words andsentences via character n-grams. In Proc. of the2016 Conference on Empirical Methods in NaturalLanguage Processing, EMNLP. pages 1504\u20131515.John Wieting, Mohit Bansal, Kevin Gimpel, and KarenLivescu. 2016b. Towards universal paraphrasticsentence embeddings. CoRR abs/1511.08198.Wei Xu, Alan Ritter, Chris Callison-Burch, William B.Dolan, and Yangfeng Ji. 2014. Extracting lexicallydivergent paraphrases from twitter. TACL 2:435\u2013448.Yukun Zhu, Ryan Kiros, Richard S. Zemel, RuslanSalakhutdinov, Raquel Urtasun, Antonio Torralba,and Sanja Fidler. 2015. Aligning books and movies:Towards story-like visual explanations by watchingmovies and reading books. In IEEE Intl. Conf. onComputer Vision, ICCV. pages 19\u201327.\n\nVasudeva Varma. 2016.Interpreting the syntactic and social elements of thetweet representations via elementary property pre-diction tasks. CoRR abs/1611.04887.J Ganesh, Manish Gupta, and Vasudeva Varma. 2017.Improving tweet representations using temporal anduser context. In Advances in Information Retrieval- 39th European Conference on IR Research, ECIR.pages 575\u2013581.Juri Ganitkevitch, Benjamin Van Durme, and ChrisCallison-Burch. 2013. PPDB: the paraphrasedatabase. In Proc. of conf. of the North AmericanChapter of the Association of Computational Lin-guistics. pages 758\u2013764.Anastasia Giachanou and Fabio Crestani. 2016. Likeit or not: A Survey of Twitter Sentiment Anal-ysis Methods. ACM Computing Surveys (CSUR)49(2):28.Zellig S Harris. 1954. Distributional Structure. Word10(2-3):146\u2013162.Felix Hill, Kyunghyun Cho, and Anna Korhonen. 2016.Learning Distributed Representations of Sentencesfrom Unlabelled Data. In Proc. of the Conf. ofthe North American Chapter of the Association forComputational Linguistics: Human Language Tech-nologies. pages 1367\u20131377.Po",
+            0.39799974999999677
+          ]
+        }
+      ],
+      "reference_answers": [
+        " Paraphrase Database (PPDB) ,  book corpus",
+        "No No",
+        "They group the existing works in terms of the objective function they optimize - within-tweet relationships, inter-tweet relationships, autoencoder, and weak supervision."
+      ]
+    },
+    "1706.08198.pdf": {
+      "average_exact_match": 0.0,
+      "average_bleu_score": 0.19941029595532586,
+      "average_rouge_scores": {
+        "rouge-1": {
+          "precision": 0.40625,
+          "recall": 0.5119047619047619,
+          "f1": 0.39729729729729735
+        },
+        "rouge-2": {
+          "precision": 0.26666666666666666,
+          "recall": 0.2,
+          "f1": 0.2285714285714286
+        },
+        "rouge-L": {
+          "precision": 0.375,
+          "recall": 0.4880952380952381,
+          "f1": 0.37027027027027026
+        }
+      },
+      "per_question_metrics": [
+        {
+          "question": "Is pre-training effective in their evaluation?",
+          "generated_answer": "Yes, pre-training is effective in their evaluation.",
+          "reference_answer": "Yes Yes",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.125,
+              "recall": 0.5,
+              "f1": 0.2
+            },
+            "rouge-2": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "rouge-L": {
+              "precision": 0.125,
+              "recall": 0.5,
+              "f1": 0.2
+            }
+          },
+          "bleu_score": 0.023980296761827107,
+          "exact_match": 0.0
+        },
+        {
+          "question": "What parallel corpus did they use?",
+          "generated_answer": "They used two parallel corpora: Asian Scientific Paper Excerpt Corpus (ASPEC) and NTCIR PatentMT Parallel Corpus.",
+          "reference_answer": "Asian Scientific Paper Excerpt Corpus (ASPEC) BIBREF0, NTCIR PatentMT Parallel Corpus BIBREF1 Asian Scientific Paper Excerpt Corpus, NTCIR PatentMT Parallel Corpus ",
+          "rouge_scores": {
+            "rouge-1": {
+              "precision": 0.6875,
+              "recall": 0.5238095238095238,
+              "f1": 0.5945945945945946
+            },
+            "rouge-2": {
+              "precision": 0.5333333333333333,
+              "recall": 0.4,
+              "f1": 0.4571428571428572
+            },
+            "rouge-L": {
+              "precision": 0.625,
+              "recall": 0.47619047619047616,
+              "f1": 0.5405405405405405
+            }
+          },
+          "bleu_score": 0.3748402951488246,
+          "exact_match": 0.0
+        }
+      ],
+      "questions": [
+        "Is pre-training effective in their evaluation?",
+        "What parallel corpus did they use?"
+      ],
+      "generated_answers": [
+        {
+          "answer": "Yes, pre-training is effective in their evaluation.",
+          "relevant_chunks": [
+            "translationtask.In addition, we jointly train a model of for-ward translation and back-translation without pre-training, and then evaluate this model. As a re-sult, the encoder-decoder-reconstructor can not betrained well without pre-training, so it proves thatwe have to train the forward translation model in amanner similar to the conventional attention-basedNMT as pre-training.The main contributions of this paper are as fol-lows:\u2022Experimental results show that encode-decoder-reconstructor framework achievessigni\ufb01cant improvements in BLEU scores(1.0-1.4) for English-Japanese translationtask.\u2022Experimental results show that encode-decoder-reconstructor framework has to trainthe forward translation model in a mannersimilar to the conventional attention-basedNMT as pre-training.2 Related WorksSeveral studies have addressed the NMT-speci\ufb01cproblem of missing or repeating words. Niehueset al. (2016) optimized NMT by adding the out-puts of PBSMT to the input of NMT. Mi et al.(2016) and Feng et al.\n\nthat encoder-decoder-reconstructorachieves reduction of repeating and missing wordswhile maintaining the quality of translation.6 ConclusionIn this paper, we evaluated the encoder-decoder-reconstructor on English-Japanese and Japanese-English translation tasks. In addition, we evaluatethe effectiveness of pre-training by comparing itwith a jointly-trained model of forward translationand back-translation. Experimental results showthat the encoder-decoder-reconstructor offers sig-ni\ufb01cant improvement in BLEU scores and allevi-ates the problem of repeating and missing wordsin the translation on English-Japanese translationtask, and the encoder-decoder-reconstructor cannot be trained well without pre-training, so itproves that we have to train the forward transla-tion model in a manner similar to the conventionalattention-based NMT as pre-training.ReferencesDzmitry Bahdanau, Kyunghyun Cho, and Yoshua Ben-gio. 2015. Neural Machine Translation by JointlyLearning to Align and Translate. Proceedings ofthe 3rd International Conference on Learning Rep-resentations (ICLR), pages 1\u201315.Kyunghyun Cho, Bart\n\nTraining) 29.04 - 252Table 2: English-Japanese translation results.Japanese-EnglishCorpus Model BLEU p-value HoursBaseline-NMT 21.91 - 87ASPEC +Reconstructor 22.27 0.10 127+Reconstructor (Jointly-Training) 16.29 - 187Baseline-NMT 29.48 - 180NTCIR +Reconstructor 29.73 0.11 244+Reconstructor (Jointly-Training) 28.95 - 300Table 3: Japanese-English translation results.and its weight \u03b1\u2032ij is a normalized probability dis-tribution. It is computed by\u03b1\u2032ij =exp(e\u2032ij)\u2211|y|k=1 exp(e\u2032ik)(14)ande\u2032ij = v\u2032a\u22a4tanh(W\u2032as\u2032i\u22121 + U\u2032asj) (15)where v\u2032a is a weight vector and W\u2032a and U\u2032a areweight matrices.The objective function is de\ufb01ned byL(\u03b8,\u03b3) = 1N\u2211Nn=1{ |y|\u2211i=1log p(\u02c6y(n)i |y(n)<i ,x(n),\u03b8)+ \u03bb|x|\u2211i=1log p(\u02c6x(n)i |x(n)<i ,s(n),\u03b3)}(16)where N is the number of data, \u03b8and \u03b3are modelparameters and",
+            0.38322820800000557
+          ]
+        },
+        {
+          "answer": "They used two parallel corpora: Asian Scientific Paper Excerpt Corpus (ASPEC) and NTCIR PatentMT Parallel Corpus.",
+          "relevant_chunks": [
+            "\u4e0a \u4e0a\u306e \u306e \u306e\u3082\u306e\u3067\u306f\u3054\u304f\u308f\u305a\u304b\u3067\u3042\u3063\u305f \u3002Table 4: Examples of outputs of English-Japanese translation.5.1 DatasetsWe used two parallel corpora: Asian Scien-ti\ufb01c Paper Excerpt Corpus (ASPEC) (Nakazawaet al., 2016) and NTCIR PatentMT Parallel Corpus(Goto et al., 2013). Regarding the training data ofASPEC, we used only the \ufb01rst 1 million sentencessorted by sentence-alignment similarity. Japanesesentences were segmented by the morphologicalanalyzer MeCab (version 0.996, IPADIC), and En-glish sentences were tokenized by tokenizer.perlof Moses. Table 1 shows the numbers of the sen-tences in each corpus. Note that sentences withmore than 40 words were excluded from the train-ing data.5.2 ModelsWe used the attention-based NMT (Bahdanauet al., 2015) as a baseline-NMT, the encoder-decoder-reconstructor (Tu et al., 2017) and theencoder-decoder-reconstructor that jointly trainedforward translation and back-translation withoutpre-training. The RNN used in the experi-ments had\n\nTraining) 29.04 - 252Table 2: English-Japanese translation results.Japanese-EnglishCorpus Model BLEU p-value HoursBaseline-NMT 21.91 - 87ASPEC +Reconstructor 22.27 0.10 127+Reconstructor (Jointly-Training) 16.29 - 187Baseline-NMT 29.48 - 180NTCIR +Reconstructor 29.73 0.11 244+Reconstructor (Jointly-Training) 28.95 - 300Table 3: Japanese-English translation results.and its weight \u03b1\u2032ij is a normalized probability dis-tribution. It is computed by\u03b1\u2032ij =exp(e\u2032ij)\u2211|y|k=1 exp(e\u2032ik)(14)ande\u2032ij = v\u2032a\u22a4tanh(W\u2032as\u2032i\u22121 + U\u2032asj) (15)where v\u2032a is a weight vector and W\u2032a and U\u2032a areweight matrices.The objective function is de\ufb01ned byL(\u03b8,\u03b3) = 1N\u2211Nn=1{ |y|\u2211i=1log p(\u02c6y(n)i |y(n)<i ,x(n),\u03b8)+ \u03bb|x|\u2211i=1log p(\u02c6x(n)i |x(n)<i ,s(n),\u03b3)}(16)where N is the number of data, \u03b8and \u03b3are modelparameters and\n\nii) (iii)Baseline-NMT 1,141 378 1,045 951 494 1,085ASPEC +Reconstructor 988 336 1,042 836 418 1,014+Reconstructor (Jointly-Training) 1,292 446 1,147 1,106 525 1,821Baseline-NMT 2,122 1,015 1,106 2,521 1,073 1,630NTCIR +Reconstructor 1,958 922 963 2,187 987 1,422+Reconstructor (Jointly-Training) 1,978 916 1,078 2,475 1,107 1,610Table 5: Numbers of redundant and unknown word tokens.of encoder-decoder-reconstructor almost correctlyattends input words.Table 5 shows a comparison of the number ofword occurrences for each corpus and model. Thecolumns show (i) the number of words that ap-pear more frequently than the counterparts in thereference, and (ii) the number of words that ap-pear more than once but are not included in thereference. Note that these numbers do not in-clude unknown words, so (iii) shows the num-ber of unknown words. In all the cases, thenumber of occurrence of redundant words is re-duced in encoder-decoder-reconstructor. Thus,we con\ufb01rmed",
+            0.4465096659999972
+          ]
+        }
+      ],
+      "reference_answers": [
+        "Yes Yes",
+        "Asian Scientific Paper Excerpt Corpus (ASPEC) BIBREF0, NTCIR PatentMT Parallel Corpus BIBREF1 Asian Scientific Paper Excerpt Corpus, NTCIR PatentMT Parallel Corpus "
+      ]
+    }
+  },
+  "average_metrics": {
+    "collection": "fix_length_token",
+    "average_exact_match": 0.0,
+    "average_bleu_score": 0.07313401907318945,
+    "average_rouge_scores": {
+      "rouge-1": {
+        "precision": 0.25302840531770776,
+        "recall": 0.4267654057395905,
+        "f1": 0.27246473018180684
+      },
+      "rouge-2": {
+        "precision": 0.10782164591547254,
+        "recall": 0.20000023171929868,
+        "f1": 0.12362322938714454
+      },
+      "rouge-L": {
+        "precision": 0.22982682582547087,
+        "recall": 0.3820097868784463,
+        "f1": 0.24592027363443583
+      }
+    }
+  }
+}

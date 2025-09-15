@@ -1,0 +1,55 @@
+We notice a nice overall progress over Calixto
+et al. (2017) multimodal baseline, especially
+when using the stochastic attention. With im-
+provements of +1.51 BLEU and -2.2 TER on both
+precision-oriented metrics, the model shows a
+strong similarity of the n-grams of our candidate
+translations with respect to the references. The
+more recall-oriented metrics METEOR scores
+
+difference to the more efficient nature of training
+with near misses. Both these results were found to
+be statistically significant.
+
+Training we use Near-Misses corrupt-sampling
+which was found to perform well due to a large
+training set that represents the test set well.
+
+Candidate Generation To isolate the effect of
+candidate generation algorithms, we used the fol-
+lowing simple method for all systems: given a
+mention m, consider all candidate entities e that
+appeared as the ground-truth entity for m at least
+once in the training corpus. This simple method
+yields 97% ground-truth recall on the test set.
+
+Baselines Since we are the first to evaluate NED
+algorithms on WikilinksNED, we ran a selection
+of existing local NED systems and compared their
+performance to our algorithm’s.
+
+Yamada et al. (2016) created a state-of-the-art
+NED system that models entity-context similar-
+ity with word and entity embeddings trained us-
+ing the skip-gram model. We obtained the origi-
+nal embeddings from the authors, and trained the
+statistical features and ranking model on the Wik-
+ilinksNED training set. Our configuration of Ya-
+mada et al.’s model used only their local features.
+
+Cheng et al. (2013) have made their global
+NED system publicly available>. This algorithm
+uses GLOW (Ratinov et al., 2011) for local disam-
+biguation. We compare our results to the ranking
+step of the algorithm, without the global compo-
+nent. Due to the long running time of this system,
+we only evaluated their method on the smaller test
+set, which contains 10,000 randomly sampled in-
+stances from the full 320,000-example test set.
+
+Finally, we include the Most Probable Sense
+(MPS) baseline, which selects the entity that was
+seen most with the given mention during training.
+
+Results We used standard micro P@1 accuracy
+for evaluation. Experimental results comparing

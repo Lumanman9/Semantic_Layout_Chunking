@@ -1,0 +1,22 @@
+{
+  "collection": "semantic_layout_Wikiperson_Without_Label",
+  "average_exact_match": 0.0,
+  "average_bleu_score": 0.18118408173161824,
+  "average_rouge_scores": {
+    "rouge-1": {
+      "precision": 0.6071786892240839,
+      "recall": 0.6099310555968825,
+      "f1": 0.5645979273974836
+    },
+    "rouge-2": {
+      "precision": 0.4021614073206869,
+      "recall": 0.373156838492973,
+      "f1": 0.3475679354062812
+    },
+    "rouge-L": {
+      "precision": 0.5100652994055268,
+      "recall": 0.4876726019761999,
+      "f1": 0.4603561261720227
+    }
+  }
+}

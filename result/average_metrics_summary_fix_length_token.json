@@ -1,0 +1,22 @@
+{
+  "collection": "fix_length_token",
+  "average_exact_match": 0.0,
+  "average_bleu_score": 0.07313401907318945,
+  "average_rouge_scores": {
+    "rouge-1": {
+      "precision": 0.25302840531770776,
+      "recall": 0.4267654057395905,
+      "f1": 0.27246473018180684
+    },
+    "rouge-2": {
+      "precision": 0.10782164591547254,
+      "recall": 0.20000023171929868,
+      "f1": 0.12362322938714454
+    },
+    "rouge-L": {
+      "precision": 0.22982682582547087,
+      "recall": 0.3820097868784463,
+      "f1": 0.24592027363443583
+    }
+  }
+}
