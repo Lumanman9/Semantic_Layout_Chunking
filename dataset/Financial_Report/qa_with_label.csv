@@ -1,0 +1,243 @@
+EXPD_2018,what is the difference in percentage of cumulative total return between expeditors international of washington inc . and the standard and poor's 500 index for the 5 year period ending 12/18?,"18.25% , 18.25",financial_statement_note,"12/13 12/14 12/15 12/16 12/17 12/18
+Expeditors International of Washington, Inc. $ 100.00 $ 100.81 $ 101.92 $ 119.68 $ 146.19 $ 153.88
+Standard and Poor's 500 Index 100.00 111.39 110.58 121.13 144.65 135.63
+NASDAQ Industrial Transportation (NQUSB2770T) 100.00 121.41 93.55 120.89 154.19 140.25"
+EXPD_2018,what is the difference in percentage of cumulative total return between expeditors international of washington inc . and the nasdaq industrial transportation ( nqusb2770t ) for the 5 year period ending 12/18?,"13.63%, 13.63",financial_statement_note,"12/13 12/14 12/15 12/16 12/17 12/18
+Expeditors International of Washington, Inc. $ 100.00 $ 100.81 $ 101.92 $ 119.68 $ 146.19 $ 153.88
+Standard and Poor's 500 Index 100.00 111.39 110.58 121.13 144.65 135.63
+NASDAQ Industrial Transportation (NQUSB2770T) 100.00 121.41 93.55 120.89 154.19 140.25"
+EXPD_2018,what is the highest return rate for the first year of the investment?,21.41%21.41,financial_statement_note,"12/13 12/14 12/15 12/16 12/17 12/18
+Expeditors International of Washington, Inc. $ 100.00 $ 100.81 $ 101.92 $ 119.68 $ 146.19 $ 153.88
+Standard and Poor's 500 Index 100.00 111.39 110.58 121.13 144.65 135.63
+NASDAQ Industrial Transportation (NQUSB2770T) 100.00 121.41 93.55 120.89 154.19 140.25"
+AMAT_2018,what portion of company's property is located in united states?,"59.7%, 0.597",performance_summary,"Information concerning Applied’s properties is set forth below:
+(Square feet in thousands) Owned . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Leased. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Total . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . United States Other Countries Total
+4,530 2,417 1,037 1,341 5,567 3,758 6,947
+2,378
+9,325"
+AMAT_2018,what portion of total company used area is company owned?,"74.5%, 0.74499",performance_summary,"Information concerning Applied’s properties is set forth below:
+(Square feet in thousands) Owned . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Leased. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Total . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . United States Other Countries Total
+4,530 2,417 1,037 1,341 5,567 3,758 6,947
+2,378
+9,325"
+AMAT_2018,what percentage of buildings are owned in the united states by the company?,"81.4%, 0.81372",performance_summary,"Information concerning Applied’s properties is set forth below:
+(Square feet in thousands) Owned . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Leased. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Total . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . United States Other Countries Total
+4,530 2,417 1,037 1,341 5,567 3,758 6,947
+2,378
+9,325"
+AMAT_2018,what is the roi for applied materials if the investment made on october 2013 was sold 2 years later?,"-3.3%, -0.0333",performance_summary,"Applied Materials S&P 500 Index RDG Semiconductor Composite Index 100.00 128.42 126.26 154.41 232.29 221.61
+10/27/2013 10/26/2014 10/25/2015 10/30/2016 10/29/2017 10/28/2018
+100.00 121.04 96.67 171.69 343.16 198.27
+100.00 117.27 123.37 128.93 159.40 171.11"
+AMAT_2018,what is the roi for applied materials if the investment made on october 2013 was sold 5 years later?,"98.27%, 0.9827",performance_summary,"Applied Materials S&P 500 Index RDG Semiconductor Composite Index 100.00 128.42 126.26 154.41 232.29 221.61
+10/27/2013 10/26/2014 10/25/2015 10/30/2016 10/29/2017 10/28/2018
+100.00 121.04 96.67 171.69 343.16 198.27
+100.00 117.27 123.37 128.93 159.40 171.11"
+ADBE_2018,what is the average yearly amortization expense related to purchased technology?,"16.7%, 16.66667",financial_statement_note,"Weighted
+Average
+Useful Life
+(years)
+Purchased technology 6
+Customer contracts and relationships 9
+Trademarks 9
+Acquired rights to use technology 10
+Backlog 2
+Other intangibles 4"
+ADBE_2018,what is the estimated yearly amortization expense related to trademarks?,36500,financial_statement_note,"(in thousands) Amount
+Weighted Average
+Useful Life (years)
+Customer contracts and relationships $ 576,900 11
+Purchased technology 444,500 Backlog 105,800 Non-competition agreements 12,100 Trademarks 328,500 Total identifiable intangible assets 1,467,800
+Net liabilities assumed (191,288) N/A
+Goodwill (1) 3,459,751 N/A
+Total estimated purchase price $ 4,736,263
+The table below represents the preliminary purchase price allocation to the acquired net tangible and intangible assets of
+Marketo based on their estimated fair values as of the acquisition date and the associated estimated useful lives at that date. The
+fair values assigned to assets acquired and liabilities assumed are based on management’s best estimates and assumptions as of
+the reporting date and are considered preliminary pending finalization of valuation analyses pertaining to intangible assets acquired,
+deferred revenue and tax liabilities assumed including the calculation of deferred tax assets and liabilities.
+7
+2
+2
+9
+_________________________________________"
+ADBE_2018,what is the average yearly amortization expense related to trademarks?,"11.1%, 11.11111",financial_statement_note,"Weighted
+Average
+Useful Life
+(years)
+Purchased technology 6
+Customer contracts and relationships 9
+Trademarks 9
+Acquired rights to use technology 10
+Backlog 2
+Other intangibles 4"
+ADBE_2018,goodwill is what percent of total estimated purchase price for Marketo ?,"73.0%, 0.73048",financial_statement_note,"(in thousands) Amount
+Weighted Average
+Useful Life (years)
+Customer contracts and relationships $ 576,900 11
+Purchased technology 444,500 Backlog 105,800 Non-competition agreements 12,100 Trademarks 328,500 Total identifiable intangible assets 1,467,800
+Net liabilities assumed (191,288) N/A
+Goodwill (1) 3,459,751 N/A
+Total estimated purchase price $ 4,736,263
+The table below represents the preliminary purchase price allocation to the acquired net tangible and intangible assets of
+Marketo based on their estimated fair values as of the acquisition date and the associated estimated useful lives at that date. The
+fair values assigned to assets acquired and liabilities assumed are based on management’s best estimates and assumptions as of
+the reporting date and are considered preliminary pending finalization of valuation analyses pertaining to intangible assets acquired,
+deferred revenue and tax liabilities assumed including the calculation of deferred tax assets and liabilities.
+7
+2
+2
+9
+_________________________________________"
+ADBE_2018,what is the average volatility used to value employee stock purchase rights in 2018?,"27.5%, 0.275",financial_statement_note,"The expected term of ESPP shares is the average of the remaining purchase periods under each offering period. The
+assumptions used to value employee stock purchase rights were as follows:
+Expected life (in years) Volatility Risk free interest rate 2018 2017 2016
+0.5 - 2.0 0.5 - 2.0 0.5 - 2.0
+26% - 29% 22% - 27% 26 - 29%
+1.54% - 2.52% 0.62% - 1.41% 0.37 - 1.06%"
+ADBE_2018,what is the total in millions for goodwill for purchased technology and backlog?,550300,financial_statement_note,"(in thousands) Amount
+Weighted Average
+Useful Life (years)
+Customer contracts and relationships $ 576,900 11
+Purchased technology 444,500 Backlog 105,800 Non-competition agreements 12,100 Trademarks 328,500 Total identifiable intangible assets 1,467,800
+Net liabilities assumed (191,288) N/A
+Goodwill (1) 3,459,751 N/A
+Total estimated purchase price $ 4,736,263
+The table below represents the preliminary purchase price allocation to the acquired net tangible and intangible assets of
+Marketo based on their estimated fair values as of the acquisition date and the associated estimated useful lives at that date. The
+fair values assigned to assets acquired and liabilities assumed are based on management’s best estimates and assumptions as of
+the reporting date and are considered preliminary pending finalization of valuation analyses pertaining to intangible assets acquired,
+deferred revenue and tax liabilities assumed including the calculation of deferred tax assets and liabilities.
+7
+2
+2
+9
+_________________________________________"
+ADBE_2018,what portion of the presented investments is due within 24 months?|,"74.2%, 0.74158",risk_factors,"At November 30, 2018, we had debt securities classified as short-term investments of $1.59 billion. Changes in interest
+rates could adversely affect the market value of these investments. The following table separates these investments, based on stated
+maturities, to show the approximate exposure to interest rates (in millions):
+Due within one year Due between one and two years Due between two and three years Due after three years Total A sensitivity analysis was performed on our investment portfolio as of November 30, 2018. The analysis is based on an
+estimate of the hypothetical changes in market value of the portfolio that would result from an immediate parallel shift in the yield
+curve of various magnitudes.
+$ 612.1
+564.2
+282.2
+127.7
+$ 1,586.2"
+ADBE_2018,what are the st investments due between two and three years and due after three years?,409.9,risk_factors,"At November 30, 2018, we had debt securities classified as short-term investments of $1.59 billion. Changes in interest
+rates could adversely affect the market value of these investments. The following table separates these investments, based on stated
+maturities, to show the approximate exposure to interest rates (in millions):
+Due within one year Due between one and two years Due between two and three years Due after three years Total A sensitivity analysis was performed on our investment portfolio as of November 30, 2018. The analysis is based on an
+estimate of the hypothetical changes in market value of the portfolio that would result from an immediate parallel shift in the yield
+curve of various magnitudes.
+$ 612.1
+564.2
+282.2
+127.7
+$ 1,586.2"
+ADBE_2018,what portion of the total estimated purchase price is dedicated to goodwill?,"73.0%, 0.73048",financial_statement_note,"(in thousands) Amount
+Weighted Average
+Useful Life (years)
+Customer contracts and relationships $ 576,900 11
+Purchased technology 444,500 Backlog 105,800 Non-competition agreements 12,100 Trademarks 328,500 Total identifiable intangible assets 1,467,800
+Net liabilities assumed (191,288) N/A
+Goodwill (1) 3,459,751 N/A
+Total estimated purchase price $ 4,736,263
+The table below represents the preliminary purchase price allocation to the acquired net tangible and intangible assets of
+Marketo based on their estimated fair values as of the acquisition date and the associated estimated useful lives at that date. The
+fair values assigned to assets acquired and liabilities assumed are based on management’s best estimates and assumptions as of
+the reporting date and are considered preliminary pending finalization of valuation analyses pertaining to intangible assets acquired,
+deferred revenue and tax liabilities assumed including the calculation of deferred tax assets and liabilities.
+7
+2
+2
+9
+_________________________________________"
+ADBE_2018,what portion of the presented investments is due within 12 months?,"38.6%, 0.38589",financial_statement_note,"(in thousands) Amount
+Weighted Average
+Useful Life (years)
+Customer contracts and relationships $ 576,900 11
+Purchased technology 444,500 Backlog 105,800 Non-competition agreements 12,100 Trademarks 328,500 Total identifiable intangible assets 1,467,800
+Net liabilities assumed (191,288) N/A
+Goodwill (1) 3,459,751 N/A
+Total estimated purchase price $ 4,736,263
+The table below represents the preliminary purchase price allocation to the acquired net tangible and intangible assets of
+Marketo based on their estimated fair values as of the acquisition date and the associated estimated useful lives at that date. The
+fair values assigned to assets acquired and liabilities assumed are based on management’s best estimates and assumptions as of
+the reporting date and are considered preliminary pending finalization of valuation analyses pertaining to intangible assets acquired,
+deferred revenue and tax liabilities assumed including the calculation of deferred tax assets and liabilities.
+7
+2
+2
+9
+_________________________________________"
+ADBE_2018,was the weighted average useful life for trademarks greater than that of acquired rights to use technology?,no,financial_statement_note,"Weighted
+Average
+Useful Life
+(years)
+Purchased technology 6
+Customer contracts and relationships 9
+Trademarks 9
+Acquired rights to use technology 10
+Backlog 2
+Other intangibles 4"
+ADBE_2018,for the weighted average useful lives of our intangible assets what was the average weighted average useful life ( years ) for purchased technology and customer contracts and relationships?,7.5,financial_statement_note,"Weighted
+Average
+Useful Life
+(years)
+Purchased technology 6
+Customer contracts and relationships 9
+Trademarks 9
+Acquired rights to use technology 10
+Backlog 2
+Other intangibles 4"
+ADBE_2018,what is the average volatility used to value employee stock purchase rights in 2017?,"44.5%, 0.445",financial_statement_note,"The expected term of ESPP shares is the average of the remaining purchase periods under each offering period. The
+assumptions used to value employee stock purchase rights were as follows:
+Expected life (in years) Volatility Risk free interest rate 2018 2017 2016
+0.5 - 2.0 0.5 - 2.0 0.5 - 2.0
+26% - 29% 22% - 27% 26 - 29%
+1.54% - 2.52% 0.62% - 1.41% 0.37 - 1.06%"
+ADBE_2018,what is the percentage change in total gross amount of unrecognized tax benefits from 2017 to 2018?,"13.4%, 0.13419",financial_statement_note,"During fiscal 2018 and 2017, our aggregate changes in our total gross amount of unrecognized tax benefits are summarized
+as follows (in thousands):
+2018 2017
+Beginning balance $ 172,945 $ 178,413
+Gross increases in unrecognized tax benefits – prior year tax positions 16,191 3,680
+Gross decreases in unrecognized tax benefits – prior year tax positions (4,000) (30,166)
+Gross increases in unrecognized tax benefits – current year tax positions 60,721 24,927
+Settlements with taxing authorities — (3,876)
+Lapse of statute of limitations (45,922) (8,819)
+Foreign exchange gains and losses (3,783) 8,786
+Ending balance $ 196,152 $ 172,945"
+ADBE_2018,for fiscal 2018 what percentage of the total change in the valuation allowance was due to settlements with taxing authorities?,0,financial_statement_note,"During fiscal 2018 and 2017, our aggregate changes in our total gross amount of unrecognized tax benefits are summarized
+as follows (in thousands):
+2018 2017
+Beginning balance $ 172,945 $ 178,413
+Gross increases in unrecognized tax benefits – prior year tax positions 16,191 3,680
+Gross decreases in unrecognized tax benefits – prior year tax positions (4,000) (30,166)
+Gross increases in unrecognized tax benefits – current year tax positions 60,721 24,927
+Settlements with taxing authorities — (3,876)
+Lapse of statute of limitations (45,922) (8,819)
+Foreign exchange gains and losses (3,783) 8,786
+Ending balance $ 196,152 $ 172,945"
+ADBE_2018,what is the combined amount of accrued interest and penalties related to tax positions taken on our tax returns in millions for fiscal 2018 and 2017?|,48.2,financial_statement_note,"During fiscal 2018 and 2017, our aggregate changes in our total gross amount of unrecognized tax benefits are summarized
+as follows (in thousands):
+2018 2017
+Beginning balance $ 172,945 $ 178,413
+Gross increases in unrecognized tax benefits – prior year tax positions 16,191 3,680
+Gross decreases in unrecognized tax benefits – prior year tax positions (4,000) (30,166)
+Gross increases in unrecognized tax benefits – current year tax positions 60,721 24,927
+Settlements with taxing authorities — (3,876)
+Lapse of statute of limitations (45,922) (8,819)
+Foreign exchange gains and losses (3,783) 8,786
+Ending balance $ 196,152 $ 172,945"
+ADBE_2018,what is the percentage change in total gross amount of unrecognized tax benefits from 2016 to 2017?,"-3.1%, -0.03065",financial_statement_note,"During fiscal 2018 and 2017, our aggregate changes in our total gross amount of unrecognized tax benefits are summarized
+as follows (in thousands):
+2018 2017
+Beginning balance $ 172,945 $ 178,413
+Gross increases in unrecognized tax benefits – prior year tax positions 16,191 3,680
+Gross decreases in unrecognized tax benefits – prior year tax positions (4,000) (30,166)
+Gross increases in unrecognized tax benefits – current year tax positions 60,721 24,927
+Settlements with taxing authorities — (3,876)
+Lapse of statute of limitations (45,922) (8,819)
+Foreign exchange gains and losses (3,783) 8,786
+Ending balance $ 196,152 $ 172,945"

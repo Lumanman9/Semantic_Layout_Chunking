@@ -1,0 +1,442 @@
+[
+  {
+    "x": 0.5155401229858398,
+    "y": 0.606784462928772,
+    "id": "13d69439-5a40-4f72-ad0c-c5764a4f3175",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.3401980400085449,
+    "height": 0.03162866830825806,
+    "pageNum": 1
+  },
+  {
+    "x": 0.12058325111865997,
+    "y": 0.627131998538971,
+    "id": "e3f64785-603e-4870-9d55-57adcaeaf417",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.13971610367298126,
+    "height": 0.01576000452041626,
+    "pageNum": 1
+  },
+  {
+    "x": 0.025044407695531845,
+    "y": 0.312234491109848,
+    "id": "133ca135-3831-4da2-b0f2-2f61d774a52b",
+    "type": "rectangle",
+    "label": "footnote",
+    "width": 0.03752044960856438,
+    "height": 0.41158321499824524,
+    "pageNum": 1
+  },
+  {
+    "x": 0.14198718965053558,
+    "y": 0.07371997833251953,
+    "id": "1916f9cf-43ef-4a31-9224-01f93a6091d6",
+    "type": "rectangle",
+    "label": "figure",
+    "width": 0.719358280301094,
+    "height": 0.288280725479126,
+    "pageNum": 2
+  },
+  {
+    "x": 0.11944222450256348,
+    "y": 0.37672296166419983,
+    "id": "4cc597cc-905a-4ca4-9694-29d2ee07c310",
+    "type": "rectangle",
+    "label": "caption",
+    "width": 0.7647320628166199,
+    "height": 0.015890955924987793,
+    "pageNum": 2
+  },
+  {
+    "x": 0.12009647488594055,
+    "y": 0.562259316444397,
+    "id": "d9fdad1e-0ab0-4ad3-83ed-c65463ad5200",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.3249039351940155,
+    "height": 0.015278816223144531,
+    "pageNum": 2
+  },
+  {
+    "x": 0.12076111882925034,
+    "y": 0.562402069568634,
+    "id": "0e70567d-7069-4d24-82e8-a7279ae4f204",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.32444194704294205,
+    "height": 0.015131950378417969,
+    "pageNum": 2
+  },
+  {
+    "x": 0.515998125076294,
+    "y": 0.6264713406562805,
+    "id": "3c4c23ee-582f-4b44-ad8c-d201c149cc93",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.2614719867706299,
+    "height": 0.014894247055053711,
+    "pageNum": 3
+  },
+  {
+    "x": 0.1202235147356987,
+    "y": 0.07622714340686798,
+    "id": "c3cab9aa-72d6-4abc-a5ad-5e473ddd680d",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.3118554428219795,
+    "height": 0.015098989009857178,
+    "pageNum": 3
+  },
+  {
+    "x": 0.12054912000894547,
+    "y": 0.8234754800796509,
+    "id": "5ee56686-0fe4-42e4-9028-465118ce8b72",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.3244132027029991,
+    "height": 0.01476740837097168,
+    "pageNum": 3
+  },
+  {
+    "x": 0.12079434096813202,
+    "y": 0.43231403827667236,
+    "id": "8ad17897-d1ba-4dc4-9d38-2621f6532e45",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.3018345385789871,
+    "height": 0.015401691198348999,
+    "pageNum": 4
+  },
+  {
+    "x": 0.5155324935913086,
+    "y": 0.23689612746238708,
+    "id": "fc1e31cc-2d11-4895-a0d5-fa955df5c040",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.18273168802261353,
+    "height": 0.015955865383148193,
+    "pageNum": 4
+  },
+  {
+    "x": 0.5158205032348633,
+    "y": 0.7125030755996704,
+    "id": "406cdc89-98de-4376-8deb-497479de00b3",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.12656861543655396,
+    "height": 0.015390098094940186,
+    "pageNum": 5
+  },
+  {
+    "x": 0.12034562230110168,
+    "y": 0.07572048902511597,
+    "id": "e5570409-4f28-4b9e-abd7-6b950bc623a9",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.0953831672668457,
+    "height": 0.014887303113937378,
+    "pageNum": 6
+  },
+  {
+    "x": 0.1254416961130742,
+    "y": 0.07375,
+    "id": "54885f34-d623-4e13-86c2-0ef5842a0f5c",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.7526501766784452,
+    "height": 0.0325,
+    "pageNum": 1
+  },
+  {
+    "x": 0.2791519434628975,
+    "y": 0.12625,
+    "id": "98cb3fc5-e40f-4dfb-a214-34ea42706605",
+    "type": "rectangle",
+    "label": "author",
+    "width": 0.4540636042402827,
+    "height": 0.09375,
+    "pageNum": 1
+  },
+  {
+    "x": 0.13780918727915195,
+    "y": 0.25875,
+    "id": "b3077f79-7480-465a-9706-51d70cd30c06",
+    "type": "rectangle",
+    "label": "abstract",
+    "width": 0.33568904593639576,
+    "height": 0.365,
+    "pageNum": 1
+  },
+  {
+    "x": 0.2579505300353357,
+    "y": 0.26625,
+    "id": "fdccc3f9-c3a2-447c-bf59-dddb02031df2",
+    "type": "rectangle",
+    "label": "title",
+    "width": 0.09363957597173145,
+    "height": 0.01625,
+    "pageNum": 1
+  },
+  {
+    "x": 0.10777385159010601,
+    "y": 0.62875,
+    "id": "e85f348c-c110-402e-b5a8-d54273351b40",
+    "type": "rectangle",
+    "label": "introduction",
+    "width": 0.392226148409894,
+    "height": 0.29625,
+    "pageNum": 1
+  },
+  {
+    "x": 0.5035335689045937,
+    "y": 0.25375,
+    "id": "53a9f325-6c2f-4344-90ef-4db49fc64eb1",
+    "type": "rectangle",
+    "label": "introduction",
+    "width": 0.4134275618374558,
+    "height": 0.33625,
+    "pageNum": 1
+  },
+  {
+    "x": 0.5070671378091873,
+    "y": 0.6025,
+    "id": "5524b6aa-b1eb-421f-8a9f-330607510a0a",
+    "type": "rectangle",
+    "label": "related_work",
+    "width": 0.39752650176678445,
+    "height": 0.32125,
+    "pageNum": 1
+  },
+  {
+    "x": 0.1166077738515901,
+    "y": 0.415,
+    "id": "dc9be324-e7e3-40de-9912-58359fe9a528",
+    "type": "rectangle",
+    "label": "related_work",
+    "width": 0.37809187279151946,
+    "height": 0.13625,
+    "pageNum": 2
+  },
+  {
+    "x": 0.1166077738515901,
+    "y": 0.5575,
+    "id": "45cf475a-24fc-403d-b57e-0dda3af52fef",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.37809187279151946,
+    "height": 0.3575,
+    "pageNum": 2
+  },
+  {
+    "x": 0.5106007067137809,
+    "y": 0.41625,
+    "id": "15b4820e-dc9b-4e4e-bf47-a14ca951b593",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.38515901060070673,
+    "height": 0.4425,
+    "pageNum": 2
+  },
+  {
+    "x": 0.10954063604240283,
+    "y": 0.06625,
+    "id": "130b445b-b439-4e8d-ac75-a7d102129c8c",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.38869257950530034,
+    "height": 0.7475,
+    "pageNum": 3
+  },
+  {
+    "x": 0.10954063604240283,
+    "y": 0.8225,
+    "id": "46288099-0f7a-4d36-80b5-c9f89b603a41",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.38869257950530034,
+    "height": 0.09875,
+    "pageNum": 3
+  },
+  {
+    "x": 0.508833922261484,
+    "y": 0.06625,
+    "id": "142d0f53-f15c-4a43-b2f9-816369fd1221",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.38162544169611307,
+    "height": 0.5475,
+    "pageNum": 3
+  },
+  {
+    "x": 0.5070671378091873,
+    "y": 0.6225,
+    "id": "e6e3d244-fc67-497f-af54-8c9383c3db43",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.38515901060070673,
+    "height": 0.29875,
+    "pageNum": 3
+  },
+  {
+    "x": 0.10954063604240283,
+    "y": 0.07375,
+    "id": "948920e1-12c7-4d98-b0c7-937210608191",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.39399293286219084,
+    "height": 0.34125,
+    "pageNum": 4
+  },
+  {
+    "x": 0.10777385159010601,
+    "y": 0.42375,
+    "id": "5e3ce1a3-55db-4ce8-ae76-8bd66b239202",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.39752650176678445,
+    "height": 0.5025,
+    "pageNum": 4
+  },
+  {
+    "x": 0.5141342756183745,
+    "y": 0.07375,
+    "id": "fbd34149-b041-4dcf-8e0f-acba4241170f",
+    "type": "rectangle",
+    "label": "methodology",
+    "width": 0.38162544169611307,
+    "height": 0.15125,
+    "pageNum": 4
+  },
+  {
+    "x": 0.5123674911660777,
+    "y": 0.23375,
+    "id": "e945b2a3-a583-4d79-90d0-55723e3d51c7",
+    "type": "rectangle",
+    "label": "future_work",
+    "width": 0.3869257950530035,
+    "height": 0.69375,
+    "pageNum": 4
+  },
+  {
+    "x": 0.13427561837455831,
+    "y": 0.07,
+    "id": "bd8aa1c0-ef58-4765-a886-b6dc16b54f70",
+    "type": "rectangle",
+    "label": "future_work",
+    "width": 0.37279151943462896,
+    "height": 0.27,
+    "pageNum": 5
+  },
+  {
+    "x": 0.13604240282685512,
+    "y": 0.34625,
+    "id": "8218fa7c-cd7f-41a4-85f9-2eabfd027475",
+    "type": "rectangle",
+    "label": "future_work",
+    "width": 0.3710247349823322,
+    "height": 0.24875,
+    "pageNum": 5
+  },
+  {
+    "x": 0.13604240282685512,
+    "y": 0.59875,
+    "id": "1e6c6545-41ae-4c72-9b12-85771c4467dd",
+    "type": "rectangle",
+    "label": "future_work",
+    "width": 0.36925795053003535,
+    "height": 0.21375,
+    "pageNum": 5
+  },
+  {
+    "x": 0.13780918727915195,
+    "y": 0.8175,
+    "id": "856dca49-cd81-4301-a621-a6eb71b56627",
+    "type": "rectangle",
+    "label": "future_work",
+    "width": 0.3657243816254417,
+    "height": 0.04875,
+    "pageNum": 5
+  },
+  {
+    "x": 0.5388692579505301,
+    "y": 0.0675,
+    "id": "f46c18de-8c7f-488c-885d-b9cc931a2810",
+    "type": "rectangle",
+    "label": "future_work",
+    "width": 0.3551236749116608,
+    "height": 0.3025,
+    "pageNum": 5
+  },
+  {
+    "x": 0.5318021201413428,
+    "y": 0.39375,
+    "id": "f33a1d82-0b94-4b1d-a2ed-e32e93bf7d8f",
+    "type": "rectangle",
+    "label": "future_work",
+    "width": 0.36925795053003535,
+    "height": 0.29875,
+    "pageNum": 5
+  },
+  {
+    "x": 0.5123674911660777,
+    "y": 0.70875,
+    "id": "61d15fc3-9b1d-4927-8870-3a5ea436b9f7",
+    "type": "rectangle",
+    "label": "conclusion",
+    "width": 0.38515901060070673,
+    "height": 0.20625,
+    "pageNum": 5
+  },
+  {
+    "x": 0.10600706713780919,
+    "y": 0.065,
+    "id": "a0b094f6-c67e-4016-9261-12d2efa3968c",
+    "type": "rectangle",
+    "label": "citation",
+    "width": 0.40636042402826855,
+    "height": 0.85875,
+    "pageNum": 7
+  },
+  {
+    "x": 0.5176678445229682,
+    "y": 0.065,
+    "id": "aed38882-e294-4f95-8c1f-eedd016c3f03",
+    "type": "rectangle",
+    "label": "citation",
+    "width": 0.39045936395759717,
+    "height": 0.1075,
+    "pageNum": 7
+  },
+  {
+    "x": 0.10777385159010601,
+    "y": 0.045,
+    "id": "b69ad39b-dcbd-42c7-a0f0-f286c35c8884",
+    "type": "rectangle",
+    "label": "citation",
+    "width": 0.3992932862190813,
+    "height": 0.88875,
+    "pageNum": 6
+  },
+  {
+    "x": 0.5176678445229682,
+    "y": 0.04375,
+    "id": "68ce2835-0b0b-4b64-aec9-ad53f57f36d1",
+    "type": "rectangle",
+    "label": "citation",
+    "width": 0.37809187279151946,
+    "height": 0.8925,
+    "pageNum": 6
+  },
+  {
+    "x": 0.12255772646536411,
+    "y": 0.8731155778894473,
+    "id": "efd895d5-d4e9-4806-8497-c493e66c4f90",
+    "type": "rectangle",
+    "label": "reference",
+    "width": 0.33570159857904086,
+    "height": 0.0414572864321608,
+    "pageNum": 5
+  }
+]

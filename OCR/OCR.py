@@ -34,7 +34,7 @@ class PDFTextExtractor:
             self.ocr = PaddleOCR(use_angle_cls=True, lang='en')
 
     def load_bounding_boxes(self) -> None:
-        """Load bounding box data from JSON file."""
+        """Load bounding box Literature_Paper from JSON file."""
         try:
             with open(self.json_path, "r", encoding="utf-8") as file:
                 self.bounding_boxes = json.load(file)
@@ -257,7 +257,7 @@ class PDFTextExtractor:
         Main method to process the PDF and extract text.
 
         Returns:
-            List[Dict]: Extracted text data
+            List[Dict]: Extracted text Literature_Paper
         """
         self.load_bounding_boxes()
 

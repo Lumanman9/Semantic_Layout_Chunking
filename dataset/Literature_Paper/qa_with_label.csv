@@ -1,0 +1,249 @@
+1706.09147,What is the new initialization method proposed in this paper?,They initialize their word and entity embeddings with vectors pre-trained over a large corpus of unlabeled data.,result_discussion,"Training our model implicitly embeds the vocabu-
+lary of words and collection of entities in a common space. However, we found that explicitly
+initializing these embeddings with vectors pre-
+trained over a large collection of unlabeled data
+significantly improved performance."
+1706.09147,How was a quality control performed so that the text is noisy but the annotations are accurate?,The authors believe that the Wikilinks corpus  contains ground truth annotations while being noisy. They discard mentions that cannot have ground-truth verified by comparison with Wikipedia., methodology,"We prepare our dataset from the local-context
+version of Wikilinks1, and resolve ground-truth
+links using a Wikipedia dump from April 20162
+.
+We use the page and redirect tables for resolution,
+and keep the database pageid column as a unique
+identifier for Wikipedia entities. We discard men-
+tions where the ground-truth could not be resolved
+(only 3% of mentions)."
+1706.09673,Which dataset do they use?,"Paraphrase Database (PPDB) ,  book corpus",methodology,"Motivation: In recent times, building represen-
+tation models based on supervision from richly
+structured resources such as Paraphrase Database
+(PPDB) (Ganitkevitch et al., 2013) (containing noisy phrase pairs) has yielded high quality sen-
+tence representations. These methods work by
+maximizing the similarity of the sentences in the
+learned semantic space.Models: Skip-thought vectors (Kiros et al., 2015)
+(STV) is a widely popular sentence encoder,
+which is trained to predict adjacent sentences in
+the book corpus (Zhu et al., 2015)."
+1706.09673,Do they evaluate their learned representations on downstream tasks?,No|,future_work,"Interpreting the tweet representations to un-
+earth the encoded features responsible for
+its performance on a downstream task is an
+important, but a less studied research area.
+(Ganesh et al., 2016)Õs work is the first to
+open the blackbox of vector embeddings for
+tweets. They propose elementary property
+prediction tasks which predicts the accuracy
+to which a given tweet representation en-
+codes the elementary property (like slang
+words, hashtags, mentions, etc). The main
+drawback of the work is that they fail to cor-
+relate their study with downstream applica-
+tions. We believe performing such a correla-
+tion study can clearly highlight the set of el-
+ementary features behind the performance of
+a particular representation model over other
+for a given downstream task."
+1706.09673,How do they encourage understanding of literature as part of their objective function?,"They group the existing works in terms of the objective function they optimize - within-tweet relationships, inter-tweet relationships, autoencoder, and weak supervision",methodology,"There are various models spanning across differ-
+ent model architectures and objective functions in
+the literature to compute tweet representation in
+an unsupervised fashion. These models work in a
+semi-supervised way - the representations gener-
+ated by the model is fed to an off-the-shelf pre-
+dictor like Support Vector Machines (SVM) to
+solve a particular downstream task. These mod-
+els span across a wide variety of neural network
+based architectures including average of word vec-
+tors, convolutional-based, recurrent-based and so
+on. We believe that the performance of these mod-
+els is highly dependent on the objective function
+it optimizes Ð predicting adjacent word (within-
+tweet relationships), adjacent tweet (inter-tweet
+relationships), the tweet itself (autoencoder), mod-eling from structured resources like paraphrase
+databases and weak supervision."
+1707.00110,Which baseline methods are used?,Standard parametrized attention and a non-attention baseline,experiment,"For the attention
+baseline, we use the standard parametrized attention
+(Bahdanau et al., 2014). Dropout of 0.2 (0.8 keep
+probability) is applied to the input of each cell and
+we optimize using Adam (Kingma and Ba, 2014) at
+a learning rate of 0.0001 and batch size 128. We train
+for at most 200,000 steps (see Figure 3 for sample
+learning curves). The results with and without position encodings are
+almost identical on the toy data. Our technique learns
+to fit the data as well as the standard attention mecha-
+nism despite having less representational power. Both
+beat the non-attention baseline by a significant margin."
+1707.00110,Which datasets are used in experiments?,Sequence Copy Task and WMT'17,experiment,"For this purpose we use 4 large machine translation
+datasets of WMTÕ175 on the following language
+pairs: English-Czech (en-cs, 52M examples), English-
+German (en-de, 5.9M examples), English-Finish
+(en-fi, 2.6M examples), and English-Turkish (en-tr,
+207,373 examples). We used the newly available pre-processed datasets for the WMTÕ17 task. To investigate the trade-off between
+speed and performance, we compare our technique
+to standard models with and without attention on a
+Sequence Copy Task of varying length like in Graves
+et al. (2014)."
+1707.00995,What misbehavior is identified?,"""if the attention loose track of the objects in the picture and â€˜gets lostâ€™ the model still takes it into account and somehow overrides the information brought by the text-based annotations""",result_discussion,"Yet, we noticed a common
+misbehavior for all our multimodal models: if the
+attention loose track of the objects in the picture
+and Ógets lostÓ, the model still takes it into account
+and somehow overrides the information brought
+by the text-based annotations. "
+1707.00995,Which attention mechanisms do they compare?,Soft attention Hard Stochastic attention Local Attention| | ,background,"3.1 Soft attention
+Soft attention has firstly been used for syntactic
+constituency parsing by Vinyals et al. (2015) but
+has been widely used for translation tasks ever
+since. One should note that it slightly differs
+from Bahdanau et al. (2014) where their attention
+takes as input the previous decoder hidden state
+instead of the current (intermediate) one as shown
+in equation 7. This mechanism has also been
+successfully investigated for the task of image
+description generation (Xu et al., 2015) where
+a model generates an imageÕs description in
+natural language. It has been used in multimodal
+translation as well (Calixto et al., 2017), for which
+it constitutes a state-of-the-art.3.2 Hard Stochastic attention
+This model is a stochastic and sampling-based
+process where, at every timestep t, we are making
+a hard choice to attend only one annotation. This
+corresponds to one spatial location in the image.
+Hard attention has previously been used in the
+context of object recognition (Mnih et al., 2014;
+Ba et al., 2015) and later extended to image
+description generation (Xu et al., 2015). In the
+context of multimodal NMT, we can follow Xu
+et al. (2015) because both our models involve the
+same process on images."
+1706.08198,Is pre-training effective in their evaluation?,Yes|,conclusion,"In this paper, we evaluated the encoder-decoder-
+reconstructor on English-Japanese and Japanese-
+English translation tasks. In addition, we evaluate
+the effectiveness of pre-training by comparing it
+with a jointly-trained model of forward translation
+and back-translation. Experimental results show
+that the encoder-decoder-reconstructor offers sig-
+nificant improvement in BLEU scores and allevi-
+ates the problem of repeating and missing words
+in the translation on English-Japanese translation
+task, and the encoder-decoder-reconstructor can
+not be trained well without pre-training, so it
+proves that we have to train the forward transla-
+tion model in a manner similar to the conventional
+attention-based NMT as pre-training."
+1706.08198,What parallel corpus did they use?,"Asian Scientific Paper Excerpt Corpus (ASPEC) BIBREF0,NTCIR PatentMT Parallel Corpus BIBREF1|",experiment,"We used two parallel corpora: Asian Scien-
+tific Paper Excerpt Corpus (ASPEC) (Nakazawa
+et al., 2016) and NTCIR PatentMT Parallel Corpus
+(Goto et al., 2013). Regarding the training data of
+ASPEC, we used only the first 1 million sentences
+sorted by sentence-alignment similarity. Japanese
+sentences were segmented by the morphological
+analyzer MeCab (version 0.996, IPADIC), and En-
+glish sentences were tokenized by tokenizer.perl
+of Moses. Table 1 shows the numbers of the sen-
+tences in each corpus. Note that sentences with
+more than 40 words were excluded from the train-
+ing data."
+1706.01875,What was the baseline?,"stochastic gradient descent, naive bayes, decision tree",methodology,"Classifier selection methodology. To identify the
+most suitable classifier for classifying the scalars as-
+sociated with each text, we perform evaluations us-
+ing the stochastic gradient descent, naive bayes, deci-
+sion tree, and random forest classifiers."
+1706.01875,What was their system's performance?,accuracy and F1-score of 89.6% and 89.2% respectively,methodology,"Real-world classifier performance. To evaluate real-
+world performance of our selected classifier (i.e., per-
+formance in the absence of model and parameter bias),
+we perform classification of the holdout set. On this set,
+our classifier had an accuracy and F1-score of 89.6% and
+89.2%, respectively. These results show that in addition
+to superior accuracy during training and validation, our
+chosen classifier is also robust against over-fitting."
+1706.01875,What other political events are included in the database?,"US presidential primaries, Democratic and Republican National Conventions| ",result_discussion,"We find that on average
+8.4% of all political comments are offensive compared to
+7.8% of all apolitical comments. Figure 4 illustrates the
+fraction of offensive political and apolitical comments
+made during each week in our study. We see that while
+the fraction of apolitical offensive comments has stayed
+steady, there has been an increase in the fraction of of-
+fensive political comments starting in July 2016. No-
+tably, this increase is observed after the conclusion of the
+US presidential primaries and during the period of the
+Democratic and Republican National Conventions and
+does not reduce even after the conclusion of the US presi-
+dential elections held on November 8."
+1706.01875,What classifier did they use?,Random Forest,methodology,"Based on the results of
+this evaluation, we select a 100-estimator entropy-based
+splitting random forest model as our classifier."
+1801.02243,Do the authors give any examples of major events which draw the public's attention and the impact they have on stock price?,Yes,background,"The number of Tweets varies everyday from a couple of
+hundreds to over ten thousands, depends on if the company
+has a major event that attracts the public attention. The
+sentiment scores are normalized between 0 to 1, and features
+based on the sentiment score is constructed and normalized.
+Figure 2 shows the relationship between Tesla stock return
+and stock sentiment score. According the distribution of the
+sentiment score, the sentiment on Tesla is slightly skewed
+towards positive during the testing period. The price has
+been increased significantly during the testing period, which
+reflected the positive sentiment. The predicting power of
+sentiment score is more significant when the sentiment is
+more extreme and less so when the sentiment is neutral."
+1801.02243,Which tweets are used to output the daily sentiment signal?,Tesla and Ford are investigated on how Twitter sentiment could impact the stock price,introduction,"For this reason, two companies from the same industry,
+Tesla and Ford are investigated on how Twitter sentiment
+could impact the stock price. Tesla is an electronic car
+company that shows consecutive negative operating cash flow
+and net income but carries very high expectation from the
+public. Ford, is a traditional auto maker whose stock prices
+has been stabilized to represent the company fundamentals."
+1801.02243,What is the baseline machine learning prediction approach?,linear logistic regression to a set of stock technical signals,methodology,"To evaluate if the sentiment feature improves the pre-
+diction accuracy, a baseline model is defined. The baseline
+applies linear logistic regression to a set of stock technical
+signals to predict the following days stock return sign (+/).
+No sentiment features are provided to the baseline model."
+1801.02073,Do they employ their indexing-based method to create a sample of a QA Wikipedia dataset?,Yes,abstract,"This paper gives comprehensive analyses
+of corpora based on Wikipedia for several
+tasks in question answering. Four recent
+corpora are collected, WIKIQA, SELQA,
+SQUAD, and INFOBOXQA, and first an-
+alyzed intrinsically by contextual similari-
+ties, question types, and answer categories.
+These corpora are then analyzed extrinsi-
+cally by three question answering tasks, an-
+swer retrieval, selection, and triggering. An
+indexing-based method for the creation of a
+silver-standard dataset for answer retrieval
+using the entire Wikipedia is also presented.
+Our analysis shows the uniqueness of these
+corpora and suggests a better use of them
+for statistical question answering learning."
+1801.02073,How many question types do they find in the datasets analyzed?,"Seven,7.",experiment,"Fig. 1 shows the distributions of seven question
+types grouped deterministically from the lexicons.
+Although these corpora have been independently
+developed, a general trend is found, where the what
+question type dominates, followed by how and who,
+followed by when and where, and so on."
+1801.02073,How do they analyze contextual similaries across datasets?,They compare the tasks that the datasets are suitable for  average number of answer candidates per question number of token types average answer candidate lengths average question lengths question-answer word overlap.| | ,introduction,"In this paper, we make both intrinsic and extrinsic
+analyses of four latest corpora based on Wikipedia,
+WIKIQA, SELQA, SQUAD, and INFOBOXQA.
+We first give a thorough intrinsic analysis regarding
+contextual similarities, question types, and answer
+categories (Section 2). We then map questions in all
+corpora to the current version of English Wikipedia
+and benchmark another selection-based QA task,
+answer retrieval (Section 3). Finally, we present
+an extrinsic analysis through a set of experiments
+cross-testing these corpora using a convolutional
+neural network architecture (Section 4).1"
+1707.02377,Which language models do they compare against?,RNNLM BIBREF11,experiment,"We also include
+RNNLM (Mikolov et al., 2010), a recurrent neural network based language model in the compar-
+ison. In the semantic relatedness task, we further compare to LSTM-based methods (Tai et al.,
+2015) that have been reported on this dataset."
+1707.02377,Is their approach similar to making an averaged weighted sum of word vectors where weights reflect word frequencies?,Different from their work we choose to corrupt the original document by randomly removing significant portion of words and represent the document using only the embeddings of the words remained.,methodology,"Huang et al. (2012) also proposed the idea of using average of word embeddings to represent the
+global context of a document. Different from their work, we choose to corrupt the original document
+by randomly removing significant portion of words, and represent the document using only the
+embeddings of the words remained. This corruption mechanism offers us great speedup during
+training as it significantly reduces the number of parameters to update in back propagation. At the
+same time, as we are going to detail in the next section, it introduces a special form of regularization,
+which brings great performance improvement."
+1707.02377,How do they determine which words are informative?,Informative are those that will not be suppressed by regularization performed.,experiment,"Data dependent regularization. As explained in Section 3.1, the corruption introduced in
+Doc2VecC acts as a data-dependent regularization that suppresses the embeddings of frequent but
+uninformative words. Here we conduct an experiment to exam the effect. We used a cutoff of 100
+in this experiment. Table 3 lists the words having the smallest l2 norm of embeddings found by
+different algorithms. The number inside the parenthesis after each word is the number of times this
+word appears in the learning set. In word2Vec or Paragraph Vectors, the least frequent words have
+embeddings that are close to zero, despite some of them being indicative of sentiment such as deba-
+cle, bliss and shabby. In contrast, Doc2VecC manages to clamp down the representation of words
+frequently appear in the training set, but are uninformative, such as symbols and stop words."

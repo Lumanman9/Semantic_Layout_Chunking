@@ -16,7 +16,7 @@ def read_csv_by_tuple(file_path):
                 # Process labels into a list
                 label_list = [l.strip() for l in label.split(',')]
 
-                # You can return the processed data or work with it directly here
+                # You can return the processed Literature_Paper or work with it directly here
                 yield (file_name, question, answer, label_list)
             else:
                 print(f"Warning: Skipping row with insufficient columns: {row}")
@@ -24,7 +24,7 @@ def read_csv_by_tuple(file_path):
 
 # Example usage
 if __name__ == "__main__":
-    csv_path = "data/QA_with_label.csv"
+    csv_path = "dataset/Literature_Paper/qa_with_label.csv"
 
     # Iterate through rows with tuple unpacking
     for file_name, question, answer, labels in read_csv_by_tuple(csv_path):

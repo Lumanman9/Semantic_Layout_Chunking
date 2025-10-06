@@ -89,7 +89,7 @@ class Retrieve:
             with open(json_file_path, 'w') as f:
                 json.dump([], f)
 
-        # Read existing data
+        # Read existing Literature_Paper
         with open(json_file_path, 'r') as f:
             try:
                 data = json.load(f)
@@ -106,7 +106,7 @@ class Retrieve:
         }
         data.append(new_entry)
 
-        # Write updated data back to file
+        # Write updated Literature_Paper back to file
         with open(json_file_path, 'w') as f:
             json.dump(data, f, indent=2)
 
@@ -146,7 +146,7 @@ class Retrieve:
         start_time = time.perf_counter()
 
         if self.meta is None:
-            logger.warning('Please provide meta data.')
+            logger.warning('Please provide meta Literature_Paper.')
             return None, 0.0
 
 
@@ -212,7 +212,7 @@ class Retrieve:
                     with open(json_file_path, 'w') as f:
                         json.dump([], f)
 
-                # Read existing data
+                # Read existing Literature_Paper
                 with open(json_file_path, 'r') as f:
                     try:
                         data = json.load(f)
@@ -230,7 +230,7 @@ class Retrieve:
                 }
                 data.append(new_entry)
 
-                # Write updated data back to file
+                # Write updated Literature_Paper back to file
                 with open(json_file_path, 'w') as f:
                     json.dump(data, f, indent=2)
 
@@ -289,7 +289,7 @@ class Retrieve:
                 with open(json_file_path, 'w') as f:
                     json.dump([], f)
 
-            # Read existing data
+            # Read existing Literature_Paper
             with open(json_file_path, 'r') as f:
                 try:
                     data = json.load(f)
@@ -306,7 +306,7 @@ class Retrieve:
             }
             data.append(new_entry)
 
-            # Write updated data back to file
+            # Write updated Literature_Paper back to file
             with open(json_file_path, 'w') as f:
                 json.dump(data, f, indent=2)
 

@@ -1,0 +1,6 @@
+
+# ignore the dataset
+dataset/
+
+# ignore spi keys
+.env

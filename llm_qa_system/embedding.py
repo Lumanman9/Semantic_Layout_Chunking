@@ -217,7 +217,7 @@ class Embedding:
                 # Generate embedding
                 embedding = self.generate_embedding(chunk)
 
-                # Prepare point data
+                # Prepare point Literature_Paper
                 point_data = {
                     "text": chunk,
                     "timestamp": datetime.now().isoformat(),

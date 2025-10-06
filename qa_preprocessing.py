@@ -67,7 +67,7 @@ def extract_qa_by_document(csv_filename, document_name):
 # Example usage
 if __name__ == "__main__":
     # Replace with your actual CSV filename
-    filename = 'Wikiperson_data/feta_qa.csv'
+    filename = 'dataset/Wikiperson_data/qa.csv'
 
     doc_name_with_extension = 'Gary Holton.pdf'
 
