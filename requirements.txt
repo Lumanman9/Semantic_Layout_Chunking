@@ -1,0 +1,29 @@
+# Core dependencies
+openai==2.1.0
+qdrant-client==1.15.1
+python-dotenv==1.1.1
+loguru==0.7.3
+
+# PDF processing
+pdfplumber==0.11.7
+pypdf==6.1.1
+pdf2image==1.17.0
+pytesseract==0.3.13
+
+# LangChain
+langchain==0.3.27
+langchain-community==0.3.30
+langchain-core==0.3.78
+langchain-text-splitters==0.3.11
+
+# Embeddings
+sentence-transformers==5.1.1
+
+# NLP
+spacy==3.7.5
+en-core-web-sm
+
+# Data processing
+numpy==1.26.4
+pandas
+tqdm==4.67.1

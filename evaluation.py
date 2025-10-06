@@ -1,5 +1,8 @@
 # Evaluation
-def evaluate_and_average_metrics(texts,collection_name,qa_path,agentic=False,label_path=None):
+import openai
+import os
+import numpy as np
+def evaluate_and_average_metrics(texts,collection_name,qa_path,agentic=False,label_path=None, output_dir='output'):
     all_results = {}
 
     client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
@@ -52,10 +55,11 @@ def evaluate_and_average_metrics(texts,collection_name,qa_path,agentic=False,lab
     # Calculate averages across all documents
     avg_results = calculate_and_print_averages(all_results,collection_name)
 
+    os.makedirs(output_dir, exist_ok=True)
     if label_path:
-        outfile = f'all_evaluation_results_{collection_name}_with_label.json'
+        outfile = f'{output_dir}/all_evaluation_results_{collection_name}_with_label.json'
     else:
-        outfile = f'all_evaluation_results_{collection_name}_without_label.json'
+        outfile = f'{output_dir}/all_evaluation_results_{collection_name}_without_label.json'
     # Save all results (individual and average) to a file
     with open(outfile, 'w') as f:
         import json

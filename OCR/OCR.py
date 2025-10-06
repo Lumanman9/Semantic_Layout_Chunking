@@ -4,7 +4,6 @@ from typing import List, Dict
 from pdf2image import convert_from_path
 import tempfile
 import os
-from paddleocr import PaddleOCR
 import pytesseract
 from PIL import Image
 import numpy as np
@@ -30,8 +29,6 @@ class PDFTextExtractor:
         self.schema = schema
         self.ocr_engine = ocr_engine
         self.separate_tokens = separate_tokens
-        if ocr_engine == "paddle":
-            self.ocr = PaddleOCR(use_angle_cls=True, lang='en')
 
     def load_bounding_boxes(self) -> None:
         """Load bounding box Literature_Paper from JSON file."""
@@ -132,68 +129,6 @@ class PDFTextExtractor:
                         box_id += 1
         except Exception as e:
             raise Exception(f"Error processing PDF with pdfplumber: {str(e)}")
-
-        return self.layout_data
-
-    def extract_text_paddle_ocr(self) -> List[Dict]:
-        """
-        Extract text from PDF using PaddleOCR.
-
-        Returns:
-            List[Dict]: List of dictionaries containing extracted text and IDs
-        """
-        self.layout_data = []
-        try:
-            # Convert PDF pages to images
-            with tempfile.TemporaryDirectory() as temp_dir:
-                # Convert PDF to images
-                images = convert_from_path(self.pdf_path)
-
-                box_id = 0
-                for box in self.bounding_boxes:
-                    if box.get('label') in self.schema:
-                        page_num = box["pageNum"] - 1
-                        if page_num < len(images):
-                            page_image = images[page_num]
-                            width, height = page_image.size
-
-                            # Calculate bbox coordinates
-                            x1 = int(box["x"] * width)
-                            y1 = int(box["y"] * height)
-                            x2 = int((box["x"] + box["width"]) * width)
-                            y2 = int((box["y"] + box["height"]) * height)
-
-                            # Crop image to bounding box
-                            cropped_image = page_image.crop((x1, y1, x2, y2))
-
-                            # Save temporary image
-                            temp_image = os.path.join(temp_dir, f"temp_{box_id}.png")
-                            cropped_image.save(temp_image)
-
-                            # Perform OCR
-                            result = self.ocr.ocr(temp_image, cls=False)
-
-                            # Extract text from OCR result
-                            raw_text = ""
-                            if result and result[0]:
-                                for line in result[0]:
-                                    if isinstance(line, list) and len(line) >= 1:
-                                        raw_text += line[1][0] + "\n"
-
-                            # Apply token separation if enabled
-                            text = self.preprocess_text(raw_text)
-
-                            self.layout_data.append({
-                                'id': box_id,
-                                'text': text,
-                                'label': box.get('label'),
-                                'page': box.get('pageNum'),
-                                'bbox': (x1, y1, x2, y2)
-                            })
-                            box_id += 1
-
-        except Exception as e:
-            raise Exception(f"Error processing PDF with PaddleOCR: {str(e)}")
 
         return self.layout_data
 

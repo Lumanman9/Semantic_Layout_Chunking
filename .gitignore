@@ -4,3 +4,6 @@ dataset/
 
 # ignore spi keys
 .env
+
+# ignore qdrant_storage
+qdrant_storage/
