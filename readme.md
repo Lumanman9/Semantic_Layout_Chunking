@@ -32,7 +32,9 @@ Retrieval-Augmented Generation (RAG) systems rely heavily on effective document 
 
 ## 🏗️ Architecture
 Our approach consists of four main stages:
-![Overview](scr/ExperimentOverview.png){width=80%}
+<p align="center">
+  <img src="scr/ExperimentOverview.png" width="80%" alt="Overview">
+</p>
 
 1. Document Layout Detection: Using DocLayout-YOLO to identify structural elements
 2. Use a human annotation tool Doc2KG (https://app.ai4wa.com/) to verify the results.
