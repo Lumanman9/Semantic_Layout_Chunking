@@ -161,7 +161,7 @@ def experiment(chunking_method, dataset, length, output_dir):
     }
 
     schemas = {
-        'Literature_Paper': ['author','abstract','title','introduction','methodology','related_work','experiment','background','dataset',
+        'Literature_Paper': ['author','abstract','introduction','methodology','related_work','experiment','background','dataset',
           'acknowledge','conclusion','result_discussion'],
         'Financial_Report': ['company_overview', 'manager_discussion', 'performance_summary', 'strategy_outlook', 'segment_business_review', 'risk_factors',
           'governance_and_leadership', 'sustainability', 'financial_statement', 'financial_statement_note', 'auditors_report', 'shareholder_information',
