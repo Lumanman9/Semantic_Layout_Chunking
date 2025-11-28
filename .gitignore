@@ -7,3 +7,10 @@ dataset/
 
 # ignore qdrant_storage
 qdrant_storage/
+
+# ignore output
+output/
+
+#ignore json files
+*.json
+

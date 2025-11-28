@@ -181,11 +181,11 @@ class Embedding:
             self,
             chunks: List[str] = None,
             metadata: List[Dict[str, Any]] = None,
-            id_strategy: Optional[str] = None,
-            recreate_collection: bool = True
+            id_strategy: Optional[str] = None
     ) -> None:
         """
         Store text chunks and their embeddings in Qdrant.
+        Automatically appends to existing collection if it exists.
 
         Args:
             chunks: List of text chunks (if None, uses self.chunks)
@@ -193,17 +193,9 @@ class Embedding:
             id_strategy: ID strategy to use ('auto', 'int', or 'uuid').
                          'auto' detects existing strategy, 'int' uses sequential IDs,
                          'uuid' uses UUID strings
-            recreate_collection: If True, delete and recreate collection if it exists
         """
-        # Check if collection exists and delete if requested
-        if recreate_collection:
-            collections = self.qdrant.get_collections().collections
-            if any(c.name == self.collection_name for c in collections):
-                print(f"Deleting existing collection '{self.collection_name}'")
-                self.qdrant.delete_collection(collection_name=self.collection_name)
-                # Recreate the collection
-                self._create_collection()
-                print(f"Recreated collection '{self.collection_name}'")
+        # Ensure collection exists (create if it doesn't)
+        self._create_collection()
 
         # Use instance chunks if none provided
         if chunks is None:

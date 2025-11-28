@@ -8,6 +8,7 @@ import os
 import spacy
 from evaluation import evaluate_and_average_metrics
 from pathlib import Path
+from qdrant_client import QdrantClient
 
 
 load_dotenv()
@@ -35,39 +36,69 @@ def run_chunking_method(method_name = 'token_chunker'):
     return CHUNKING_METHODS[method_name]
 
 @chunking_method("token_chunker")
-def token_chunker(texts, length=200, qa_path=None):
+def token_chunker(texts, length=200, qa_path=None, output_dir='./output'):
     from fix_length_chunking.fix_length import FixLengthChunker
     token_chunker = FixLengthChunker(length=length, granularity='token')
+    collection_name = 'fix_length_token'
+    
+    # Delete collection if it exists
+    qdrant = QdrantClient(os.getenv('qdrant_url'), port=os.getenv('qdrant_port'))
+    collections = qdrant.get_collections().collections
+    if any(c.name == collection_name for c in collections):
+        logger.info(f"Deleting existing collection '{collection_name}'")
+        qdrant.delete_collection(collection_name=collection_name)
+    
+    # Process and store chunks for each document
     for name, text in texts.items():
         logger.info(name)
         chunks_token = token_chunker.split_text(text)
-        embedder = Embedding(chunks=chunks_token, collection_name='fix_length_token')
+        embedder = Embedding(chunks=chunks_token, collection_name=collection_name)
         embedder.store_chunks(metadata=[{'name': name}] * len(chunks_token))
-    all_results = evaluate_and_average_metrics(texts, 'fix_length_token', qa_path=qa_path, output_dir='./output')
+    all_results = evaluate_and_average_metrics(texts, collection_name, qa_path=qa_path, output_dir=output_dir)
     return all_results
 
 @chunking_method("sentence_chunker")
-def sentence_chunker(texts, length=5, qa_path=None):
+def sentence_chunker(texts, length=5, qa_path=None, output_dir='./output'):
     from fix_length_chunking.fix_length import FixLengthChunker
     sentence_chunker = FixLengthChunker(length=length, granularity='sentence')
+    collection_name = 'fix_length_sentence'
+    
+    # Delete collection if it exists
+    qdrant = QdrantClient(os.getenv('qdrant_url'), port=os.getenv('qdrant_port'))
+    collections = qdrant.get_collections().collections
+    if any(c.name == collection_name for c in collections):
+        logger.info(f"Deleting existing collection '{collection_name}'")
+        qdrant.delete_collection(collection_name=collection_name)
+    
+    # Process and store chunks for each document
     for name, text in texts.items():
         logger.info(name)
         chunks_sentence = sentence_chunker.split_text(text)
-        embedder = Embedding(chunks=chunks_sentence, collection_name='fix_length_sentence')
+        embedder = Embedding(chunks=chunks_sentence, collection_name=collection_name)
         embedder.store_chunks(metadata=[{'name': name}] * len(chunks_sentence))
-    all_results = evaluate_and_average_metrics(texts, 'fix_length_sentence', qa_path=qa_path, output_dir='./output')
+    all_results = evaluate_and_average_metrics(texts, collection_name, qa_path=qa_path, output_dir=output_dir)
     return all_results
 
 @chunking_method("paragraph_chunker")
-def paragraph_chunker(texts, length=2, qa_path=None):
+def paragraph_chunker(texts, length=2, qa_path=None, output_dir='./output'):
     from fix_length_chunking.fix_length import FixLengthChunker
     paragraph_chunker = FixLengthChunker(length=length, granularity='paragraph')
+    collection_name = 'fix_length_paragraph'
+    
+    # Delete collection if it exists
+    qdrant = QdrantClient(os.getenv('qdrant_url'), port=os.getenv('qdrant_port'))
+    collections = qdrant.get_collections().collections
+    if any(c.name == collection_name for c in collections):
+        logger.info(f"Deleting existing collection '{collection_name}'")
+        qdrant.delete_collection(collection_name=collection_name)
+    
+    # Process and store chunks for each document
     for name, text in texts.items():
         logger.info(name)
         chunks_paragraph = paragraph_chunker.split_text(text)
-        embedder = Embedding(chunks=chunks_paragraph, collection_name='fix_length_paragraph')
+        embedder = Embedding(chunks=chunks_paragraph, collection_name=collection_name)
         embedder.store_chunks(metadata=[{'name': name}] * len(chunks_paragraph))
-    all_results = evaluate_and_average_metrics(texts, 'fix_length_paragraph', qa_path=qa_path, output_dir='./output')
+    all_results = evaluate_and_average_metrics(texts, collection_name, qa_path=qa_path, output_dir=output_dir)
     return all_results
 
 @chunking_method("recursive_chunker")
@@ -84,12 +115,22 @@ def recursive_chunker(texts, chunk_size= 500, chunk_overlap= 50, qa_path=None, o
         length_function= spacy_token_count,
         separators=["\n", "。", ".", ""]
     )
+    collection_name = 'recursive'
+    
+    # Delete collection if it exists
+    qdrant = QdrantClient(os.getenv('qdrant_url'), port=os.getenv('qdrant_port'))
+    collections = qdrant.get_collections().collections
+    if any(c.name == collection_name for c in collections):
+        logger.info(f"Deleting existing collection '{collection_name}'")
+        qdrant.delete_collection(collection_name=collection_name)
+    
+    # Process and store chunks for each document
     for name, text in texts.items():
         chunks_recursive = [chunk.page_content for chunk in recursive_chunker.create_documents([text])]
         logger.info(chunks_recursive)
-        embedder = Embedding(chunks=chunks_recursive, collection_name='recursive')
+        embedder = Embedding(chunks=chunks_recursive, collection_name=collection_name)
         embedder.store_chunks(metadata=[{'name': name}] * len(chunks_recursive))
-    all_results = evaluate_and_average_metrics(texts, 'recursive', qa_path=qa_path, output_dir='./output')
+    all_results = evaluate_and_average_metrics(texts, collection_name, qa_path=qa_path, output_dir=output_dir)
     return all_results
 
 @chunking_method("semantic_chunker")
@@ -102,16 +143,35 @@ def semantic_chunker(texts, qa_path, output_dir='./output'):
         docs = text_splitter.create_documents([text])
         chunks = [doc.page_content for doc in docs]
         return chunks
+    collection_name = 'semantic_chunking'
+    
+    # Delete collection if it exists
+    qdrant = QdrantClient(os.getenv('qdrant_url'), port=os.getenv('qdrant_port'))
+    collections = qdrant.get_collections().collections
+    if any(c.name == collection_name for c in collections):
+        logger.info(f"Deleting existing collection '{collection_name}'")
+        qdrant.delete_collection(collection_name=collection_name)
+    
+    # Process and store chunks for each document
     for name,text in texts.items():
         chunks_embedding = get_chunks_as_list(text)
-        embedder = Embedding(chunks=chunks_embedding, collection_name='semantic_chunking')
+        embedder = Embedding(chunks=chunks_embedding, collection_name=collection_name)
         embedder.store_chunks(metadata=[{'name':name}]*len(chunks_embedding))
-    all_results = evaluate_and_average_metrics(texts, 'semantic_chunking', qa_path=qa_path, output_dir='./output')
+    all_results = evaluate_and_average_metrics(texts, collection_name, qa_path=qa_path, output_dir=output_dir)
     return all_results
 
 @chunking_method("semantic_layout_chunker")
 def semantic_layout_chunker(texts, schema, base_dir, qa_path, label_path, output_dir='./output'):
     from llm_qa_system.embedding import Embedding
+    collection_name = 'semantic_layout'
+    
+    # Delete collection if it exists
+    qdrant = QdrantClient(os.getenv('qdrant_url'), port=os.getenv('qdrant_port'))
+    collections = qdrant.get_collections().collections
+    if any(c.name == collection_name for c in collections):
+        logger.info(f"Deleting existing collection '{collection_name}'")
+        qdrant.delete_collection(collection_name=collection_name)
+    
     # Find all subdirectories that contain JSON files matching the pattern
     for root, dirs, files in os.walk(base_dir):
         # Check if any file matches the pattern annotations_layout_*.json
@@ -148,10 +208,10 @@ def semantic_layout_chunker(texts, schema, base_dir, qa_path, label_path, output
                      'label': doc['label']} for doc in layout_data
                 ]
 
-                Embedder = Embedding(chunks=chunks, collection_name='semantic_layout')
+                Embedder = Embedding(chunks=chunks, collection_name=collection_name)
                 Embedder.store_chunks(chunks=chunks, metadata=metadata)
-    all_results = evaluate_and_average_metrics(texts, 'semantic_layout', qa_path=qa_path,
-                        label_path=label_path, agentic=True, output_dir='./output')
+    all_results = evaluate_and_average_metrics(texts, collection_name, qa_path=qa_path,
+                        label_path=label_path, agentic=True, output_dir=output_dir)
     return all_results
 def experiment(chunking_method, dataset, length, output_dir):
     base_dirs = {
@@ -209,7 +269,7 @@ def main():
     paser.add_argument('--length', type=int, default=500, help='The length used in boundary_aware and recursive chunking')
     paser.add_argument('--output_dir', type=str, default='./output/', help='The output path showing the results')
     args = paser.parse_args()
-    experiment(args.chunking_method, args.dataset, args.length, output_dir)
+    experiment(args.chunking_method, args.dataset, args.length, args.output_dir)
 
 
 if __name__ == '__main__':
