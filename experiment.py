@@ -217,7 +217,7 @@ def experiment(chunking_method, dataset, length, output_dir):
     base_dirs = {
         'Literature_Paper': 'dataset/Literature_Paper',
         'Financial_Report': 'dataset/Financial_Report',
-        'Wikiperson': 'dataset/Wikiperson_data'
+        'Wikiperson': 'dataset/Wikiperson_Data'
     }
 
     schemas = {

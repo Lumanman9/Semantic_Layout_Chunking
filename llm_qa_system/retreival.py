@@ -152,9 +152,25 @@ class Retrieve:
 
         if labels is None:
             # Ask LLM which sections are most relevant
-            prompt = f'''We have a question: {question}, we want to find the answer from a literature paper which 
-            has those sections:{self.schema}. Please tell me which three sections will best help to answer the question.
-            Return the answer only as a comma-separated list of section names. No other words needed.'''
+            schema_str = ', '.join(self.schema)
+            prompt = f'''You are analyzing a {dataset_type} document to identify which sections are most likely to contain the answer to the question.
+
+Question: "{question}"
+
+Available sections in the paper: {schema_str}
+
+Task: Identify 1-3 sections (prioritize the most relevant ones) where the answer to this question is most likely to be found. Consider:
+- Where would this type of information typically appear in a research paper?
+- Which sections would contain the specific details needed to answer this question?
+- If multiple sections might be relevant, select the most important ones (up to 3).
+
+Instructions:
+- Return ONLY a comma-separated list of section names from the available sections
+- Use the exact section names as listed above
+- Do not include any explanations, prefixes, or additional text
+- If unsure, select the most likely section(s)
+
+Example format: introduction, methodology, conclusion'''
             try:
                 response = llm_client.chat.completions.create(
                     model=model,
